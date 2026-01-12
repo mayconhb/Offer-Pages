@@ -6,14 +6,17 @@
     <title>Gelatina Bariátrica - SALUD</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <style>
         body {
             margin: 0;
             padding: 0;
             background-color: white;
             min-height: 100vh;
-            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: 'Montserrat', -apple-system, sans-serif;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
         }
         .header {
             background-color: #A60B0D;
@@ -301,8 +304,8 @@
 
     <div class="references-section">
         <h2 class="references-title">Referencias científicas</h2>
-        <img src="assets/university-logos.webp" alt="University Logos" class="reference-image university-logos" data-testid="img-university-logos">
-        <img src="assets/scientific-references.webp" alt="Scientific References List" class="reference-image" data-testid="img-scientific-references">
+        <img src="assets/university-logos.webp" alt="University Logos" class="reference-image university-logos" loading="lazy" width="500" height="100" data-testid="img-university-logos">
+        <img src="assets/scientific-references.webp" alt="Scientific References List" class="reference-image" loading="lazy" width="700" height="400" data-testid="img-scientific-references">
     </div>
 </body>
 </html>
