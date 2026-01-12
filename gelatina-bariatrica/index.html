@@ -270,15 +270,25 @@
             function updateLiveCount() {
                 const counter = document.getElementById('live-count');
                 let current = parseInt(counter.innerText);
-                const change = Math.floor(Math.random() * 3) - 1; // -1, 0, or 1
-                let next = current + change;
+                
+                // Variar de 1 a 3 números
+                const range = Math.floor(Math.random() * 3) + 1; 
+                // Decidir se sobe ou desce (60% de chance de subir para manter o número alto)
+                const direction = Math.random() > 0.4 ? 1 : -1;
+                
+                let next = current + (range * direction);
                 
                 if (next < 893) next = 893;
                 if (next > 915) next = 915;
                 
                 counter.innerText = next;
+
+                // Variar o tempo da próxima execução (entre 500ms e 3000ms)
+                const nextTick = Math.floor(Math.random() * 2500) + 500;
+                setTimeout(updateLiveCount, nextTick);
             }
-            setInterval(updateLiveCount, 3000);
+            // Iniciar o ciclo
+            setTimeout(updateLiveCount, 1000);
         </script>
 
         <section id="CTA" class="cta-section">
