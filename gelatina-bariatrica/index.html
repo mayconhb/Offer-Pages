@@ -109,6 +109,7 @@
             box-sizing: border-box;
             white-space: nowrap;
             text-align: center;
+            animation: pulse 2s infinite;
         }
 
         @media (max-width: 600px) {
@@ -117,8 +118,25 @@
                 padding: 15px 30px;
             }
         }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 4px 25px rgba(0,128,0,0.4);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            }
+        }
+
         .cta-button:hover {
-            transform: scale(1.05);
+            animation: none;
+            transform: scale(1.08);
             background-color: #00a000;
         }
         .references-section {
