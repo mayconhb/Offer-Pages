@@ -87,6 +87,33 @@
             align-items: center;
             justify-content: center;
         }
+        .live-counter {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin: 10px auto;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .live-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #ff0000;
+            border-radius: 50%;
+            animation: dot-pulse 1.5s infinite;
+        }
+        .live-count-text {
+            color: #ff0000;
+        }
+        .live-label {
+            color: #333;
+        }
+        @keyframes dot-pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.5); opacity: 0.5; }
+            100% { transform: scale(1); opacity: 1; }
+        }
         .cta-section {
             text-align: center;
             padding: 30px 20px;
@@ -234,6 +261,27 @@
         <div class="video-container" data-testid="container-video-placeholder">
             <vturb-smartplayer id="vid-696545592e6d8eb8b7720570" style="display: block; margin: 0 auto; width: 100%; "></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/8be91a4f-8063-443e-ad7c-0bc55451c92d/players/696545592e6d8eb8b7720570/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
         </div>
+
+        <div class="live-counter" data-testid="container-live-counter">
+            <div class="live-dot"></div>
+            <span id="live-count" class="live-count-text">902</span>
+            <span class="live-label">personas viendo ahora</span>
+        </div>
+
+        <script>
+            function updateLiveCount() {
+                const counter = document.getElementById('live-count');
+                let current = parseInt(counter.innerText);
+                const change = Math.floor(Math.random() * 3) - 1; // -1, 0, or 1
+                let next = current + change;
+                
+                if (next < 893) next = 893;
+                if (next > 915) next = 915;
+                
+                counter.innerText = next;
+            }
+            setInterval(updateLiveCount, 3000);
+        </script>
 
         <section id="CTA" class="cta-section">
             <a href="#" class="cta-button" data-testid="button-cta-protocolo">
