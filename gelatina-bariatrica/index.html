@@ -87,6 +87,29 @@
             align-items: center;
             justify-content: center;
         }
+        .cta-section {
+            text-align: center;
+            padding: 30px 20px;
+            margin: 20px auto;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: #008000;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            padding: 18px 40px;
+            text-decoration: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.2s, background-color 0.2s;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+        .cta-button:hover {
+            transform: scale(1.05);
+            background-color: #00a000;
+        }
         .references-section {
             text-align: center;
             padding: 40px 20px;
@@ -182,6 +205,12 @@
         <div class="video-container" data-testid="container-video-placeholder">
             <vturb-smartplayer id="vid-696545592e6d8eb8b7720570" style="display: block; margin: 0 auto; width: 100%; "></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/8be91a4f-8063-443e-ad7c-0bc55451c92d/players/696545592e6d8eb8b7720570/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
         </div>
+
+        <section id="CTA" class="cta-section">
+            <a href="#" class="cta-button" data-testid="button-cta-protocolo">
+                ACCEDER A MI PROTOCOLO
+            </a>
+        </section>
     </div>
 
     <div class="references-section">
