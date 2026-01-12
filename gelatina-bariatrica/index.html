@@ -75,9 +75,45 @@
             padding: 40px 20px;
             max-width: 900px;
             margin: 0 auto;
-            font-family: 'Inter', -apple-system, sans-serif;
+            font-family: 'Montserrat', -apple-system, sans-serif;
         }
-        .sub-headline {
+        .video-container {
+            width: 100%;
+            max-width: 800px;
+            aspect-ratio: 16 / 9;
+            background-color: #f0f0f0;
+            margin: 20px auto;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed #ccc;
+        }
+        .references-section {
+            text-align: center;
+            padding: 40px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .references-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .reference-image {
+            width: 100%;
+            max-width: 700px;
+            height: auto;
+            margin: 10px auto;
+            display: block;
+            border-radius: 4px;
+        }
+        .university-logos {
+            max-width: 500px;
+        }
+
+        @media (max-width: 600px) {
             color: #A60B0D;
             font-size: 1.25rem;
             font-weight: bold;
@@ -142,6 +178,16 @@
         <div class="sub-headline">¡SIN OZEMPIC! Sólo 4 ingredientes simples...</div>
         <h1 class="main-headline">Esta es la nueva receta que las celebridades estão usando para reducir hasta</h1>
         <div class="highlight-box">14 kg en sólo 10 días!</div>
+        
+        <div class="video-container" data-testid="container-video-placeholder">
+            <p style="color: #666;">Espaço para o vídeo</p>
+        </div>
+    </div>
+
+    <div class="references-section">
+        <h2 class="references-title">Referencias científicas</h2>
+        <img src="/attached_assets/1_(2)_1768248032492.webp" alt="University Logos" class="reference-image university-logos" data-testid="img-university-logos">
+        <img src="/attached_assets/2_(2)_1768248032492.webp" alt="Scientific References List" class="reference-image" data-testid="img-scientific-references">
     </div>
 </body>
 </html>
