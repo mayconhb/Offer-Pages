@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recetas para Secar</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Satisfy&display=swap&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    
+    <!-- Preload Hero Image -->
+    <link rel="preload" as="image" href="https://i.imgur.com/HqWKXZqm.jpg" fetchpriority="high">
+
+    <style>
+      /* --- 1. VARIABLES & RESET --- */
+      :root {
+        --color-orange: #FF8C00;
+        --color-orange-light: #fff7ed; /* orange-50 equivalent */
+        --color-orange-100: #ffedd5;
+        --color-green: #22C55E;
+        --color-green-hover: #16a34a;
+        --color-text: #333333;
+        --color-text-light: #4b5563; /* gray-600 */
+        --color-bg-light: #FFF9F5;
+        --color-bg-gray: #f9fafb; /* gray-50 */
+        --color-white: #ffffff;
+        --color-pink-50: #fdf2f8;
+        --color-pink-500: #ec4899;
+        
+        --font-main: 'Montserrat', sans-serif;
+        --font-script: 'Satisfy', cursive;
+        
+        --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+        
+        --radius-lg: 0.5rem;
+        --radius-xl: 0.75rem;
+        --radius-2xl: 1rem;
+        --radius-3xl: 1.5rem;
+        --radius-full: 9999px;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: var(--font-main);
+        color: var(--color-text);
+        background-color: var(--color-bg-light);
+        line-height: 1.5;
+        overflow-x: hidden;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      button {
+        cursor: pointer;
+        border: none;
+        background: none;
+        font-family: inherit;
+      }
+
+      /* --- 2. UTILITIES --- */
+      .container {
+        width: 100%;
+        max-width: 1200px; /* max-w-6xl approx */
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+      
+      .max-w-4xl { max-width: 56rem; margin: 0 auto; }
+      .max-w-3xl { max-width: 48rem; margin: 0 auto; }
+      .max-w-2xl { max-width: 42rem; margin: 0 auto; }
+      .max-w-md { max-width: 28rem; margin: 0 auto; }
+      
+      .text-center { text-align: center; }
+      .text-left { text-align: left; }
+      
+      .flex { display: flex; }
+      .flex-col { flex-direction: column; }
+      .items-center { align-items: center; }
+      .justify-center { justify-content: center; }
+      .justify-between { justify-content: space-between; }
+      .gap-2 { gap: 0.5rem; }
+      .gap-4 { gap: 1rem; }
+      .gap-6 { gap: 1.5rem; }
+      .gap-8 { gap: 2rem; }
+      .gap-12 { gap: 3rem; }
+
+      .hidden { display: none !important; }
+      .block { display: block; }
+      .relative { position: relative; }
+      .absolute { position: absolute; }
+      
+      .font-script { font-family: var(--font-script); }
+      .font-bold { font-weight: 700; }
+      .font-black { font-weight: 900; }
+      .font-serif { font-family: serif; /* Fallback or specific serif if needed, keeping simple */ }
+      
+      .text-orange { color: var(--color-orange); }
+      .text-white { color: var(--color-white); }
+      .text-gray { color: var(--color-text-light); }
+      
+      .bg-white { background-color: var(--color-white); }
+      .bg-gray-50 { background-color: var(--color-bg-gray); }
+      
+      .rounded-full { border-radius: var(--radius-full); }
+      .shadow-lg { box-shadow: var(--shadow-lg); }
+
+      /* Grid System */
+      .grid { display: grid; }
+      .grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+      
+      @media (min-width: 768px) {
+        .md-grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+        .md-flex-row { flex-direction: row; }
+        .md-text-5xl { font-size: 3rem; }
+        .md-rotate-270 { transform: rotate(270deg); }
+        .md-text-left { text-align: left; }
+        .md-p-8 { padding: 2rem; }
+      }
+
+      /* --- 3. SECTIONS --- */
+
+      /* Hero */
+      .hero-section {
+        padding: 3rem 1rem 5rem 1rem;
+        background-color: #FFF5F0;
+        text-align: center;
+        position: relative;
+      }
+      .hero-title {
+        font-family: var(--font-script);
+        font-size: 1.875rem;
+        font-weight: 700;
+        margin-left: 0.5rem;
+      }
+      .hero-badge {
+        display: inline-block;
+        background-color: var(--color-orange-100);
+        color: var(--color-orange);
+        padding: 0.25rem 1rem;
+        border-radius: var(--radius-full);
+        font-size: 0.875rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+      }
+      .hero-headline {
+        font-size: 2.25rem;
+        line-height: 1.2;
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+      }
+      .hero-blob {
+        position: absolute;
+        top: 2.5rem;
+        right: 2.5rem;
+        width: 16rem;
+        height: 16rem;
+        background-color: var(--color-orange);
+        border-radius: var(--radius-full);
+        filter: blur(64px);
+        opacity: 0.2;
+        z-index: 0;
+      }
+      .hero-img {
+        width: 100%;
+        max-width: 800px;
+        height: 400px;
+        object-fit: cover;
+        object-position: top;
+        border-radius: var(--radius-3xl);
+        box-shadow: var(--shadow-2xl);
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Pain Points */
+      .pain-section { padding: 4rem 1rem; background-color: white; }
+      .pain-card { position: relative; }
+      .pain-badge {
+        position: absolute;
+        top: -1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 0.25rem 0.75rem;
+        border-radius: var(--radius-full);
+        font-size: 0.75rem;
+        font-weight: 700;
+        box-shadow: var(--shadow-sm);
+        white-space: nowrap;
+        z-index: 10;
+      }
+      .badge-bad { background-color: #fee2e2; color: #dc2626; }
+      .badge-good { background-color: #dcfce7; color: #16a34a; }
+      
+      .pain-img {
+        width: 16rem;
+        height: 16rem;
+        border-radius: var(--radius-full);
+        object-fit: cover;
+      }
+      .img-bad { filter: grayscale(100%); opacity: 0.8; border: 4px solid #f3f4f6; }
+      .img-good { border: 4px solid var(--color-green); box-shadow: var(--shadow-xl); }
+
+      /* Pivot Story */
+      .story-section { padding: 4rem 1rem; background-color: white; text-align: center; }
+      .story-headline {
+        font-family: var(--font-script);
+        font-size: 3rem;
+        color: var(--color-orange);
+        margin-bottom: 2.5rem;
+        transform: rotate(-2deg);
+        display: inline-block;
+      }
+      .quote-box {
+        background-color: var(--color-pink-50);
+        padding: 2rem;
+        border-radius: var(--radius-3xl);
+        max-width: 42rem;
+        margin: 0 auto;
+        position: relative;
+      }
+
+      /* Product Intro */
+      .intro-section { padding: 4rem 1rem; background-color: var(--color-orange-light); text-align: center; }
+      .product-title-card {
+        background-color: white;
+        color: var(--color-orange);
+        font-size: 1.5rem;
+        font-weight: 900;
+        padding: 1.5rem 2.5rem;
+        border-radius: 1rem;
+        display: inline-flex;
+        align-items: center;
+        box-shadow: var(--shadow-xl);
+        margin-bottom: 3rem;
+        border: 2px solid var(--color-orange-100);
+        transform: rotate(-1deg);
+      }
+      .module-grid-img {
+        border-radius: 0.75rem;
+        box-shadow: var(--shadow-md);
+        transition: transform 0.3s;
+        width: 100%;
+        height: 12rem;
+        object-fit: cover;
+      }
+      .module-grid-img:hover { transform: scale(1.05); }
+
+      /* Promise */
+      .promise-img {
+        width: 16rem;
+        height: 16rem;
+        border-radius: var(--radius-full);
+        box-shadow: var(--shadow-2xl);
+        border: 8px solid white;
+        object-fit: cover;
+        margin: 0 auto;
+      }
+
+      /* How It Works */
+      .steps-section { padding: 5rem 1rem; background-color: var(--color-bg-gray); }
+      .step-number {
+        background-color: var(--color-orange-100);
+        width: 4rem;
+        height: 4rem;
+        border-radius: var(--radius-full);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--color-orange);
+        font-weight: 700;
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        box-shadow: var(--shadow-sm);
+      }
+
+      /* Modules List */
+      .module-item-img {
+        border-radius: 0.5rem;
+        box-shadow: var(--shadow-xl);
+        width: 100%;
+        max-width: 20rem; /* w-80 approx */
+        height: auto;
+        border: 4px solid white;
+        margin-bottom: 1rem;
+      }
+      .module-label {
+        position: absolute;
+        bottom: -1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: white;
+        padding: 0.5rem 1.5rem;
+        border-radius: var(--radius-full);
+        box-shadow: var(--shadow-lg);
+        border: 1px solid #f3f4f6;
+        white-space: nowrap;
+      }
+      .module-label span {
+        color: var(--color-orange);
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.875rem;
+      }
+
+      /* Nutrition Table */
+      .nutrition-card {
+        background-color: #EAE2D6;
+        padding: 1rem;
+        border-radius: 0.75rem;
+        box-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+        max-width: 24rem;
+        margin: 2rem auto 0;
+      }
+      .nutrition-row {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.875rem;
+        padding: 0.25rem 0;
+      }
+
+      /* CTA Break */
+      .cta-break {
+        background: linear-gradient(to right, #fb923c, #ec4899);
+        color: white;
+        font-weight: 700;
+        padding: 0.75rem 2rem;
+        border-radius: var(--radius-full);
+        box-shadow: var(--shadow-lg);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      }
+
+      /* Pricing */
+      .pricing-section {
+        padding: 5rem 1rem;
+        background-color: black;
+        color: white;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .pricing-bg {
+        position: absolute;
+        inset: 0;
+        background-image: url('https://picsum.photos/1920/1080?random=40');
+        background-size: cover;
+        opacity: 0.2;
+        z-index: 0;
+      }
+      .pricing-card {
+        background-color: white;
+        border-radius: 1.5rem;
+        box-shadow: var(--shadow-2xl);
+        padding: 2rem;
+        max-width: 24rem;
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+        color: var(--color-text);
+      }
+      .price-tag {
+        color: var(--color-orange);
+        font-weight: 900;
+        font-size: 3.75rem;
+        line-height: 1;
+        margin: 1rem 0;
+      }
+      .btn-buy {
+        background-color: var(--color-green);
+        color: white;
+        font-weight: 700;
+        padding: 1rem 2rem;
+        border-radius: var(--radius-full);
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-shadow: var(--shadow-lg);
+        transition: transform 0.2s, background-color 0.2s;
+        text-decoration: none;
+      }
+      .btn-buy:hover {
+        background-color: var(--color-green-hover);
+        transform: scale(1.05);
+      }
+
+      /* Gallery Scroll */
+      .gallery-container {
+        display: flex;
+        width: max-content;
+        animation: scroll 20s linear infinite;
+      }
+      .gallery-item {
+        width: 16rem;
+        height: 16rem;
+        flex-shrink: 0;
+        margin: 0 0.5rem;
+      }
+      .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 0.75rem;
+      }
+
+      /* Popup */
+      .popup-overlay {
+        position: fixed;
+        inset: 0;
+        background-color: rgba(0,0,0,0.7);
+        backdrop-filter: blur(4px);
+        z-index: 40;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+      }
+      .popup-content {
+        background-color: white;
+        border-radius: 1.5rem;
+        padding: 2rem;
+        max-width: 24rem;
+        width: 100%;
+        position: relative;
+        box-shadow: var(--shadow-2xl);
+        border: 4px dashed var(--color-orange);
+        animation: bounceIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+
+      /* Animations */
+      @keyframes scroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: .5; }
+      }
+      @keyframes bounceIn {
+        0% { opacity: 0; transform: scale(0.3); }
+        50% { opacity: 1; transform: scale(1.05); }
+        70% { transform: scale(0.9); }
+        100% { transform: scale(1); }
+      }
+      
+      .animate-fadeIn { animation: fadeIn 0.3s ease-out forwards; }
+      .animate-pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+
+      /* Icons */
+      .icon-svg { width: 1.5rem; height: 1.5rem; }
+      .icon-sm { width: 1rem; height: 1rem; }
+      
+      /* Utilities Specific to Design */
+      .feature-list-item {
+        display: flex;
+        align-items: center;
+        font-size: 0.875rem;
+        color: var(--color-text-light);
+        margin-bottom: 0.75rem;
+      }
+      .check-icon { color: var(--color-green); margin-right: 0.5rem; flex-shrink: 0; }
+      
+      .testimonial-col {
+         break-inside: avoid;
+         margin-bottom: 1.5rem;
+      }
+      .testimonial-col img {
+         border-radius: 0.75rem;
+         box-shadow: var(--shadow-md);
+         border: 1px solid #f3f4f6;
+         width: 100%;
+      }
+      
+      .columns-container {
+        column-count: 1;
+        column-gap: 1.5rem;
+      }
+      @media (min-width: 768px) {
+        .columns-container { column-count: 2; }
+      }
+      @media (min-width: 1024px) {
+        .columns-container { column-count: 3; }
+      }
+
+    </style>
+</head>
+<body>
+
+    <!-- 1. HERO SECTION -->
+    <section class="hero-section">
+        <div class="max-w-4xl flex flex-col items-center relative" style="z-index: 10;">
+            <div style="margin-bottom: 1rem;">
+                <div class="flex flex-col items-center">
+                    <span style="font-size: 2.25rem; margin-right: 0.5rem;">🥗</span>
+                    <h1 class="hero-title" style="color: var(--color-text);">Recetas para Secar</h1>
+                </div>
+            </div>
+            
+            <div class="hero-badge">
+                +2.500 alumnas transformadas
+            </div>
+
+            <h2 class="hero-headline">
+                ¡DIETA ABURRIDA <br/> <span class="text-orange">NUNCA MÁS!</span>
+            </h2>
+
+            <p class="text-gray max-w-2xl" style="font-size: 1.125rem; margin: 0 auto 2.5rem auto;">
+                Aprende 200 recetas saludables y prácticas para bajar la panza con ingredientes que ya tienes en casa.
+            </p>
+
+            <div class="relative w-full max-w-3xl" style="margin: 0 auto;">
+                <div class="hero-blob"></div>
+                <img 
+                    src="https://i.imgur.com/HqWKXZqm.jpg" 
+                    alt="Mujer cocinando saludable" 
+                    class="hero-img"
+                    width="800"
+                    height="400"
+                    fetchPriority="high"
+                />
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. PAIN POINTS -->
+    <section class="pain-section">
+        <div class="max-w-3xl text-center">
+            <h3 class="font-bold" style="font-size: 1.875rem; margin-bottom: 2rem;">¿Cansada de empezar la dieta<br/>todos los lunes?</h3>
+            
+            <div class="bg-orange-50" style="padding: 1.5rem; border-radius: 1rem; margin-bottom: 3rem; display: inline-block; background-color: var(--color-orange-light);">
+                <span style="font-size: 2.25rem; display: block; margin-bottom: 0.5rem;">😔</span>
+                <p class="font-script" style="font-size: 1.5rem; color: var(--color-text-light);">
+                    "Lo intento, juro que lo intento.<br/>
+                    Pero comer comida sin sabor nadie se lo merece..."
+                </p>
+            </div>
+
+            <div class="flex flex-col md-flex-row gap-8 justify-center items-center">
+                <!-- Bad Option -->
+                <div class="pain-card">
+                    <span class="pain-badge badge-bad">
+                        CAMBIA ESTO
+                    </span>
+                    <img src="https://i.imgur.com/tDB5Gsgm.png" alt="Comida aburrida" class="pain-img img-bad" loading="lazy" decoding="async">
+                    <p class="text-gray" style="margin-top: 1rem; font-size: 0.875rem;">Pollo seco y ensalada triste</p>
+                </div>
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-orange md-rotate-270" style="width: 2.5rem; height: 2.5rem;"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+
+                <!-- Good Option -->
+                <div class="pain-card">
+                    <span class="pain-badge badge-good">
+                        POR ESTO
+                    </span>
+                    <img src="https://i.imgur.com/wdiH0pum.jpg" alt="Comida rica" class="pain-img img-good" loading="lazy" decoding="async">
+                    <p class="font-bold" style="margin-top: 1rem; color: #1f2937;">Recetas sabrosas y nutritivas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. PIVOT & STORY -->
+    <section class="story-section">
+        <h3 class="text-orange font-bold" style="font-size: 1.5rem; margin-bottom: 0.5rem;">Basta de dietas aburridas que no funcionan</h3>
+        <p class="text-gray max-w-xl" style="margin: 0 auto 2.5rem auto;">
+            Necesitas un plan práctico, sabroso y fácil de seguir para tener resultados definitivos.
+        </p>
+
+        <h2 class="story-headline">
+            Fue exactamente eso <br/> lo que yo hice...
+        </h2>
+
+        <div class="max-w-4xl flex justify-center" style="margin: 0 auto 3rem auto;">
+            <img src="https://i.imgur.com/KCEgc1gm.jpg" alt="Historia" style="border-radius: 1rem; box-shadow: var(--shadow-lg); width: 100%; max-width: 28rem; height: auto; object-fit: contain;" loading="lazy" decoding="async">
+        </div>
+
+        <div class="quote-box">
+            <span class="absolute" style="top: 1rem; left: 1rem; font-size: 3.75rem; color: #fbcfe8; opacity: 0.5; line-height: 1;">"</span>
+            <h3 class="font-bold" style="font-size: 1.5rem; margin-bottom: 1rem;">No fue suerte — <br/><span class="text-orange">Fue una elección</span></h3>
+            <p class="font-script text-gray" style="font-size: 1.25rem; line-height: 1.6;">
+                Yo elegí alimentarme de forma saludable, sin hacer dietas restrictivas.
+                El camino que yo recorrí está en las recetas que te voy a entregar ahora.
+            </p>
+        </div>
+    </section>
+
+    <!-- 4. INTRO TO PRODUCT -->
+    <section class="intro-section">
+        <p class="text-gray" style="margin-bottom: 1.5rem;">Y por eso, déjame presentarte a:</p>
+        
+        <div class="product-title-card">
+            <span style="margin-right: 0.75rem; font-size: 2.25rem;">🍐</span> RECETAS PARA SECAR
+        </div>
+
+        <div class="grid grid-cols-2 md-grid-cols-4 gap-4" style="max-width: 64rem; margin: 0 auto 3rem auto;">
+            <img src="https://i.imgur.com/dTKy0uem.jpg" class="module-grid-img" alt="Plato delicioso" loading="lazy" decoding="async">
+            <img src="https://i.imgur.com/NKFdhlly.jpg" class="module-grid-img" alt="Plato delicioso" loading="lazy" decoding="async">
+            <img src="https://i.imgur.com/YHV5eIom.jpg" class="module-grid-img" alt="Plato delicioso" loading="lazy" decoding="async">
+            <img src="https://i.imgur.com/jj6gYPMm.jpg" class="module-grid-img" alt="Plato delicioso" loading="lazy" decoding="async">
+        </div>
+
+        <p class="max-w-2xl text-gray" style="margin: 0 auto; line-height: 1.6;">
+            Un programa completo con <span class="text-orange font-bold">libros de recetas</span>, <span class="text-orange font-bold">planeamiento semanal</span> y <span class="text-orange font-bold">lista de compras</span>.
+        </p>
+    </section>
+
+    <!-- 5. PROMISE -->
+    <section class="pain-section text-center" style="padding: 5rem 1rem;">
+        <h2 class="font-bold" style="font-size: 2rem; margin-bottom: 1.5rem; line-height: 1.2;">
+            Ya en la <span class="text-orange">primera semana</span> cambias para una vida saludable con más sabor en el plato
+        </h2>
+        <p class="text-gray max-w-2xl" style="margin: 0 auto 2.5rem auto;">
+            Son más de 200 recetas saludables para que nunca más pienses que hacer dieta es aburrido. Descubre el placer de comer bien sin culpa.
+        </p>
+        <img src="https://i.imgur.com/isLVoX2m.jpg" alt="Variedad de platos" class="promise-img" style="width: 20rem; height: 20rem;" loading="lazy" decoding="async">
+    </section>
+
+    <!-- 6. HOW IT WORKS -->
+    <section class="steps-section">
+        <div class="text-center" style="margin-bottom: 4rem;">
+            <h2 class="font-bold text-gray" style="font-size: 1.875rem;">
+                Como funciona el<br/>
+                <span class="text-orange">Recetas para Secar</span>
+            </h2>
+        </div>
+
+        <div class="max-w-4xl" style="margin: 0 auto; display: flex; flex-direction: column; gap: 6rem;">
+            <!-- Step 1 -->
+            <div class="flex flex-col items-center text-center">
+                <div class="step-number">1</div>
+                <h3 class="font-bold" style="font-size: 1.5rem; margin-bottom: 1rem;">Ten acceso a más de 200 recetas saludables</h3>
+                <p class="text-gray max-w-md" style="margin-bottom: 2rem;">Recetas deliciosas para desayuno, almuerzo, cena y snacks. Variedad para todos los gustos.</p>
+                <div class="grid grid-cols-2 gap-4">
+                    <img src="https://i.imgur.com/F49t0bl.jpg" style="border-radius: 1rem; box-shadow: var(--shadow-md); width: 10rem; height: 10rem; object-fit: cover;" alt="Receta" loading="lazy" decoding="async">
+                    <img src="https://i.imgur.com/VtYfqd9.jpg" style="border-radius: 1rem; box-shadow: var(--shadow-md); width: 10rem; height: 10rem; object-fit: cover;" alt="Receta" loading="lazy" decoding="async">
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="flex flex-col items-center text-center">
+                <div class="step-number">2</div>
+                <h3 class="font-bold" style="font-size: 1.5rem; margin-bottom: 1rem;">Organiza en el planner qué vas a comer</h3>
+                <p class="text-gray max-w-md" style="margin-bottom: 2rem;">Planeamiento semanal completo de la mañana a la noche. Basta de indecisión.</p>
+                <img src="https://i.imgur.com/G8VxDTv.png" style="border-radius: 0.75rem; box-shadow: var(--shadow-lg); width: 100%; max-width: 28rem;" alt="Planner digital" loading="lazy" decoding="async">
+            </div>
+
+             <!-- Step 3 -->
+             <div class="flex flex-col items-center text-center">
+                <div class="step-number">3</div>
+                <h3 class="font-bold" style="font-size: 1.5rem; margin-bottom: 1rem;">Genera tu lista de compras automática</h3>
+                <p class="text-gray max-w-md" style="margin-bottom: 2rem;">Economiza tiempo y dinero en el mercado sabiendo exactamente qué comprar para la semana.</p>
+                <img src="https://i.imgur.com/B3kKGZL.png" style="border-radius: 0.75rem; box-shadow: var(--shadow-lg); width: 100%; max-width: 28rem;" alt="Lista de compras" loading="lazy" decoding="async">
+            </div>
+
+             <!-- Step 4 -->
+             <div class="flex flex-col items-center text-center">
+                <div class="step-number">4</div>
+                <h3 class="font-bold" style="font-size: 1.5rem; margin-bottom: 1rem;">Organiza tus comidas en apenas 1 hora</h3>
+                <p class="text-gray max-w-md" style="margin-bottom: 2rem;">Método práctico para cocinar para toda la semana y tener comida saludable siempre lista.</p>
+                <div class="grid grid-cols-2 gap-4">
+                    <img src="https://i.imgur.com/O5fqQNH.jpg" style="border-radius: 1rem; box-shadow: var(--shadow-md); width: 10rem; height: 10rem; object-fit: cover;" alt="Meal prep" loading="lazy" decoding="async">
+                    <img src="https://i.imgur.com/Gi9M6Gh.jpg" style="border-radius: 1rem; box-shadow: var(--shadow-md); width: 10rem; height: 10rem; object-fit: cover;" alt="Meal prep" loading="lazy" decoding="async">
+                    <img src="https://i.imgur.com/xVm3I2n.jpg" style="border-radius: 1rem; box-shadow: var(--shadow-md); width: 10rem; height: 10rem; object-fit: cover;" alt="Meal prep" loading="lazy" decoding="async">
+                    <img src="https://i.imgur.com/ZoCK6Qj.jpg" style="border-radius: 1rem; box-shadow: var(--shadow-md); width: 10rem; height: 10rem; object-fit: cover;" alt="Meal prep" loading="lazy" decoding="async">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. WHAT YOU RECEIVE (MODULES) -->
+    <section class="pain-section">
+        <h2 class="font-bold text-center max-w-2xl" style="font-size: 1.875rem; margin: 0 auto 3rem auto;">
+            Y para seguir esos 4 pasos sin fallar, mira todo lo que vas a recibir:
+        </h2>
+
+        <div class="max-w-4xl" style="margin: 0 auto; display: flex; flex-direction: column; gap: 3rem;">
+            <!-- Dynamic Module Injection Here -->
+            <div id="modules-container" style="display: flex; flex-direction: column; gap: 3rem;">
+                <!-- Modules -->
+                <div class="flex flex-col items-center">
+                   <div class="relative mb-4">
+                      <img src="https://i.imgur.com/prMa0bp.png" alt="Libro de Recetas Desayuno" class="module-item-img" loading="lazy" decoding="async">
+                      <div class="module-label">
+                        <span>DESAYUNO</span>
+                      </div>
+                   </div>
+                   <p class="text-gray font-bold" style="margin-top: 1.5rem;">Libro de Recetas Desayuno</p>
+                </div>
+                
+                <div class="flex flex-col items-center">
+                   <div class="relative mb-4">
+                      <img src="https://i.imgur.com/0rXGxsV.png" alt="Libro de Recetas Low Carb" class="module-item-img" loading="lazy" decoding="async">
+                      <div class="module-label">
+                        <span>ALMUERZO Y CENA</span>
+                      </div>
+                   </div>
+                   <p class="text-gray font-bold" style="margin-top: 1.5rem;">Libro de Recetas Low Carb</p>
+                </div>
+
+                <div class="flex flex-col items-center">
+                   <div class="relative mb-4">
+                      <img src="https://i.imgur.com/FFZdZJf.png" alt="Libro de Recetas Snacks Saludables" class="module-item-img" loading="lazy" decoding="async">
+                      <div class="module-label">
+                        <span>SNACKS SALUDABLES</span>
+                      </div>
+                   </div>
+                   <p class="text-gray font-bold" style="margin-top: 1.5rem;">Libro de Recetas Snacks Saludables</p>
+                </div>
+
+                <div class="flex flex-col items-center">
+                   <div class="relative mb-4">
+                      <img src="https://i.imgur.com/PdsfhLV.png" alt="Libro de Recetas Marinadas" class="module-item-img" loading="lazy" decoding="async">
+                      <div class="module-label">
+                        <span>MARINADAS</span>
+                      </div>
+                   </div>
+                   <p class="text-gray font-bold" style="margin-top: 1.5rem;">Libro de Recetas Marinadas</p>
+                </div>
+
+                <div class="flex flex-col items-center">
+                   <div class="relative mb-4">
+                      <img src="https://i.imgur.com/b0o79un.png" alt="Libro de Recetas Comodín" class="module-item-img" loading="lazy" decoding="async">
+                      <div class="module-label">
+                        <span>RECETAS COMODÍN</span>
+                      </div>
+                   </div>
+                   <p class="text-gray font-bold" style="margin-top: 1.5rem;">Libro de Recetas Comodín</p>
+                </div>
+
+                <div class="flex flex-col items-center">
+                   <div class="relative mb-4">
+                      <img src="https://i.imgur.com/ess1tuS.png" alt="Libro de Recetas Bowl de la Salud" class="module-item-img" loading="lazy" decoding="async">
+                      <div class="module-label">
+                        <span>BOWLS</span>
+                      </div>
+                   </div>
+                   <p class="text-gray font-bold" style="margin-top: 1.5rem;">Libro de Recetas Bowl de la Salud</p>
+                </div>
+
+                <div class="flex flex-col items-center">
+                   <div class="relative mb-4">
+                      <img src="https://i.imgur.com/fZouCoj.png" alt="Libro de Recetas Sopas y Caldos" class="module-item-img" loading="lazy" decoding="async">
+                      <div class="module-label">
+                        <span>SOPAS Y CALDOS</span>
+                      </div>
+                   </div>
+                   <p class="text-gray font-bold" style="margin-top: 1.5rem;">Libro de Recetas Sopas y Caldos</p>
+                </div>
+
+                <div class="flex flex-col items-center">
+                   <div class="relative mb-4">
+                      <img src="https://i.imgur.com/izB25bj.png" alt="Libro de Recetas Jugos Detox" class="module-item-img" loading="lazy" decoding="async">
+                      <div class="module-label">
+                        <span>JUGOS DETOX</span>
+                      </div>
+                   </div>
+                   <p class="text-gray font-bold" style="margin-top: 1.5rem;">Libro de Recetas Jugos Detox</p>
+                </div>
+
+                <div class="flex flex-col items-center">
+                   <div class="relative mb-4">
+                      <img src="https://i.imgur.com/5S4kbz2.png" alt="Libro de Recetas Dulces Saludables" class="module-item-img" loading="lazy" decoding="async">
+                      <div class="module-label">
+                        <span>DULCES SALUDABLES</span>
+                      </div>
+                   </div>
+                   <p class="text-gray font-bold" style="margin-top: 1.5rem;">Libro de Recetas Dulces Saludables</p>
+                </div>
+            </div>
+            
+            <!-- Additional Items -->
+            <div class="flex flex-col items-center">
+                <img src="https://i.imgur.com/Kgpb9sd.png" alt="Diario Alimentar" class="module-item-img" style="border: 4px solid white; margin-bottom: 1rem;" loading="lazy" decoding="async">
+                <p class="text-gray font-bold">Diario Alimentario</p>
+            </div>
+           
+            <div class="nutrition-card">
+                <div class="text-center font-bold text-text uppercase" style="letter-spacing: 0.1em; border-bottom: 1px solid #9ca3af; padding-bottom: 0.5rem; margin-bottom: 0.5rem;">Información Nutricional</div>
+                <div class="flex justify-between text-sm mb-2 font-bold" style="margin-bottom: 0.5rem;">
+                    <span>1 porción - 165 g</span>
+                    <span>WRAP DE ATÚN</span>
+                </div>
+                <img src="https://i.imgur.com/lhbpTis.png" style="width: 100%; border-radius: 0.25rem; margin-bottom: 0.5rem; object-fit: cover; height: 8rem;" alt="Wrap" loading="lazy" decoding="async">
+                <div style="background-color: rgba(255,255,255,0.5); padding: 0.5rem; border-radius: 0.25rem;">
+                    <div class="nutrition-row"><span>Valor Energético</span><span>260 Kcal</span></div>
+                    <div class="nutrition-row"><span>Carbohidratos</span><span>6g</span></div>
+                    <div class="nutrition-row"><span>Proteína</span><span>32g</span></div>
+                    <div class="nutrition-row"><span>Grasa</span><span>13g</span></div>
+                </div>
+                <p class="text-center font-serif text-gray" style="margin-top: 1rem;">Tabla de Calorías y Macros de las recetas</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. CTA BREAK -->
+    <section style="padding: 2.5rem 1rem; background-color: var(--color-bg-light); display: flex; justify-content: center;">
+        <div class="cta-break">
+            <span>⭐</span> RECETAS CON CALORÍAS Y MACROS CALCULADOS <span>⭐</span>
+        </div>
+    </section>
+
+    <!-- 10. SOCIAL PROOF & APP -->
+    <section class="pain-section text-center" style="padding: 5rem 1rem;">
+        <p class="text-gray max-w-xl" style="margin: 0 auto 2rem auto;">
+            Y también vas a tener acceso paso a paso de todas las estrategias de organización alimentaria que hacen tanto éxito en mi Instagram
+        </p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-orange" style="margin: 0 auto 1.5rem auto;"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+        
+        <h3 class="font-serif text-text" style="font-size: 1.5rem; margin-bottom: 3rem;">
+            Son más de <span class="text-orange font-bold">60 MILLONES</span> de visualizaciones
+        </h3>
+
+        <div class="flex flex-col md-flex-row gap-8 justify-center items-center">
+            <img src="https://i.imgur.com/lMH1bcO.png" alt="Instagram App" style="width: 16rem; border-radius: 0.75rem; box-shadow: var(--shadow-lg);" loading="lazy" decoding="async">
+            <img src="https://i.imgur.com/ksI0wFs.png" alt="Instagram App" style="width: 16rem; border-radius: 0.75rem; box-shadow: var(--shadow-lg);" loading="lazy" decoding="async">
+        </div>
+    </section>
+
+    <!-- 11. FREEZER ALLY -->
+    <section class="steps-section text-center">
+        <h2 class="font-bold text-text" style="font-size: 1.875rem; margin-bottom: 2.5rem; font-weight: 500;">Tu freezer va a ser tu mayor aliado en la dieta</h2>
+        <div class="grid grid-cols-2 gap-4 max-w-2xl" style="margin: 0 auto;">
+            <img src="https://i.imgur.com/fUwQSjl.jpg" style="border-radius: 0.5rem; box-shadow: var(--shadow-sm); width: 100%; height: 10rem; object-fit: cover;" alt="Prep" loading="lazy" decoding="async">
+            <img src="https://i.imgur.com/PjTdCYQ.jpg" style="border-radius: 0.5rem; box-shadow: var(--shadow-sm); width: 100%; height: 10rem; object-fit: cover;" alt="Prep" loading="lazy" decoding="async">
+            <img src="https://i.imgur.com/XmQIJ8G.jpg" style="border-radius: 0.5rem; box-shadow: var(--shadow-sm); width: 100%; height: 10rem; object-fit: cover;" alt="Prep" loading="lazy" decoding="async">
+            <img src="https://i.imgur.com/PZTCpfb.jpg" style="border-radius: 0.5rem; box-shadow: var(--shadow-sm); width: 100%; height: 10rem; object-fit: cover;" alt="Prep" loading="lazy" decoding="async">
+        </div>
+    </section>
+
+    <!-- 13. BONUS -->
+    <section style="padding: 5rem 1rem; background-color: var(--color-bg-light); border-top: 1px solid var(--color-orange-100); border-bottom: 1px solid var(--color-orange-100);">
+        <div class="text-center" style="margin-bottom: 2.5rem;">
+            <h2 class="font-bold" style="font-size: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                ✨ Y no termina aquí... ¡Aún hay bonus! ✨
+            </h2>
+        </div>
+
+        <div class="max-w-3xl flex flex-col md-flex-row items-center gap-8" style="background-color: white; border-radius: 1.5rem; padding: 2rem; margin: 0 auto; box-shadow: var(--shadow-xl);">
+            <img src="https://imgur.com/Lynah0a.jpg" alt="Bonus" style="width: 12rem; height: 12rem; border-radius: 0.75rem; object-fit: cover; box-shadow: var(--shadow-md);" loading="lazy" decoding="async">
+            <div class="text-left" style="flex: 1;">
+                <span style="background-color: var(--color-orange); color: white; font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.5rem; border-radius: 0.25rem; margin-bottom: 0.5rem; display: inline-block;">BONUS EXCLUSIVO</span>
+                <h3 class="font-bold text-text" style="font-size: 1.5rem; margin-bottom: 0.5rem;">Snacks Saludables para Congelar</h3>
+                <p class="text-gray" style="font-size: 0.875rem; margin-bottom: 1.5rem;">Un libro de recetas de snacks saludables para congelar y llevar al trabajo o facultad.</p>
+                <div style="font-size: 0.875rem; color: #6b7280; display: flex; flex-direction: column; gap: 0.5rem;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--color-pink-500);">🌸</span> Organiza tus snacks de la semana</div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem;"><span style="color: var(--color-pink-500);">🌸</span> Más practicidad en tu rutina</div>
+                </div>
+            </div>
+        </div>
+    </section>
+      
+    <!-- 14. TARGET AUDIENCE -->
+    <section class="pain-section text-center" style="padding: 5rem 1rem;">
+        <h2 class="font-serif text-text" style="font-size: 1.875rem; margin-bottom: 1rem;">¿Y sabes qué es lo mejor?</h2>
+        <p class="text-gray" style="margin-bottom: 3rem;">Todas las recetas vienen con calorías y macros calculados para tu dieta</p>
+         
+        <div class="flex justify-center gap-4" style="margin-bottom: 4rem;">
+            <span class="font-bold" style="background-color: var(--color-pink-50); color: var(--color-pink-500); padding: 0.5rem 1rem; border-radius: 2rem; display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem;">🚫 🌾 Sin Gluten</span>
+            <span class="font-bold" style="background-color: var(--color-pink-50); color: var(--color-pink-500); padding: 0.5rem 1rem; border-radius: 2rem; display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem;">🚫 🥛 Sin Lactosa</span>
+        </div>
+
+        <h2 class="font-bold text-text" style="font-size: 1.875rem; margin-bottom: 3rem;">
+            El <span class="text-orange">Recetas para Secar</span> es para ti que...
+        </h2>
+
+        <div class="max-w-2xl" style="margin: 0 auto; display: flex; flex-direction: column; gap: 1.5rem; text-align: left;">
+            <div style="display: flex; align-items: center; gap: 1rem; background-color: var(--color-bg-gray); padding: 1rem; border-radius: 0.75rem; box-shadow: var(--shadow-sm); border-left: 4px solid var(--color-orange);">
+                <div style="background-color: #fce7f3; padding: 0.5rem; border-radius: 2rem;"><span style="font-size: 1.25rem;">🌸</span></div>
+                <p style="color: #374151; font-weight: 500;">Ya intentaste de todo y sigues sintiéndote hinchada</p>
+            </div>
+            <div style="display: flex; align-items: center; gap: 1rem; background-color: var(--color-bg-gray); padding: 1rem; border-radius: 0.75rem; box-shadow: var(--shadow-sm); border-left: 4px solid var(--color-orange);">
+                <div style="background-color: #fce7f3; padding: 0.5rem; border-radius: 2rem;"><span style="font-size: 1.25rem;">🌸</span></div>
+                <p style="color: #374151; font-weight: 500;">Tienes una rutina corrida y necesitas practicidad</p>
+            </div>
+            <div style="display: flex; align-items: center; gap: 1rem; background-color: var(--color-bg-gray); padding: 1rem; border-radius: 0.75rem; box-shadow: var(--shadow-sm); border-left: 4px solid var(--color-orange);">
+                <div style="background-color: #fce7f3; padding: 0.5rem; border-radius: 2rem;"><span style="font-size: 1.25rem;">🌸</span></div>
+                <p style="color: #374151; font-weight: 500;">Quieres adelgazar comiendo bien, sin dietas radicales</p>
+            </div>
+            <div style="display: flex; align-items: center; gap: 1rem; background-color: var(--color-bg-gray); padding: 1rem; border-radius: 0.75rem; box-shadow: var(--shadow-sm); border-left: 4px solid var(--color-orange);">
+                <div style="background-color: #fce7f3; padding: 0.5rem; border-radius: 2rem;"><span style="font-size: 1.25rem;">🌸</span></div>
+                <p style="color: #374151; font-weight: 500;">Te gusta la comida casera, simple y sabrosa</p>
+            </div>
+            <div style="display: flex; align-items: center; gap: 1rem; background-color: var(--color-bg-gray); padding: 1rem; border-radius: 0.75rem; box-shadow: var(--shadow-sm); border-left: 4px solid var(--color-orange);">
+                <div style="background-color: #fce7f3; padding: 0.5rem; border-radius: 2rem;"><span style="font-size: 1.25rem;">🌸</span></div>
+                <p style="color: #374151; font-weight: 500;">Estás lista para transformar tu salud de dentro hacia fuera</p>
+            </div>
+        </div>
+
+        <img src="https://i.imgur.com/HqWKXZq.png" style="border-radius: 0.75rem; box-shadow: var(--shadow-xl); margin: 3rem auto 0 auto; width: 100%; max-width: 42rem; object-fit: cover;" alt="Comiendo saludable" loading="lazy" decoding="async">
+    </section>
+
+    <!-- 15. TESTIMONIALS -->
+    <section class="steps-section text-center">
+        <h2 class="font-serif text-text" style="font-size: 1.875rem; margin-bottom: 0.5rem;">Mira lo que nuestras alumnas</h2>
+        <h2 class="font-serif text-orange" style="font-size: 1.875rem; margin-bottom: 3rem;">están comentando del <span class="font-bold">Recetas para Secar</span>:</h2>
+
+        <div class="columns-container max-w-6xl" style="margin: 0 auto;">
+            <div class="testimonial-col"><img src="https://i.imgur.com/2XqnpHF.png" loading="lazy" decoding="async"></div>
+            <div class="testimonial-col"><img src="https://i.imgur.com/XjogwHc.png" loading="lazy" decoding="async"></div>
+            <div class="testimonial-col"><img src="https://i.imgur.com/Cus7Oaw.png" loading="lazy" decoding="async"></div>
+            <div class="testimonial-col"><img src="https://i.imgur.com/5ZsbEqW.png" loading="lazy" decoding="async"></div>
+            <div class="testimonial-col"><img src="https://i.imgur.com/VF0XIvF.png" loading="lazy" decoding="async"></div>
+            <div class="testimonial-col"><img src="https://i.imgur.com/CAWXqkM.png" loading="lazy" decoding="async"></div>
+            <div class="testimonial-col"><img src="https://i.imgur.com/yxENxKy.png" loading="lazy" decoding="async"></div>
+            <div class="testimonial-col"><img src="https://i.imgur.com/gU4cxGS.png" loading="lazy" decoding="async"></div>
+            <div class="testimonial-col"><img src="https://i.imgur.com/dx3F0ay.png" loading="lazy" decoding="async"></div>
+        </div>
+    </section>
+
+    <!-- 16. SUPPORT CTA -->
+    <section style="padding: 4rem 1rem; background-color: var(--color-orange); color: white; text-align: center;">
+        <h2 class="font-serif" style="font-size: 1.875rem; margin-bottom: 1.5rem; line-height: 1.3;">Vas a tener acceso a nuestro<br/>atención personalizada y<br/>nunca vas a estar sola</h2>
+        <div style="background-color: rgba(255,255,255,0.2); width: 4rem; height: 4rem; border-radius: 2rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem auto; backdrop-filter: blur(4px);">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        </div>
+        <p class="font-bold max-w-md" style="font-size: 1.25rem; margin: 0 auto 2rem auto;">Yo y mi equipo estamos listas para ayudarte en el WhatsApp</p>
+    </section>
+
+    <!-- 17. SOCIAL STATS -->
+    <section class="pain-section text-center">
+        <h3 class="text-gray font-bold" style="font-size: 1.25rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.5rem; color: #6b7280;">SON 290 MIL SEGUIDORES SOLO</h3>
+        <h3 class="text-gray font-bold" style="font-size: 1.25rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 2rem; color: #6b7280;">EN INSTAGRAM</h3>
+        <p style="color: #9ca3af; margin-bottom: 2rem;">Con varias recetas viralizadas</p>
+        
+        <div class="flex justify-center gap-12 text-center text-gray" style="color: #374151;">
+            <div>
+                <div style="color: #ec4899; font-size: 1.5rem; margin-bottom: 0.25rem;">❤️</div>
+                <div class="font-bold" style="font-size: 1.25rem;">1,1 M</div>
+                <div style="font-size: 0.75rem; text-transform: uppercase; color: #9ca3af;">Me gusta</div>
+            </div>
+            <div>
+                <div style="color: #3b82f6; font-size: 1.5rem; margin-bottom: 0.25rem;">🔄</div>
+                <div class="font-bold" style="font-size: 1.25rem;">620 mil</div>
+                <div style="font-size: 0.75rem; text-transform: uppercase; color: #9ca3af;">Compartidos</div>
+            </div>
+        </div>
+        <div style="margin-top: 2rem;">
+            <div style="color: #a855f7; font-size: 1.5rem; margin-bottom: 0.25rem;">👁️</div>
+            <div class="font-bold" style="font-size: 1.25rem;">27 M</div>
+            <div style="font-size: 0.75rem; text-transform: uppercase; color: #9ca3af;">Visualizaciones</div>
+        </div>
+    </section>
+
+    <!-- 18. MAIN PRICING SECTION -->
+    <section class="pricing-section">
+        <div class="pricing-bg"></div>
+        <div class="relative" style="z-index: 10;">
+            <h2 class="font-serif" style="font-size: 2.25rem; margin-bottom: 0.5rem;">Accede ahora a las recetas</h2>
+            <h2 class="font-serif" style="font-size: 2.25rem; margin-bottom: 3rem;">saludables</h2>
+            <p style="color: #d1d5db; margin-bottom: 3rem; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.875rem;">más sabrosas de tu vida</p>
+          
+            <!-- Pricing Card Reusable -->
+            <div class="pricing-card">
+                <div class="flex justify-center" style="margin-bottom: 1.5rem;">
+                    <span style="background-color: var(--color-orange); color: white; font-size: 0.75rem; font-weight: 700; padding: 0.5rem 1.5rem; border-radius: 2rem; text-transform: uppercase; letter-spacing: 0.05em; box-shadow: var(--shadow-sm);">
+                        OFERTA ESPECIAL
+                    </span>
+                </div>
+                <div class="text-center" style="margin-bottom: 1.5rem;">
+                    <img 
+                        src="https://i.imgur.com/CWGCAVR.jpg" 
+                        alt="Programa Recetas para Secar" 
+                        style="width: 100%; height: auto; margin-bottom: 1.5rem; object-fit: contain; transition: transform 0.3s;"
+                        onmouseover="this.style.transform='scale(1.05)'"
+                        onmouseout="this.style.transform='scale(1)'"
+                        loading="lazy"
+                        decoding="async"
+                    />
+                    <h3 class="font-serif" style="font-size: 1.875rem; color: #1f2937; margin-bottom: 0.5rem;">Recetas para Secar</h3>
+                    <p style="font-size: 0.875rem; color: #6b7280;">Programa completo de adelgazamiento saludable</p>
+                </div>
+                <div class="grid grid-cols-2 gap-2 text-left" style="font-size: 0.875rem; color: #4b5563; margin-bottom: 2rem;">
+                    <div class="feature-list-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="check-icon"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Desayunos</div>
+                    <div class="feature-list-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="check-icon"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Snacks</div>
+                    <div class="feature-list-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="check-icon"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Low Carb</div>
+                    <div class="feature-list-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="check-icon"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Sopas y Caldos</div>
+                    <div class="feature-list-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="check-icon"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Jugos Detox</div>
+                    <div class="feature-list-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="check-icon"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Bowl de Salud</div>
+                    <div class="feature-list-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="check-icon"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Dulces Fit</div>
+                    <div class="feature-list-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="check-icon"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Marinadas</div>
+                    <div class="feature-list-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="check-icon"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Planeamiento</div>
+                    <div class="feature-list-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="check-icon"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Lista de Compras</div>
+                    <div class="feature-list-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="check-icon"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Soporte VIP</div>
+                </div>
+                <div class="text-center" style="margin-bottom: 1.5rem; border-top: 1px dashed #e5e7eb; border-bottom: 1px dashed #e5e7eb; padding: 1.5rem 0;">
+                    <p style="color: #9ca3af; text-decoration: line-through; font-size: 0.875rem; margin-bottom: 0.25rem;">De US$ 197,00 por:</p>
+                    <div class="price-tag">
+                      US$ 17<span style="font-size: 1.875rem;">,00</span>
+                    </div>
+                    <p style="font-size: 0.75rem; color: #9ca3af; margin-top: 0.75rem; display: flex; align-items: center; justify-content: center; gap: 0.25rem;">
+                       <span style="background-color: #fce7f3; color: #db2777; padding: 0.25rem; border-radius: 9999px;">🌸</span> Acceso vitalicio sin mensualidades
+                    </p>
+                </div>
+                <button 
+                  onclick="window.location.href='https://pay.hotmart.com/B103636593G?off=hgkoz78y&checkoutMode=10'"
+                  class="btn-buy"
+                >
+                  <span style="font-size: 1.25rem; text-transform: uppercase; letter-spacing: 0.05em;">COMPRAR AHORA CON DESCUENTO</span>
+                </button>
+                <div class="flex justify-center gap-4 text-gray" style="margin-top: 1.5rem; font-size: 0.625rem; text-transform: uppercase; letter-spacing: 0.05em; color: #9ca3af;">
+                    <span class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.25rem;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> COMPRA SEGURA</span>
+                    <span class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.25rem;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg> GARANTÍA 30 DÍAS</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 19. SECURITY BADGES -->
+    <section class="steps-section" style="padding: 3rem 1rem;">
+        <div class="max-w-4xl" style="margin: 0 auto; display: flex; flex-direction: column; gap: 1rem;">
+            <div style="background-color: white; padding: 1.5rem; border-radius: 0.75rem; box-shadow: var(--shadow-sm); display: flex; align-items: center; gap: 1rem;">
+                 <div style="background-color: var(--color-orange-100); padding: 0.75rem; border-radius: 2rem; color: var(--color-orange);"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+                 <div>
+                   <h4 class="font-bold text-text">Seguridad</h4>
+                   <p style="font-size: 0.875rem; color: #6b7280;">Informaciones protegidas</p>
+                 </div>
+            </div>
+            <div style="background-color: white; padding: 1.5rem; border-radius: 0.75rem; box-shadow: var(--shadow-sm); display: flex; align-items: center; gap: 1rem;">
+                 <div style="background-color: var(--color-orange-100); padding: 0.75rem; border-radius: 2rem; color: var(--color-orange);"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+                 <div>
+                   <h4 class="font-bold text-text">Acceso Inmediato</h4>
+                   <p style="font-size: 0.875rem; color: #6b7280;">E-mail y WhatsApp</p>
+                 </div>
+            </div>
+            <div style="background-color: white; padding: 1.5rem; border-radius: 0.75rem; box-shadow: var(--shadow-sm); display: flex; align-items: center; gap: 1rem;">
+                 <div style="background-color: var(--color-orange-100); padding: 0.75rem; border-radius: 2rem; color: var(--color-orange);"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+                 <div>
+                   <h4 class="font-bold text-text">Soporte</h4>
+                   <p style="font-size: 0.875rem; color: #6b7280;">Grupo de soporte para todas las alumnas</p>
+                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 20. TEXT BREAK -->
+    <section style="padding: 5rem 1rem; background-color: var(--color-bg-light); text-align: center;">
+         <h2 class="font-bold text-text" style="font-size: 1.5rem; margin-bottom: 1rem;">Basta de hacer dietas<br/>restrictivas que solo te frustran</h2>
+         <p class="text-gray max-w-md" style="margin: 0 auto 3rem auto;">Si vives alguna de estas situaciones... Cuidar la salud es cosa seria.</p>
+
+         <div style="background-color: white; border-radius: 3rem; padding: 2.5rem; max-width: 36rem; margin: 0 auto; box-shadow: var(--shadow-xl); transform: rotate(1deg); position: relative;">
+           <p class="font-script" style="font-size: 1.875rem; color: #ec4899; line-height: 1.5;">
+             "Porque en mi familia existen diversos casos de diabetes, presión alta y obesidad, y en la tuya también, ¿verdad?"
+           </p>
+         </div>
+    </section>
+
+    <!-- 21. GALLERY -->
+    <section style="padding: 5rem 0; background-color: black; color: white; text-align: center; overflow: hidden;">
+         <h2 class="font-serif" style="font-size: 1.5rem; margin-bottom: 2rem; padding: 0 1rem;">Esas son más algunas<br/>recetas deliciosas que vas<br/>a aprender</h2>
+         
+         <div class="relative w-full overflow-hidden">
+           <div class="gallery-container">
+             <!-- First set of images (using 'm' for optimization) -->
+             <div class="gallery-item"><img src="https://i.imgur.com/L7zp1f9m.jpg" loading="lazy" decoding="async"></div>
+             <div class="gallery-item"><img src="https://i.imgur.com/bNwAyBIm.jpg" loading="lazy" decoding="async"></div>
+             <div class="gallery-item"><img src="https://i.imgur.com/0Ukg4VIm.jpg" loading="lazy" decoding="async"></div>
+             <div class="gallery-item"><img src="https://i.imgur.com/49e9x64m.jpg" loading="lazy" decoding="async"></div>
+             <div class="gallery-item"><img src="https://i.imgur.com/FUu6Yftm.jpg" loading="lazy" decoding="async"></div>
+             <div class="gallery-item"><img src="https://i.imgur.com/CuCCTISm.jpg" loading="lazy" decoding="async"></div>
+             <div class="gallery-item"><img src="https://i.imgur.com/cuMj878m.jpg" loading="lazy" decoding="async"></div>
+             <div class="gallery-item"><img src="https://i.imgur.com/iztPOS0m.jpg" loading="lazy" decoding="async"></div>
+             
+             <!-- Duplicate for loop -->
+             <div class="gallery-item"><img src="https://i.imgur.com/L7zp1f9m.jpg" loading="lazy" decoding="async"></div>
+             <div class="gallery-item"><img src="https://i.imgur.com/bNwAyBIm.jpg" loading="lazy" decoding="async"></div>
+             <div class="gallery-item"><img src="https://i.imgur.com/0Ukg4VIm.jpg" loading="lazy" decoding="async"></div>
+             <div class="gallery-item"><img src="https://i.imgur.com/49e9x64m.jpg" loading="lazy" decoding="async"></div>
+             <div class="gallery-item"><img src="https://i.imgur.com/FUu6Yftm.jpg" loading="lazy" decoding="async"></div>
+             <div class="gallery-item"><img src="https://i.imgur.com/CuCCTISm.jpg" loading="lazy" decoding="async"></div>
+             <div class="gallery-item"><img src="https://i.imgur.com/cuMj878m.jpg" loading="lazy" decoding="async"></div>
+             <div class="gallery-item"><img src="https://i.imgur.com/iztPOS0m.jpg" loading="lazy" decoding="async"></div>
+           </div>
+         </div>
+    </section>
+
+    <!-- 22. AUTHOR -->
+    <section class="pain-section">
+        <div class="max-w-2xl text-center md-text-left" style="margin: 0 auto;">
+           <p class="text-orange" style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">CREADORA DE RECETAS PARA SECAR</p>
+           <h2 class="font-serif text-text" style="font-size: 2.25rem; margin-bottom: 2rem;">Beatriz Langoni</h2>
+           
+           <div class="text-gray" style="line-height: 1.8; display: flex; flex-direction: column; gap: 1.5rem;">
+             <p>"Desde pequeña, mi relación con la comida fue marcada por excesos, culpa y muchas críticas. Yo amaba dulces y fast-food, pero vivía en guerra con la balanza.</p>
+             <p>Hasta que oí frases que me marcaron profundamente: 'Bailarina tiene que ser flaca'. 'Tú nunca vas a tener novio de esa forma'.</p>
+             <p>Esas palabras dolieron. Pero fue solo cuando decidí cuidar de mí por mí misma que las cosas comenzaron a cambiar de verdad.</p>
+             <p>Comencé a estudiar, probar, errar, ajustar... Descubrí cómo transformar recetas tradicionales en versiones más saludables y sabrosas.</p>
+             <p>Fue así que nació el 'Recetas para Secar': de mi propia jornada de superación."</p>
+           </div>
+           
+           <p class="font-script text-orange text-center" style="font-size: 1.875rem; margin-top: 2.5rem;">
+             "Si yo lo logré, tú también lo logras. ¡Vamos juntas!"
+           </p>
+
+           <img src="https://i.imgur.com/HqWKXZq.png" style="width: 100%; border-radius: 1rem; box-shadow: var(--shadow-xl); margin-top: 2rem; object-fit: cover;" alt="Beatriz" loading="lazy" decoding="async">
+        </div>
+    </section>
+
+    <!-- 23. FINAL PITCH -->
+    <section style="padding: 5rem 1rem; background-color: #111827; color: white; text-align: center;">
+         <h2 class="font-serif" style="font-size: 1.875rem; margin-bottom: 3rem;">Llegó la hora de tener<br/>una alimentación<br/>equilibrada, práctica y<br/>sabrosa!</h2>
+         
+         <div class="max-w-md" style="margin: 0 auto 3rem auto; display: flex; flex-direction: column; gap: 1rem;">
+              <div style="background-color: #1f2937; padding: 1.5rem; border-radius: 0.75rem; display: flex; flex-direction: column; align-items: center;">
+                 <span style="color: #f472b6; font-size: 1.5rem; margin-bottom: 0.5rem;">🌸</span>
+                 <p style="font-weight: 500; font-size: 0.875rem;">Adelgaza con placer, sin abrir mano del sabor</p>
+              </div>
+              <div style="background-color: #1f2937; padding: 1.5rem; border-radius: 0.75rem; display: flex; flex-direction: column; align-items: center;">
+                 <span style="color: #f472b6; font-size: 1.5rem; margin-bottom: 0.5rem;">🌸</span>
+                 <p style="font-weight: 500; font-size: 0.875rem;">Recetas rápidas, nutritivas y fáciles de preparar</p>
+              </div>
+              <div style="background-color: #1f2937; padding: 1.5rem; border-radius: 0.75rem; display: flex; flex-direction: column; align-items: center;">
+                 <span style="color: #f472b6; font-size: 1.5rem; margin-bottom: 0.5rem;">🌸</span>
+                 <p style="font-weight: 500; font-size: 0.875rem;">Todo calculado: calorías, proteínas, carbohidratos y grasas</p>
+              </div>
+         </div>
+         
+         <p style="font-style: italic; color: #9ca3af; margin-bottom: 3rem;">Asume el control de su alimentación<br/>y transforme su salud, su cuerpo<br/>y su vida.</p>
+         
+         <div style="background-color: white; padding: 0.25rem; border-radius: 1.5rem; display: inline-block; color: #111827;">
+            <div style="background-color: white; border-radius: 1.5rem; padding: 1rem 2rem; max-width: 24rem; margin: 0 auto;">
+                <div class="text-center" style="margin-bottom: 1.5rem;">
+                    <h3 class="font-serif text-text" style="font-size: 1.875rem; margin-bottom: 0.5rem;">Recetas para Secar</h3>
+                    <div class="text-orange font-black" style="font-size: 3.75rem; margin: 1rem 0; line-height: 1;">
+                      US$ 17<span style="font-size: 1.875rem;">,00</span>
+                    </div>
+                </div>
+                <button 
+                  onclick="window.location.href='https://pay.hotmart.com/B103636593G?off=hgkoz78y&checkoutMode=10'"
+                  class="btn-buy"
+                >
+                  <span style="font-size: 1.25rem; text-transform: uppercase; letter-spacing: 0.05em;">COMPRAR AHORA</span>
+                </button>
+            </div>
+         </div>
+    </section>
+
+    <!-- 24. GUARANTEE -->
+    <section class="steps-section text-center">
+        <div style="width: 8rem; height: 8rem; background-color: #facc15; border-radius: 4rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem auto; border: 4px solid #fef08a; box-shadow: var(--shadow-xl);">
+           <div class="text-center font-bold" style="color: #713f12; line-height: 1.25; font-size: 0.75rem;">
+             GARANTÍA<br/><span style="font-size: 1.875rem;">30</span><br/>DÍAS
+           </div>
+        </div>
+        <h2 class="font-bold max-w-md" style="font-size: 1.5rem; margin: 0 auto 1.5rem auto;">Experimente el Recetas para Secar por 30 días gratis</h2>
+        <p class="text-gray max-w-lg" style="margin: 0 auto 2rem auto;">
+          Si por cualquier motivo, no te gusta el contenido o crees que no sirve para ti, es solo solicitar el reembolso con el equipo. Sin burocracia y sin preguntas.
+        </p>
+    </section>
+
+    <!-- 25. FAQ -->
+    <section class="pain-section">
+        <h2 class="font-serif text-center text-text" style="font-size: 1.875rem; margin-bottom: 3rem;">Preguntas Frecuentes</h2>
+        <div class="max-w-2xl" style="margin: 0 auto; display: flex; flex-direction: column; gap: 1rem;" id="faq-container">
+            <!-- FAQs generated via JS below -->
+        </div>
+    </section>
+
+    <!-- 26. WHATSAPP FLOAT/BOTTOM -->
+    <section class="steps-section text-center" style="padding: 4rem 1rem;">
+         <h3 class="font-serif" style="font-size: 1.5rem; color: #374151; margin-bottom: 1rem;">¿Quedó con alguna duda?</h3>
+         <p style="color: #6b7280; margin-bottom: 2rem;">Siéntase a gusto para llamarme en el WhatsApp</p>
+         <button style="background-color: var(--color-green); color: white; font-weight: 700; padding: 0.75rem 2rem; border-radius: 2rem; box-shadow: var(--shadow-lg); display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; margin: 0 auto; transition: background-color 0.2s;" onmouseover="this.style.backgroundColor='var(--color-green-hover)'" onmouseout="this.style.backgroundColor='var(--color-green)'">
+           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg> Tirar dudas en el WhatsApp
+         </button>
+    </section>
+
+    <!-- 27. FOOTER -->
+    <footer style="background-color: #111827; color: #9ca3af; padding: 3rem 1rem; text-align: center; font-size: 0.75rem;">
+        <p>© 2025 Recetas para Secar. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- EXIT INTENT POPUP -->
+    <div id="exit-popup" class="popup-overlay hidden">
+        <div class="absolute inset-0" onclick="closePopup()"></div>
+        <div class="popup-content">
+            <button onclick="closePopup()" class="absolute text-gray" style="top: 1rem; right: 1rem;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+
+            <div class="text-center">
+                <div class="animate-pulse" style="background-color: #fee2e2; width: 5rem; height: 5rem; border-radius: 2.5rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem auto;">
+                   <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #ef4444;"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+                </div>
+
+                <h3 class="font-black text-text" style="font-size: 1.5rem; margin-bottom: 0.5rem; line-height: 1; text-transform: uppercase;">
+                  ¡Espera! <br/> <span style="color: #ef4444;">No te vayas aún</span>
+                </h3>
+                
+                <p class="text-gray" style="font-size: 0.875rem; margin-bottom: 1.5rem;">
+                  Por ser Año Nuevo, acabas de ganar un <span class="font-bold">descuento exclusivo</span>.
+                </p>
+
+                <div class="bg-gray-50" style="padding: 1rem; border-radius: 0.75rem; margin-bottom: 1.5rem;">
+                  <p style="color: #6b7280; font-size: 0.875rem; text-decoration: line-through; margin-bottom: 0.25rem;">Precio Normal: US$ 17,00</p>
+                  <p class="font-black" style="color: var(--color-green); font-size: 2.25rem;">US$ 9,90</p>
+                </div>
+
+                <button 
+                  onclick="window.location.href='https://pay.hotmart.com/B103636593G?off=5vqxyuyu&checkoutMode=10'"
+                  class="btn-buy"
+                  style="margin-bottom: 1rem; background-color: var(--color-green);"
+                >
+                  <span style="font-size: 1.25rem; text-transform: uppercase; letter-spacing: 0.05em;">QUIERO MI DESCUENTO AHORA</span>
+                </button>
+                
+                <button onclick="closePopup()" style="font-size: 0.75rem; color: #9ca3af; text-decoration: underline;">
+                  No, quiero perder esta oportunidad única
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // FAQ Data
+        const FAQS = [
+          { question: "¿Cómo tendré acceso al material?", answer: "El acceso es inmediato y 100% online. Recibirás un correo electrónico con tus datos de acceso a nuestra plataforma exclusiva inmediatamente después de la confirmación del pago." },
+          { question: "¿El material es totalmente digital?", answer: "Sí, todo el contenido es digital (E-books), lo que te permite acceder desde tu celular, tablet o computadora en cualquier momento." },
+          { question: "¿Por cuánto tiempo tendré acceso?", answer: "El acceso es vitalicio. Podrás ver el contenido cuantas veces quieras, para siempre." },
+          { question: "¿Ya tengo un curso, las recetas se repiten?", answer: "Nuestras recetas son exclusivas y desarrolladas por nutricionistas enfocados en sabor y practicidad." },
+          { question: "¿Sin gluten/lactosa, es para mí?", answer: "Sí, tenemos muchas opciones adaptables y naturalmente libres de gluten y lactosa." },
+          { question: "¿Soy vegetariano/vegano?", answer: "El programa incluye una gran variedad de recetas basadas en plantas, aunque no es exclusivamente vegano/vegetariano." },
+          { question: "¿Tengo ayuda? ¿Me sirve?", answer: "¡Sí! Tenemos un soporte dedicado para ayudarte en cada paso del proceso." },
+          { question: "¿No sé cocinar, me sirve?", answer: "¡Absolutamente! Las recetas están diseñadas para ser simples, rápidas y paso a paso, ideales para principiantes." },
+          { question: "¿Tienen soporte de dudas?", answer: "Sí, contamos con un equipo de soporte vía WhatsApp y dentro de la plataforma para resolver cualquier inquietud." },
+        ];
+
+        // Render FAQs
+        const faqContainer = document.getElementById('faq-container');
+        FAQS.forEach((faq, index) => {
+            const div = document.createElement('div');
+            div.style.borderBottom = '1px solid #f3f4f6';
+            div.style.paddingBottom = '1rem';
+            div.innerHTML = `
+                <button onclick="toggleFaq(${index})" style="width: 100%; display: flex; justify-content: space-between; align-items: center; text-align: left; font-weight: 700; color: #374151; transition: color 0.2s;">
+                    <span onmouseover="this.style.color='var(--color-orange)'" onmouseout="this.style.color='#374151'">${faq.question}</span>
+                    <span id="icon-${index}" style="color: var(--color-orange);">+</span>
+                </button>
+                <div id="answer-${index}" class="hidden" style="color: #4b5563; font-size: 0.875rem; margin-top: 0.5rem; padding-left: 0.5rem; border-left: 2px solid var(--color-orange);">
+                    ${faq.answer}
+                </div>
+            `;
+            faqContainer.appendChild(div);
+        });
+
+        function toggleFaq(index) {
+            const answer = document.getElementById(`answer-${index}`);
+            const icon = document.getElementById(`icon-${index}`);
+            
+            if (answer.classList.contains('hidden')) {
+                answer.classList.remove('hidden');
+                answer.classList.add('animate-fadeIn');
+                icon.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>';
+            } else {
+                answer.classList.add('hidden');
+                icon.innerText = '+';
+            }
+        }
+
+        // Popup Logic
+        const popup = document.getElementById('exit-popup');
+        let popupTriggered = false;
+
+        function showPopup() {
+            if (!popupTriggered) {
+                popup.classList.remove('hidden');
+                popupTriggered = true;
+            }
+        }
+
+        function closePopup() {
+            popup.classList.add('hidden');
+        }
+
+        // Mouse Exit Intent
+        document.addEventListener('mouseleave', (e) => {
+            if (e.clientY <= 0) {
+                showPopup();
+            }
+        });
+
+        // Mobile Back Button Intent
+        window.history.pushState(null, "", window.location.href);
+        window.addEventListener('popstate', () => {
+            showPopup();
+            window.history.pushState(null, "", window.location.href);
+        });
+    </script>
+</body>
+</html>
