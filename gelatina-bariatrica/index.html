@@ -255,10 +255,26 @@
             text-transform: uppercase;
         }
         .popup-text {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             color: #333;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             font-weight: 700;
+            line-height: 1.4;
+        }
+        .popup-subtext {
+            font-size: 0.9rem;
+            color: #A60B0D;
+            margin-bottom: 20px;
+            font-weight: 400;
+            display: block;
+        }
+        .popup-close-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: #777;
+            text-decoration: underline;
+            font-size: 0.85rem;
+            cursor: pointer;
         }
         .price-container {
             margin-bottom: 20px;
@@ -404,7 +420,8 @@
     <div id="discountPopup" class="popup-overlay">
         <div class="popup-content">
             <div class="popup-title">¡ESPERA! NO TE VAYAS</div>
-            <div class="popup-text">No quiero que el precio sea un impedimento para que pierdas 14 kg en 10 días. Esta es una oferta única y exclusiva, disponible solo en esta página y en este momento.</div>
+            <div class="popup-text">No quiero que el precio sea un impedimento para que pierdas 14 kg en 10 días.</div>
+            <span class="popup-subtext">Esta es una oferta única y exclusiva, disponible solo en esta página y en este momento.</span>
             <div class="discount-badge">¡63% DE DESCUENTO!</div>
             <div class="price-container">
                 <span class="price-old">US$ 27,00</span>
@@ -413,6 +430,9 @@
             <a href="https://pay.hotmart.com/I103092154N?off=94fwfp74&checkoutMode=10" class="popup-cta">
                 SÍ, QUIERO MI DESCUENTO
             </a>
+            <span class="popup-close-link" onclick="document.getElementById('discountPopup').style.display='none'">
+                No, gracias. Prefiero continuar con sobrepeso.
+            </span>
         </div>
     </div>
 
