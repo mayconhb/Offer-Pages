@@ -1184,47 +1184,6 @@
         <p>© 2025 Recetas para Secar. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- EXIT INTENT POPUP -->
-    <div id="exit-popup" class="popup-overlay hidden">
-        <div class="absolute inset-0" onclick="closePopup()"></div>
-        <div class="popup-content">
-            <button onclick="closePopup()" class="absolute text-gray" style="top: 1rem; right: 1rem;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-            </button>
-
-            <div class="text-center">
-                <div class="animate-pulse" style="background-color: #fee2e2; width: 5rem; height: 5rem; border-radius: 2.5rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem auto;">
-                   <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #ef4444;"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
-                </div>
-
-                <h3 class="font-black text-text" style="font-size: 1.5rem; margin-bottom: 0.5rem; line-height: 1; text-transform: uppercase;">
-                  ¡Espera! <br/> <span style="color: #ef4444;">No te vayas aún</span>
-                </h3>
-
-                <p class="text-gray" style="font-size: 0.875rem; margin-bottom: 1.5rem;">
-                  Por ser Año Nuevo, acabas de ganar un <span class="font-bold">descuento exclusivo</span>.
-                </p>
-
-                <div class="bg-gray-50" style="padding: 1rem; border-radius: 0.75rem; margin-bottom: 1.5rem;">
-                  <p style="color: #6b7280; font-size: 0.875rem; text-decoration: line-through; margin-bottom: 0.25rem;">Precio Normal: US$ 17,00</p>
-                  <p class="font-black" style="color: var(--color-green); font-size: 2.25rem;">US$ 9,90</p>
-                </div>
-
-                <button 
-                  onclick="window.location.href='https://pay.hotmart.com/B103636593G?off=5vqxyuyu&checkoutMode=10'"
-                  class="btn-buy"
-                  style="margin-bottom: 1rem; background-color: var(--color-green);"
-                >
-                  <span style="font-size: 1.25rem; text-transform: uppercase; letter-spacing: 0.05em;">QUIERO MI DESCUENTO AHORA</span>
-                </button>
-
-                <button onclick="closePopup()" style="font-size: 0.75rem; color: #9ca3af; text-decoration: underline;">
-                  No, quiero perder esta oportunidad única
-                </button>
-            </div>
-        </div>
-    </div>
-
     <script>
         // FAQ Data
         const FAQS = [
@@ -1270,35 +1229,6 @@
                 icon.innerText = '+';
             }
         }
-
-        // Popup Logic
-        const popup = document.getElementById('exit-popup');
-        let popupTriggered = false;
-
-        function showPopup() {
-            if (!popupTriggered) {
-                popup.classList.remove('hidden');
-                popupTriggered = true;
-            }
-        }
-
-        function closePopup() {
-            popup.classList.add('hidden');
-        }
-
-        // Mouse Exit Intent
-        document.addEventListener('mouseleave', (e) => {
-            if (e.clientY <= 0) {
-                showPopup();
-            }
-        });
-
-        // Mobile Back Button Intent
-        window.history.pushState(null, "", window.location.href);
-        window.addEventListener('popstate', () => {
-            showPopup();
-            window.history.pushState(null, "", window.location.href);
-        });
     </script>
 </body>
 </html>
