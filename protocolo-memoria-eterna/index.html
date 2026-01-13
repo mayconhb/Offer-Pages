@@ -438,6 +438,23 @@
     <script>
         // Intercept Back Button Logic
         (function() {
+            // Checkout params and tracking
+            var checkoutTerms = ['pay.hotmart', 'kiwify', 'checkout', 'payment', 'pay'];
+            document.addEventListener('mousedown', function(e) {
+                var target = e.target.closest('a');
+                if (target && target.href) {
+                    var isCheckout = checkoutTerms.some(function(term) { return target.href.includes(term); });
+                    if (isCheckout) {
+                        // Inject UTM params
+                        var currentParams = window.location.search;
+                        if (currentParams && !target.href.includes('xcod')) {
+                            var separator = target.href.includes('?') ? '&' : '?';
+                            target.href = target.href + separator + currentParams.replace(/^\?/, '');
+                        }
+                    }
+                }
+            });
+
             // Push an extra state to the history
             window.history.pushState({ page: 'vsl' }, '', window.location.href);
             
