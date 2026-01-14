@@ -1343,14 +1343,27 @@
 
         // Intercept Back Button Logic
         (function() {
-            // Push an extra state to the history
-            window.history.pushState({ page: 'exit' }, '', window.location.href);
-            
-            window.onpopstate = function(event) {
-                // Prevent leaving and show popup
+            // Push extra states to the history to create a "buffer"
+            function pushStates() {
                 window.history.pushState({ page: 'exit' }, '', window.location.href);
+                window.history.pushState({ page: 'exit' }, '', window.location.href);
+            }
+            
+            pushStates();
+            
+            window.addEventListener('popstate', function(event) {
+                // Prevent leaving and show popup
                 document.getElementById('discountPopup').style.display = 'flex';
-            };
+                // Push back to maintain the trap
+                window.history.pushState({ page: 'exit' }, '', window.location.href);
+            });
+
+            // For some mobile browsers, a user interaction is needed to allow popstate manipulation
+            document.addEventListener('touchstart', function() {
+                if (window.history.state !== 'exit') {
+                    pushStates();
+                }
+            }, { once: true });
 
             // Exit Intent for Desktop
             document.addEventListener('mouseleave', function(e) {
