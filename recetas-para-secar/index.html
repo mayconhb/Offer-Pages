@@ -1350,32 +1350,30 @@
                 }
             }
 
-            // More aggressive history trap
+            // Simple history trap without continuous heavy listeners
             function pushStateTrap() {
-                window.history.pushState('exit-trap', '', window.location.href);
+                if (window.history.state !== 'exit-trap') {
+                    window.history.pushState('exit-trap', '', window.location.href);
+                }
             }
 
-            // Push multiple states immediately to fill the buffer
-            for (var i = 0; i < 5; i++) {
-                pushStateTrap();
-            }
+            // Initial push
+            pushStateTrap();
+
+            // Push on interaction but limited to once per type to avoid lag
+            var interactionEvents = ['touchstart', 'scroll', 'click'];
+            interactionEvents.forEach(function(evt) {
+                window.addEventListener(evt, function() {
+                    pushStateTrap();
+                }, { passive: true, once: true });
+            });
 
             // Handle back button
             window.addEventListener('popstate', function(event) {
                 triggerPopup();
-                // Reinject trap immediately and multiple times
-                for (var i = 0; i < 3; i++) {
-                    window.history.pushState('exit-trap', '', window.location.href);
-                }
+                // Reinject trap
+                pushStateTrap();
             });
-
-            // Force push on any interaction
-            ['click', 'touchstart', 'scroll', 'mousemove'].forEach(function(evt) {
-                window.addEventListener(evt, pushStateTrap, { passive: true, once: false });
-            });
-
-            // Fallback for some browsers: if they try to leave via hash or other means
-            window.addEventListener('hashchange', triggerPopup);
 
             // Exit Intent for Desktop
             document.addEventListener('mouseleave', function(e) {
