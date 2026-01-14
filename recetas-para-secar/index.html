@@ -984,9 +984,20 @@
 
         // Intercept Back Button Logic
         (function() {
-            // Push an extra state to the history
+            // Push initial state
             window.history.pushState({ page: 'vsl' }, '', window.location.href);
             
+            // Re-push state on ANY interaction (scroll included) to ensure the trap is active
+            var rePush = function() {
+                if (window.history.state !== 'vsl') {
+                    window.history.pushState({ page: 'vsl' }, '', window.location.href);
+                }
+            };
+            
+            window.addEventListener('scroll', rePush, { passive: true });
+            window.addEventListener('touchstart', rePush, { passive: true });
+            window.addEventListener('mousedown', rePush, { passive: true });
+
             window.onpopstate = function(event) {
                 // Prevent leaving and show popup
                 window.history.pushState({ page: 'vsl' }, '', window.location.href);
