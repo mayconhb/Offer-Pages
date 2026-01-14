@@ -1303,6 +1303,44 @@
     </div>
 
     <script>
+        // Checkout params and tracking
+        (function() {
+            var checkoutTerms = ['pay.hotmart', 'kiwify', 'checkout', 'payment', 'pay'];
+            
+            function injectParams(url) {
+                var currentParams = window.location.search;
+                if (currentParams && (url.includes('hotmart') || url.includes('kiwify') || url.includes('checkout'))) {
+                    var separator = url.includes('?') ? '&' : '?';
+                    // Avoid duplicating params if already present
+                    var cleanParams = currentParams.replace(/^\?/, '');
+                    if (!url.includes(cleanParams)) {
+                        return url + separator + cleanParams;
+                    }
+                }
+                return url;
+            }
+
+            // Universal click listener to catch all current and future links (including popups)
+            document.addEventListener('click', function(e) {
+                var target = e.target.closest('a');
+                if (target && target.href) {
+                    var isCheckout = checkoutTerms.some(function(term) { 
+                        return target.href.toLowerCase().includes(term); 
+                    });
+                    
+                    if (isCheckout) {
+                        // Inject UTM params right before navigation
+                        target.href = injectParams(target.href);
+                        
+                        // Track checkout click if analytics exists
+                        if (window.QuizAnalytics && typeof window.QuizAnalytics.trackCheckout === 'function') {
+                            window.QuizAnalytics.trackCheckout(target.href, window.step || 18);
+                        }
+                    }
+                }
+            }, true); // Use capture phase to ensure we catch it early
+        })();
+
         // Intercept Back Button Logic
         (function() {
             // Push an extra state to the history
