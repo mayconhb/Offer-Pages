@@ -436,24 +436,29 @@
     </div>
 
     <script>
-        // Intercept Back Button Logic
+        // Universal checkout params tracking
         (function() {
-            // Checkout params and tracking
             var checkoutTerms = ['pay.hotmart', 'kiwify', 'checkout', 'payment', 'pay'];
-            document.addEventListener('mousedown', function(e) {
+            function injectParams(url) {
+                var currentParams = window.location.search;
+                if (currentParams && (url.includes('hotmart') || url.includes('kiwify') || url.includes('checkout'))) {
+                    var separator = url.includes('?') ? '&' : '?';
+                    var cleanParams = currentParams.replace(/^\?/, '');
+                    if (!url.includes(cleanParams)) { return url + separator + cleanParams; }
+                }
+                return url;
+            }
+            document.addEventListener('click', function(e) {
                 var target = e.target.closest('a');
                 if (target && target.href) {
-                    var isCheckout = checkoutTerms.some(function(term) { return target.href.includes(term); });
-                    if (isCheckout) {
-                        // Inject UTM params
-                        var currentParams = window.location.search;
-                        if (currentParams && !target.href.includes('xcod')) {
-                            var separator = target.href.includes('?') ? '&' : '?';
-                            target.href = target.href + separator + currentParams.replace(/^\?/, '');
-                        }
-                    }
+                    var isCheckout = checkoutTerms.some(function(term) { return target.href.toLowerCase().includes(term); });
+                    if (isCheckout) { target.href = injectParams(target.href); }
                 }
-            });
+            }, true);
+        })();
+
+        // Intercept Back Button Logic
+        (function() {
 
             // Push an extra state to the history
             window.history.pushState({ page: 'vsl' }, '', window.location.href);
