@@ -1343,27 +1343,34 @@
 
         // Intercept Back Button Logic
         (function() {
-            // Push extra states to the history to create a "buffer"
+            // Push states to the history
             function pushStates() {
-                window.history.pushState({ page: 'exit' }, '', window.location.href);
-                window.history.pushState({ page: 'exit' }, '', window.location.href);
+                var url = window.location.href;
+                if (window.history.state !== 'exit') {
+                    window.history.pushState('exit', '', url);
+                    window.history.pushState('exit', '', url);
+                }
             }
             
             pushStates();
             
+            // Re-inject on any touch to ensure we stay in the trap
+            document.addEventListener('touchstart', function() {
+                pushStates();
+            }, { passive: true });
+
             window.addEventListener('popstate', function(event) {
-                // Prevent leaving and show popup
+                // Show popup
                 document.getElementById('discountPopup').style.display = 'flex';
-                // Push back to maintain the trap
-                window.history.pushState({ page: 'exit' }, '', window.location.href);
+                
+                // Forcing the stay
+                window.history.pushState('exit', '', window.location.href);
             });
 
-            // For some mobile browsers, a user interaction is needed to allow popstate manipulation
-            document.addEventListener('touchstart', function() {
-                if (window.history.state !== 'exit') {
-                    pushStates();
-                }
-            }, { once: true });
+            // Extra safety for Android back button
+            window.addEventListener('hashchange', function() {
+                document.getElementById('discountPopup').style.display = 'flex';
+            });
 
             // Exit Intent for Desktop
             document.addEventListener('mouseleave', function(e) {
