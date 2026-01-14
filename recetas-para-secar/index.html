@@ -1352,31 +1352,30 @@
 
             // More aggressive history trap
             function pushStateTrap() {
-                if (window.history.state !== 'exit-trap') {
-                    window.history.pushState('exit-trap', '', window.location.href);
-                }
+                window.history.pushState('exit-trap', '', window.location.href);
             }
 
-            // Initial push
-            pushStateTrap();
-
-            // Force push on any interaction
-            ['click', 'touchstart', 'scroll'].forEach(function(evt) {
-                window.addEventListener(evt, pushStateTrap, { passive: true });
-            });
+            // Push multiple states immediately to fill the buffer
+            for (var i = 0; i < 5; i++) {
+                pushStateTrap();
+            }
 
             // Handle back button
             window.addEventListener('popstate', function(event) {
                 triggerPopup();
-                // Reinject trap immediately
-                window.history.pushState('exit-trap', '', window.location.href);
+                // Reinject trap immediately and multiple times
+                for (var i = 0; i < 3; i++) {
+                    window.history.pushState('exit-trap', '', window.location.href);
+                }
+            });
+
+            // Force push on any interaction
+            ['click', 'touchstart', 'scroll', 'mousemove'].forEach(function(evt) {
+                window.addEventListener(evt, pushStateTrap, { passive: true, once: false });
             });
 
             // Fallback for some browsers: if they try to leave via hash or other means
-            window.addEventListener('beforeunload', function(e) {
-                // This doesn't show the popup but is a last resort to trigger logic
-                pushStateTrap();
-            });
+            window.addEventListener('hashchange', triggerPopup);
 
             // Exit Intent for Desktop
             document.addEventListener('mouseleave', function(e) {
