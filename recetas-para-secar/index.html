@@ -1343,39 +1343,45 @@
 
         // Intercept Back Button Logic
         (function() {
-            // Push states to the history
-            function pushStates() {
-                var url = window.location.href;
-                if (window.history.state !== 'exit') {
-                    window.history.pushState('exit', '', url);
-                    window.history.pushState('exit', '', url);
+            function triggerPopup() {
+                var popup = document.getElementById('discountPopup');
+                if (popup && popup.style.display !== 'flex') {
+                    popup.style.display = 'flex';
                 }
             }
-            
-            pushStates();
-            
-            // Re-inject on any touch to ensure we stay in the trap
-            document.addEventListener('touchstart', function() {
-                pushStates();
-            }, { passive: true });
 
-            window.addEventListener('popstate', function(event) {
-                // Show popup
-                document.getElementById('discountPopup').style.display = 'flex';
-                
-                // Forcing the stay
-                window.history.pushState('exit', '', window.location.href);
+            // More aggressive history trap
+            function pushStateTrap() {
+                if (window.history.state !== 'exit-trap') {
+                    window.history.pushState('exit-trap', '', window.location.href);
+                }
+            }
+
+            // Initial push
+            pushStateTrap();
+
+            // Force push on any interaction
+            ['click', 'touchstart', 'scroll'].forEach(function(evt) {
+                window.addEventListener(evt, pushStateTrap, { passive: true });
             });
 
-            // Extra safety for Android back button
-            window.addEventListener('hashchange', function() {
-                document.getElementById('discountPopup').style.display = 'flex';
+            // Handle back button
+            window.addEventListener('popstate', function(event) {
+                triggerPopup();
+                // Reinject trap immediately
+                window.history.pushState('exit-trap', '', window.location.href);
+            });
+
+            // Fallback for some browsers: if they try to leave via hash or other means
+            window.addEventListener('beforeunload', function(e) {
+                // This doesn't show the popup but is a last resort to trigger logic
+                pushStateTrap();
             });
 
             // Exit Intent for Desktop
             document.addEventListener('mouseleave', function(e) {
                 if (e.clientY < 0) {
-                    document.getElementById('discountPopup').style.display = 'flex';
+                    triggerPopup();
                 }
             });
         })();
