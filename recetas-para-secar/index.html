@@ -1346,16 +1346,20 @@
             var hasReachedPricing = false;
             
             // Monitor scroll to detect pricing section
-            window.addEventListener('scroll', function() {
+            function checkScroll() {
                 if (hasReachedPricing) return;
                 var pricingSection = document.getElementById('pricing-section-trigger');
                 if (pricingSection) {
                     var rect = pricingSection.getBoundingClientRect();
-                    if (rect.top <= window.innerHeight) {
+                    // Trigger if the section is anywhere in the viewport or above it
+                    if (rect.top <= (window.innerHeight || document.documentElement.clientHeight)) {
                         hasReachedPricing = true;
+                        // console.log('Pricing reached');
                     }
                 }
-            }, { passive: true });
+            }
+            window.addEventListener('scroll', checkScroll, { passive: true });
+            checkScroll(); // Initial check
 
             function triggerPopup() {
                 if (!hasReachedPricing) return;
@@ -1367,30 +1371,29 @@
 
             // Simple history trap
             function pushStateTrap() {
-                if (window.history.state !== 'exit-trap') {
-                    window.history.pushState('exit-trap', '', window.location.href);
-                }
+                window.history.pushState('exit-trap', '', window.location.href);
             }
 
-            // Initial push
+            // Push multiple states immediately to ensure we have a buffer
             pushStateTrap();
-
-            // Push on interaction
-            ['touchstart', 'scroll', 'click'].forEach(function(evt) {
-                window.addEventListener(evt, function() {
-                    pushStateTrap();
-                }, { passive: true, once: true });
-            });
+            pushStateTrap();
 
             // Handle back button
             window.addEventListener('popstate', function(event) {
                 if (hasReachedPricing) {
                     triggerPopup();
+                    // Stay on page
                     window.history.pushState('exit-trap', '', window.location.href);
-                } else {
-                    // If not reached pricing, actually let them go back
-                    window.history.back();
                 }
+            });
+
+            // Interaction to refresh trap
+            ['touchstart', 'mousedown', 'scroll'].forEach(function(evt) {
+                window.addEventListener(evt, function() {
+                    if (window.history.state !== 'exit-trap') {
+                        pushStateTrap();
+                    }
+                }, { passive: true });
             });
 
             // Exit Intent for Desktop
