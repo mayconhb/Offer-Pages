@@ -987,10 +987,15 @@
             // Push initial state
             window.history.pushState({ page: 'vsl' }, '', window.location.href);
             
-            // Re-push state on ANY interaction (scroll included) to ensure the trap is active
+            // Debounce/Throttle state re-push to avoid scroll lag
+            var lastPush = 0;
             var rePush = function() {
+                var now = Date.now();
+                if (now - lastPush < 1000) return; // Only push once per second max
+                
                 if (window.history.state !== 'vsl') {
                     window.history.pushState({ page: 'vsl' }, '', window.location.href);
+                    lastPush = now;
                 }
             };
             
