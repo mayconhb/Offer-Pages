@@ -767,6 +767,22 @@ function renderVideoPage() {
         </div>
       </div>
 
+      <!-- Vturb Video Player -->
+      <div class="vturb-container mt-6" style="width: 100%; max-width: 400px; margin: 0 auto;">
+        <vturb-smartplayer id="vid-69684ea816e3821ec3e2ab8d" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer>
+        <script type="text/javascript">
+          (function() {
+            if (!window.vturbScriptLoaded) {
+              var s=document.createElement("script");
+              s.src="https://scripts.converteai.net/8be91a4f-8063-443e-ad7c-0bc55451c92d/players/69684ea816e3821ec3e2ab8d/v4/player.js";
+              s.async=!0;
+              document.head.appendChild(s);
+              window.vturbScriptLoaded = true;
+            }
+          })();
+        </script>
+      </div>
+
       <div id="ctaButtonContainer" class="${showCTAButton ? '' : 'hidden'}" style="margin-top: 1rem;">
         <a
           href="https://pay.hotmart.com/I103092154N?off=8pqi3d4c&checkoutMode=10"
