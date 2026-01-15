@@ -764,6 +764,26 @@ function renderVideoPage() {
         </a>
       </section>
 
+      <!-- Discount Popup -->
+      <div id="discountPopup" class="popup-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); z-index: 9999; align-items: center; justify-content: center; padding: 20px;">
+        <div class="popup-content" style="background: white; padding: 30px; border-radius: 12px; max-width: 400px; width: 100%; text-align: center; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+          <div class="popup-title" style="color: #A60B0D; font-size: 1.5rem; font-weight: 900; margin-bottom: 15px; text-transform: uppercase; font-family: sans-serif;">¡ESPERA! NO TE VAYAS</div>
+          <div class="popup-text" style="font-size: 1.15rem; color: #333; margin-bottom: 15px; font-weight: 700; line-height: 1.4; font-family: sans-serif;">No quiero que el precio sea un impedimento para que pierdas 14 kg en 10 días.</div>
+          <span class="popup-subtext" style="font-size: 0.9rem; color: #A60B0D; margin-bottom: 20px; font-weight: 400; display: block; font-family: sans-serif;">Esta es una oferta única y exclusiva, disponible solo en esta página y en este momento.</span>
+          <div class="discount-badge" style="background: #FFD700; color: black; padding: 5px 15px; border-radius: 20px; font-weight: 800; font-size: 0.9rem; display: inline-block; margin-bottom: 20px; font-family: sans-serif;">¡63% DE DESCUENTO!</div>
+          <div class="price-container" style="margin-bottom: 20px;">
+            <span class="price-old" style="text-decoration: line-through; color: #777; font-size: 1.2rem; font-family: sans-serif;">US$ 27,00</span>
+            <span class="price-new" style="color: #008000; font-size: 2.2rem; font-weight: 900; display: block; font-family: sans-serif;">US$ 9,90</span>
+          </div>
+          <a href="https://pay.hotmart.com/I103092154N?off=94fwfp74&checkoutMode=10" class="popup-cta" style="background: #008000; color: white; text-decoration: none; padding: 15px 25px; border-radius: 8px; font-weight: 800; font-size: 1.1rem; display: block; font-family: sans-serif;">
+            SÍ, QUIERO MI DESCUENTO
+          </a>
+          <span class="popup-close-link" onclick="document.getElementById('discountPopup').style.display='none'" style="display: inline-block; margin-top: 15px; color: #777; text-decoration: underline; font-size: 0.85rem; cursor: pointer; font-family: sans-serif;">
+            No, gracias. Prefiero continuar con sobrepeso.
+          </span>
+        </div>
+      </div>
+
       <div class="video-container hidden">
         <div class="video-wrapper">
           <style>
@@ -1106,6 +1126,9 @@ function setupUTMTracking() {
 
 // Initialize
 document.addEventListener('DOMContentLoaded', function() {
+  // Setup Exit Popup Logic
+  setupExitPopup();
+
   // Step 0 já está renderizado no HTML para FCP imediato
   // Só renderiza se precisar (após navegação)
   handleStepPreloading(step);
@@ -1116,3 +1139,36 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('[Preload] All images preloaded in background');
   }, 2000);
 });
+
+function setupExitPopup() {
+  // Push an extra state to the history
+  window.history.pushState({ page: 'quiz' }, '', window.location.href);
+  
+  window.onpopstate = function(event) {
+    const ctaSection = document.getElementById('CTA');
+    // Check if CTA is visible (display !== 'none')
+    const isCtaVisible = ctaSection && window.getComputedStyle(ctaSection).display !== 'none';
+    
+    if (isCtaVisible) {
+      // Prevent leaving and show popup
+      window.history.pushState({ page: 'quiz' }, '', window.location.href);
+      const popup = document.getElementById('discountPopup');
+      if (popup) popup.style.display = 'flex';
+    } else {
+      // Allow leaving if CTA is not yet visible
+      window.history.back();
+    }
+  };
+
+  // Exit Intent for Desktop
+  document.addEventListener('mouseleave', function(e) {
+    if (e.clientY < 0) {
+      const ctaSection = document.getElementById('CTA');
+      const isCtaVisible = ctaSection && window.getComputedStyle(ctaSection).display !== 'none';
+      if (isCtaVisible) {
+        const popup = document.getElementById('discountPopup');
+        if (popup) popup.style.display = 'flex';
+      }
+    }
+  });
+}
