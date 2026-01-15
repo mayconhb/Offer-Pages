@@ -997,7 +997,6 @@ function loadVturbPlayer() {
   }
 
   // Set up video tracking
-  setTimeout(() => setupVideoTracking(), 1000);
 }
 
 );
@@ -1037,7 +1036,6 @@ function loadVturbPlayer() {
     console.log('[Video Tracker] Events bound successfully');
   } else {
     console.log('[Video Tracker] Waiting for Wistia player element...');
-    setTimeout(setupVideoTracking, 500);
   }
 }
 
