@@ -10,6 +10,9 @@ let carouselIndex = 0;
 let showCTAButton = false;
 let loadingInterval = null;
 let carouselInterval = null;
+const preloadedImages = new Set();
+let checkoutPreconnected = false;
+let wistiaBindied = false;
 
 // SVG Icons
 const icons = {
