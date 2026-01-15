@@ -1,4 +1,0 @@
-/* Estilos básicos para o quiz */
-.hidden { display: none; }
-.quiz-container { animation: fadeIn 0.3s ease-in; }
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
