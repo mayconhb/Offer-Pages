@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Gelatina Reductora</title>
+    <title>EL PAÍS: El periódico global</title>
 
     <!-- DNS Prefetch -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
@@ -170,19 +170,10 @@
     <noscript><link rel="stylesheet" href="assets/style.css"></noscript>
 
     <!-- Analytics tracking - carrega primeiro para capturar sessão -->
-    <script>
-      // Fallback for missing analytics.js
-      window.QuizAnalytics = {
-        trackStepView: function(s) { console.log('Step View:', s); },
-        trackStepComplete: function(s) { console.log('Step Complete:', s); },
-        trackAnswer: function(s, q, a) { console.log('Answer:', s, q, a); },
-        trackCheckout: function(u, s) { console.log('Checkout:', u, s); }
-      };
-    </script>
-    <script src="assets/analytics.js" onerror="console.warn('analytics.js not found, using fallback')"></script>
+    <script src="assets/analytics.js"></script>
 
     <!-- Script principal - defer para não bloquear -->
-    
+    <script src="assets/script.js" defer></script>
 
     <!-- Scripts não críticos - carregam após DOM -->
     <script>
@@ -214,11 +205,6 @@
         });
       });
     </script>
-    
-      
-    
-
-<script src="assets/script.js"></script>
-</body>
+  </body>
 </html>
 
