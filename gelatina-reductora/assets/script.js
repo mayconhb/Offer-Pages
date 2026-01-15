@@ -753,7 +753,11 @@ function renderVideoPage() {
         MIRA EL VIDEO A CONTINUACIÓN Y DESCUBRE CÓMO ACCEDER A TU PROTOCOLO DE GELATINA REDUCTORA.
       </h2>
 
-      <div class="video-container">
+      <div id="vturb-container-placeholder" class="vturb-container mt-6" style="width: 100%; max-width: 400px; margin: 0 auto; min-height: 225px;">
+        <vturb-smartplayer id="vid-69684ea816e3821ec3e2ab8d" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer>
+      </div>
+
+      <div class="video-container hidden">
         <div class="video-wrapper">
           <style>
             wistia-player[media-id='8xc87ip699']:not(:defined) {
@@ -765,10 +769,6 @@ function renderVideoPage() {
           </style>
           <wistia-player media-id="8xc87ip699" seo="false" aspect="0.6557377049180327"></wistia-player>
         </div>
-      </div>
-
-      <div id="vturb-container-placeholder" class="vturb-container mt-6" style="width: 100%; max-width: 400px; margin: 0 auto; min-height: 225px;">
-        <vturb-smartplayer id="vid-69684ea816e3821ec3e2ab8d" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer>
       </div>
 
       <div id="ctaButtonContainer" class="${showCTAButton ? '' : 'hidden'}" style="margin-top: 1rem;">
