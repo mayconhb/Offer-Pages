@@ -741,9 +741,9 @@ function renderVideoPage() {
     { name: 'Valeria Castillo', photo: images.profilePhoto4, text: 'Había perdido las esperanzas, pero este método me devolvió la confianza y la energía. Nunca imaginé que funcionaría tan bien.', time: 'hace 12 min' },
     { name: 'Fernanda López', photo: images.profilePhoto5, text: 'Mi vida cambió por completo. La balanza finalmente empezó a bajar y no se detuvo más.', time: 'hace 15 min' },
     { name: 'Carolina Ramírez', photo: images.profilePhoto6, text: 'Nunca voy a olvidar la sensación de ver mi cuerpo cambiar día tras día gracias a este método.', time: 'hace 18 min' },
-    { name: 'Lucía Fernández', photo: images.profilePhoto7, text: 'En solo 10 días ya vi resultados que no logré en años de gimnasio y dietas.', time: 'hace 22 min' },
-    { name: 'Gabriela Torres', photo: images.profilePhoto8, text: 'Este método fue como un renacimiento para mí. Me siento más joven, más ligera y feliz con mi cuerpo.', time: 'hace 25 min' },
-    { name: 'Isabella Vargas', photo: images.profilePhoto9, text: 'Hoy, después de 18 kg menos, solo tengo una palabra: gratitud por compartir esto.', time: 'hace 30 min' },
+    { name: 'Lucía Fernández', photo: images.profilePhoto7, text: 'En solo 10 días ya vi resultados que no logré en years de gimnasio and dietas.', time: 'hace 22 min' },
+    { name: 'Gabriela Torres', photo: images.profilePhoto8, text: 'Este método fue como un renacimiento para mí. Me siento más joven, más ligera and feliz con mi cuerpo.', time: 'hace 25 min' },
+    { name: 'Isabella Vargas', photo: images.profilePhoto9, text: 'Hoy, después de 18 kg menos, solo tengo uma palavra: gratitud por compartilhar esto.', time: 'hace 30 min' },
     { name: 'Patricia Martínez', photo: images.profilePhoto10, text: 'Increíble como algo tan simple puede cambiar tanto. Estoy muy agradecida por haber visto este video.', time: 'hace 35 min' }
   ];
 
@@ -787,20 +787,77 @@ function renderVideoPage() {
         </div>
 
         <p class="comments-footer">
+//           Para comentar, inicia sesión en tu cuenta.
+//         </p>
+//       </div>
+//     </div>
+//   `;
+// },
+//     { name: 'Camila Rodríguez', photo: images.profilePhoto2, text: 'Intenté de todo, pero nada funcionaba... hasta que vi este video. Hoy estoy 14 kg más liviana y con la autoestima por las nubes.', time: 'hace 5 min' },
+//     { name: 'Sofía Morales', photo: images.profilePhoto3, text: 'Es increíble cómo algo tan simple puede transformar tanto. Ya son 3 meses siguiendo las instrucciones y me siento otra persona.', time: 'hace 8 min' },
+//     { name: 'Valeria Castillo', photo: images.profilePhoto4, text: 'Había perdido las esperanzas, pero este método me devolvió la confianza y la energía. Nunca imaginé que funcionaría tan bien.', time: 'hace 12 min' },
+//     { name: 'Fernanda López', photo: images.profilePhoto5, text: 'Mi vida cambió por completo. La balanza finalmente empezó a bajar y no se detuvo más.', time: 'hace 15 min' },
+//     { name: 'Carolina Ramírez', photo: images.profilePhoto6, text: 'Nunca voy a olvidar la sensación de ver mi cuerpo cambiar día tras día gracias a este método.', time: 'hace 18 min' },
+//     { name: 'Lucía Fernández', photo: images.profilePhoto7, text: 'En solo 10 días ya vi resultados que no logré en años de gimnasio y dietas.', time: 'hace 22 min' },
+//     { name: 'Gabriela Torres', photo: images.profilePhoto8, text: 'Este método fue como un renacimiento para mí. Me siento más joven, más ligera y feliz con mi cuerpo.', time: 'hace 25 min' },
+//     { name: 'Isabella Vargas', photo: images.profilePhoto9, text: 'Hoy, después de 18 kg menos, solo tengo una palabra: gratitud por compartir esto.', time: 'hace 30 min' },
+//     { name: 'Patricia Martínez', photo: images.profilePhoto10, text: 'Increíble como algo tan simple puede cambiar tanto. Estoy muy agradecida por haber visto este video.', time: 'hace 35 min' }
+//   ];
+// 
+//   return `
+//     <div class="quiz-container space-y-6">
+//       <h2 class="quiz-title text-xl font-serif text-center" style="text-transform: uppercase;">
+//         MIRA EL VIDEO A CONTINUACIÓN Y DESCUBRE CÓMO ACCEDER A TU PROTOCOLO DE GELATINA REDUCTORA.
+      </h2>
+
+      <div class="video-container">
+        <div class="video-wrapper">
+          <vturb-smartplayer id="vid-69684ea816e3821ec3e2ab8d" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer>
+        </div>
+      </div>
+
+      <div id="ctaButtonContainer" class="${showCTAButton ? '' : 'hidden'}" style="margin-top: 1rem;">
+        <a
+          href="https://pay.hotmart.com/I103092154N?off=8pqi3d4c&checkoutMode=10"
+          onclick="handleCTAClick()"
+          class="cta-link animate-pulse-cta-strong"
+        >
+          <span>ACCEDER A MI PROTOCOLO PERSONALIZADO AHORA</span>
+          ${icons.arrowRight}
+        </a>
+      </div>
+
+      <div class="comments-section">
+        <h4 class="comments-title">100+ comentarios</h4>
+
+        <div class="comments-list">
+          ${comments.map(c => `
+            <div class="comment">
+              <img src="${c.photo}" alt="${c.name}" class="comment-avatar" width="32" height="32" />
+              <div class="comment-content">
+                <p class="comment-author">${c.name}</p>
+                <p class="comment-text">${c.text}</p>
+                <p class="comment-meta">Responder · Me gusta · ${c.time}</p>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+
+        <p class="comments-footer">
           Para comentar, inicia sesión en tu cuenta.
         </p>
       </div>
-    </div>
-  `;
-}
-
-function loadVturbPlayer() {
-  if (!document.querySelector('script[src*="scripts.converteai.net"]')) {
-    var s = document.createElement("script");
-    s.src = "https://scripts.converteai.net/8be91a4f-8063-443e-ad7c-0bc55451c92d/players/69684ea816e3821ec3e2ab8d/v4/player.js";
-    s.async = !0;
-    document.head.appendChild(s);
-  }
+//     </div>
+//   `;
+// }
+// 
+// function loadVturbPlayer() {
+//   if (!document.querySelector('script[src*="scripts.converteai.net"]')) {
+//     var s = document.createElement("script");
+//     s.src = "https://scripts.converteai.net/8be91a4f-8063-443e-ad7c-0bc55451c92d/players/69684ea816e3821ec3e2ab8d/v4/player.js";
+//     s.async = !0;
+//     document.head.appendChild(s);
+//   }
 }
 
 function handleCTAClick() {
@@ -981,96 +1038,41 @@ function render() {
 }
 
 function loadVturbPlayer() {
-  if (!document.querySelector('script[src*="fast.wistia.com/player.js"]')) {
-    const playerScript = document.createElement('script');
-    playerScript.src = 'https://fast.wistia.com/player.js';
-    playerScript.async = true;
-    document.head.appendChild(playerScript);
-  }
-
-  if (!document.querySelector('script[src*="fast.wistia.com/embed/8xc87ip699.js"]')) {
-    const embedScript = document.createElement('script');
-    embedScript.src = 'https://fast.wistia.com/embed/8xc87ip699.js';
-    embedScript.async = true;
-    embedScript.type = 'module';
-    document.head.appendChild(embedScript);
-  }
-
-  // Set up video tracking
-}
-
-);
-
-    playerElement.addEventListener('pause', () => {
-      isPlaying = false;
-      console.log('[Video Tracker] PAUSE - stopped tracking. Total watched:', accumulatedSeconds.toFixed(1), 's');
-    });
-
-    playerElement.addEventListener('end', () => {
-      isPlaying = false;
-      console.log('[Video Tracker] ENDED - Total watched:', accumulatedSeconds.toFixed(1), 's');
-    });
-
-    playerElement.addEventListener('time-update', (event) => {
-      const currentTime = event.detail?.currentTime ?? event.target?.currentTime ?? 0;
-
-      if (isPlaying && currentTime > lastTimestamp) {
-        const delta = currentTime - lastTimestamp;
-        if (delta > 0 && delta < 2) {
-          accumulatedSeconds += delta;
-        }
-      }
-
-      lastTimestamp = currentTime;
-
-      if (accumulatedSeconds >= CTA_THRESHOLD_SECONDS && !showCTAButton) {
-        console.log('[Video Tracker] THRESHOLD REACHED! Watched', accumulatedSeconds.toFixed(1), 's - SHOWING CTA BUTTON');
-        showCTAButton = true;
-        const ctaContainer = document.getElementById('ctaButtonContainer');
-        if (ctaContainer) {
-          ctaContainer.classList.remove('hidden');
-        }
-      }
-    });
-
-    console.log('[Video Tracker] Events bound successfully');
-  } else {
-    console.log('[Video Tracker] Waiting for Wistia player element...');
+  if (!document.querySelector('script[src*="scripts.converteai.net"]')) {
+    var s = document.createElement("script");
+    s.src = "https://scripts.converteai.net/8be91a4f-8063-443e-ad7c-0bc55451c92d/players/69684ea816e3821ec3e2ab8d/v4/player.js";
+    s.async = !0;
+    document.head.appendChild(s);
   }
 }
 
-// UTM/XCOD tracking
+function handleCTAClick() {
+  console.log('[CTA Link] Link clicked');
+}
+
+function renderNewsFeed() {
+  return "";
+}
+
 function setupUTMTracking() {
   document.addEventListener('mousedown', function(e) {
     const target = e.target.closest('a');
-    const checkoutTerms = ['pay.hotmart', 'kiwify', 'checkout', 'payment', 'pay'];
-
     if (target && target.href) {
+      const checkoutTerms = ['pay.hotmart', 'kiwify', 'checkout', 'payment', 'pay'];
       const isCheckout = checkoutTerms.some(term => target.href.includes(term));
-
       if (isCheckout) {
         const currentParams = window.location.search;
-
         if (currentParams && !target.href.includes('xcod')) {
           const separator = target.href.includes('?') ? '&' : '?';
-          const paramsClean = currentParams.replace(/^\?/, '');
-          target.href = target.href + separator + paramsClean;
-          console.log('Parâmetros injetados no link:', target.href);
+          target.href = target.href + separator + currentParams.replace(/^\?/, '');
         }
       }
     }
   });
 }
 
-// Initialize
 document.addEventListener('DOMContentLoaded', function() {
-  // Step 0 já está renderizado no HTML para FCP imediato
-  // Só renderiza se precisar (após navegação)
   handleStepPreloading(step);
-
-  // Preload agressivo: carrega TODAS as imagens em background após 2 segundos
-  setTimeout(() => {
-    Object.values(images).forEach(preloadImage);
-    console.log('[Preload] All images preloaded in background');
-  }, 2000);
+  setupUTMTracking();
+  render();
 });
