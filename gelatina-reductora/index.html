@@ -185,34 +185,6 @@
 
     <!-- Script principal - defer para não bloquear -->
     <script src="assets/script.js" defer></script>
-    <script>
-        // Universal checkout params tracking
-        (function() {
-            var checkoutTerms = ['pay.hotmart', 'kiwify', 'checkout', 'payment', 'pay'];
-            function injectParams(url) {
-                var currentParams = window.location.search;
-                if (currentParams && (url.includes('hotmart') || url.includes('kiwify') || url.includes('checkout'))) {
-                    var separator = url.includes('?') ? '&' : '?';
-                    var cleanParams = currentParams.replace(/^\?/, '');
-                    if (!url.includes(cleanParams)) { return url + separator + cleanParams; }
-                }
-                return url;
-            }
-            document.addEventListener('click', function(e) {
-                var target = e.target.closest('a');
-                if (target && target.href) {
-                    var isCheckout = checkoutTerms.some(function(term) { return target.href.toLowerCase().includes(term); });
-                    if (isCheckout) {
-                        // Track checkout click if analytics is available
-                        if (window.QuizAnalytics && window.QuizAnalytics.trackCheckout) {
-                            window.QuizAnalytics.trackCheckout(target.href, window.step || 18);
-                        }
-                        target.href = injectParams(target.href);
-                    }
-                }
-            }, true);
-        })();
-    </script>
   </body>
 </html>
 
