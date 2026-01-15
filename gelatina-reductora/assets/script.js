@@ -12,7 +12,6 @@ let loadingInterval = null;
 let carouselInterval = null;
 const preloadedImages = new Set();
 let checkoutPreconnected = false;
-let wistiaBindied = false;
 
 // SVG Icons
 const icons = {
