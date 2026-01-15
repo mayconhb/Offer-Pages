@@ -754,7 +754,11 @@ function renderVideoPage() {
       </h2>
 
       <div id="vturb-container-placeholder" class="vturb-container mt-6" style="width: 100%; max-width: 400px; margin: 0 auto; min-height: 225px;">
-        <vturb-smartplayer id="vid-69684ea816e3821ec3e2ab8d" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer>
+        <div id="ifr_69684ea816e3821ec3e2ab8d_wrapper" style="margin: 0 auto; width: 100%; max-width: 400px;"> 
+          <div style="position: relative; padding: 152.59259259259258% 0 0 0;" id="ifr_69684ea816e3821ec3e2ab8d_aspect"> 
+            <iframe frameborder="0" allowfullscreen src="about:blank" id="ifr_69684ea816e3821ec3e2ab8d" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" referrerpolicy="origin" onload=" this.onload=null, this.src='https://scripts.converteai.net/8be91a4f-8063-443e-ad7c-0bc55451c92d/players/69684ea816e3821ec3e2ab8d/v4/embed.html' +(location.search||'?') +'&vl=' +encodeURIComponent(location.href)"></iframe> 
+          </div> 
+        </div>
       </div>
 
       <section id="CTA" style="display: none; text-align: center; margin-top: 2rem;">
@@ -1037,7 +1041,7 @@ function loadVturbSDK() {
   if (!window.vturbScriptLoaded) {
     console.log('[Vturb] Loading player script...');
     var s = document.createElement("script");
-    s.src = "https://scripts.converteai.net/8be91a4f-8063-443e-ad7c-0bc55451c92d/players/69684ea816e3821ec3e2ab8d/v4/player.js";
+    s.src = "https://scripts.converteai.net/lib/js/smartplayer-wc/v4/sdk.js";
     s.async = true;
     document.head.appendChild(s);
     window.vturbScriptLoaded = true;
