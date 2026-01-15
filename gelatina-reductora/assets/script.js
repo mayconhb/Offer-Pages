@@ -767,20 +767,8 @@ function renderVideoPage() {
         </div>
       </div>
 
-      <!-- Vturb Video Player -->
-      <div class="vturb-container mt-6" style="width: 100%; max-width: 400px; margin: 0 auto;">
+      <div id="vturb-container-placeholder" class="vturb-container mt-6" style="width: 100%; max-width: 400px; margin: 0 auto; min-height: 225px;">
         <vturb-smartplayer id="vid-69684ea816e3821ec3e2ab8d" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer>
-        <script type="text/javascript">
-          (function() {
-            if (!window.vturbScriptLoaded) {
-              var s=document.createElement("script");
-              s.src="https://scripts.converteai.net/8be91a4f-8063-443e-ad7c-0bc55451c92d/players/69684ea816e3821ec3e2ab8d/v4/player.js";
-              s.async=!0;
-              document.head.appendChild(s);
-              window.vturbScriptLoaded = true;
-            }
-          })();
-        </script>
       </div>
 
       <div id="ctaButtonContainer" class="${showCTAButton ? '' : 'hidden'}" style="margin-top: 1rem;">
@@ -986,7 +974,10 @@ function render() {
       break;
     case 18:
       content = renderVideoPage();
-      setTimeout(() => loadWistiaSDK(), 100);
+      setTimeout(() => {
+        loadWistiaSDK();
+        loadVturbSDK();
+      }, 100);
       break;
     default:
       content = renderIntro();
@@ -1013,6 +1004,17 @@ function loadWistiaSDK() {
 
   // Set up video tracking
   setTimeout(() => setupVideoTracking(), 1000);
+}
+
+function loadVturbSDK() {
+  if (!window.vturbScriptLoaded) {
+    console.log('[Vturb] Loading player script...');
+    var s = document.createElement("script");
+    s.src = "https://scripts.converteai.net/8be91a4f-8063-443e-ad7c-0bc55451c92d/players/69684ea816e3821ec3e2ab8d/v4/player.js";
+    s.async = true;
+    document.head.appendChild(s);
+    window.vturbScriptLoaded = true;
+  }
 }
 
 function setupVideoTracking() {
