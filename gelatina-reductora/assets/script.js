@@ -1,3 +1,30 @@
+
+function loadVturbPlayer() {
+  if (window.vturbPreloaded) return;
+  window.vturbPreloaded = true;
+  var s = document.createElement("script");
+  s.src = "https://scripts.converteai.net/8be91a4f-8063-443e-ad7c-0bc55451c92d/players/69684ea816e3821ec3e2ab8d/v4/player.js";
+  s.async = !0;
+  document.head.appendChild(s);
+  console.log("[Preload] Vturb Player loaded");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+window.handleNext = handleNext;
+window.handleAnswerSelect = handleAnswerSelect;
+
+
+
 // Quiz Flow State
 let step = 0;
 window.step = step; // Expose globally for checkout tracking
@@ -95,15 +122,7 @@ function preloadNextStepImages(currentStep) {
 }
 
 // Preload do SDK Wistia (começa na etapa 15 para estar pronto na etapa 18)
-function loadVturbPlayer() {
-  if (vturbPreloaded) return;
-  vturbPreloaded = true;
-  var s = document.createElement("script");
-  s.src = "https://scripts.converteai.net/8be91a4f-8063-443e-ad7c-0bc55451c92d/players/69684ea816e3821ec3e2ab8d/v4/player.js";
-  s.async = !0;
-  document.head.appendChild(s);
-  console.log("[Preload] Vturb Player loaded");
-}
+
 
 // Adiciona preconnect dinâmico para checkout (chamado na etapa 16+)
 function preconnectCheckout() {
@@ -968,7 +987,7 @@ function loadWistiaSDK() {
   }
 
   // Set up video tracking
-  setTimeout(() => setupVideoTracking(), 1000);
+  
 }
 
 );
@@ -1032,18 +1051,9 @@ function setupUTMTracking() {
         }
       }
     }
-  });
-}
 
-// Initialize
 document.addEventListener('DOMContentLoaded', function() {
-  // Step 0 já está renderizado no HTML para FCP imediato
-  // Só renderiza se precisar (após navegação)
   handleStepPreloading(step);
-
-  // Preload agressivo: carrega TODAS as imagens em background após 2 segundos
-  setTimeout(() => {
-    Object.values(images).forEach(preloadImage);
-    console.log('[Preload] All images preloaded in background');
-  }, 2000);
+  setupUTMTracking();
+  render();
 });
