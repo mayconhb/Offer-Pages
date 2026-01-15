@@ -1,0 +1,1419 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gelatina Reductora</title>
+    
+    <!-- DNS Prefetch -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    
+    <!-- Preconnect para fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Preload imagem hero (LCP) -->
+    <link rel="preload" href="assets/images/baixados_1764452903199.webp" as="image" fetchpriority="high">
+    
+    <!-- CSS CRÍTICO INLINE - Pintura imediata -->
+    <style>
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --news-black: #121212;
+  --news-yellow: #F7D844;
+  --news-blue: #005596;
+  --news-gray: #4a4a4a;
+  --news-lightgray: #f5f5f5;
+}
+
+/* Performance: Otimização de renderização */
+img {
+  content-visibility: auto;
+  background-color: #f3f4f6;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: white;
+  color: var(--news-black);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+}
+
+.font-serif {
+  font-family: 'Merriweather', Georgia, 'Times New Roman', serif;
+}
+
+/* Header */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: white;
+  border-bottom: 1px solid #d1d5db;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.header-container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.menu-btn, .user-btn {
+  color: var(--news-black);
+  padding: 0.25rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.logo {
+  height: 1.5rem;
+  width: 120px;
+  user-select: none;
+  pointer-events: none;
+}
+
+.subscribe-btn {
+  background-color: var(--news-yellow);
+  color: black;
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 0.375rem 0.75rem;
+  border-radius: 1px;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  transition: background-color 0.2s;
+}
+
+.subscribe-btn:hover {
+  background-color: #ebd040;
+}
+
+/* Main Container */
+.main-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+
+.main-content {
+  flex-grow: 1;
+  width: 100%;
+  max-width: 32rem;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+@media (min-width: 768px) {
+  .main-content {
+    padding: 1rem 0;
+  }
+}
+
+/* Category Label */
+.category-label {
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.category-text {
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #c00;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Quiz Flow */
+.quiz-container {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.quiz-title {
+  font-family: 'Merriweather', serif;
+  font-size: 1.25rem;
+  font-weight: bold;
+  line-height: 1.4;
+  color: var(--news-black);
+}
+
+.quiz-title-lg {
+  font-size: 1.5rem;
+}
+
+.quiz-subtitle {
+  font-family: 'Merriweather', serif;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: #374151;
+}
+
+.quiz-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 0.375rem;
+  aspect-ratio: 4 / 3;
+  min-height: 280px;
+  background-color: #f3f4f6;
+}
+
+/* Yellow Highlight Box */
+.highlight-box {
+  background-color: #fefce8;
+  border-left: 4px solid var(--news-yellow);
+  padding: 0.75rem;
+}
+
+.highlight-text {
+  font-family: 'Merriweather', serif;
+  font-size: 0.75rem;
+  font-style: italic;
+  color: #374151;
+}
+
+/* CTA Button */
+.cta-button {
+  width: 100%;
+  background-color: var(--news-yellow);
+  color: black;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.25rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.cta-button:hover {
+  background-color: #ebd040;
+  transform: scale(1.02);
+}
+
+.cta-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.cta-button-lg {
+  font-size: 1.125rem;
+  padding: 1rem 1.5rem;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(247, 216, 68, 0.7);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 0 0 20px 5px rgba(247, 216, 68, 0.4);
+  }
+}
+
+@keyframes pulse-glow-strong {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(247, 216, 68, 0.9);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px 10px rgba(247, 216, 68, 0.6);
+  }
+}
+
+.animate-pulse-cta-strong {
+  animation: pulse-glow-strong 1.2s ease-in-out infinite;
+}
+
+/* Check List */
+.check-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.check-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.check-icon {
+  width: 0.75rem;
+  height: 0.75rem;
+  color: var(--news-yellow);
+}
+
+/* Option Buttons */
+.options-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.option-button {
+  width: 100%;
+  text-align: left;
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  padding: 1rem;
+  border-radius: 0.375rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: 500;
+  color: #1f2937;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.option-button:hover {
+  border-color: var(--news-yellow);
+  background-color: #fefce8;
+}
+
+.option-arrow {
+  width: 1rem;
+  height: 1rem;
+  color: #d1d5db;
+  transition: color 0.2s;
+}
+
+.option-button:hover .option-arrow {
+  color: var(--news-yellow);
+}
+
+/* Slider */
+.slider-container {
+  padding: 0 0.5rem;
+}
+
+.slider-value {
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.slider-number {
+  font-size: 3.75rem;
+  font-weight: bold;
+  font-family: 'Merriweather', serif;
+  color: var(--news-black);
+}
+
+.slider-unit {
+  font-size: 1.5rem;
+  font-family: 'Merriweather', serif;
+  color: #6b7280;
+  margin-left: 0.5rem;
+}
+
+.slider-track-container {
+  position: relative;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+.slider-track {
+  position: absolute;
+  width: 100%;
+  height: 0.75rem;
+  background-color: #e5e7eb;
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.slider-fill {
+  height: 100%;
+  background: linear-gradient(to right, var(--news-yellow), #f97316);
+  border-radius: 9999px;
+  transition: width 0.1s;
+}
+
+.slider-thumb {
+  position: absolute;
+  width: 1.75rem;
+  height: 1.75rem;
+  background-color: white;
+  border: 4px solid var(--news-yellow);
+  border-radius: 9999px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  pointer-events: none;
+  transform: translateX(-50%);
+}
+
+.slider-input {
+  position: absolute;
+  width: 100%;
+  height: 2rem;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.slider-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  color: #9ca3af;
+  font-weight: 500;
+}
+
+.slider-helper {
+  background-color: #f9fafb;
+  border: 1px solid #f3f4f6;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  text-align: center;
+}
+
+.slider-helper-text {
+  font-size: 0.875rem;
+  color: #4b5563;
+  font-family: 'Merriweather', serif;
+}
+
+/* Input Field */
+.input-field {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.25rem;
+  background-color: white;
+  color: #111827;
+  font-size: 1.125rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input-field:focus {
+  border-color: var(--news-yellow);
+  box-shadow: 0 0 0 1px var(--news-yellow);
+}
+
+.input-field::placeholder {
+  color: #9ca3af;
+}
+
+/* Testimonials */
+.testimonial-card {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  border: 1px solid #f3f4f6;
+  overflow: hidden;
+}
+
+.testimonial-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+  min-height: 300px;
+  background-color: #f3f4f6;
+}
+
+.testimonial-content {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.testimonial-quote {
+  font-family: 'Merriweather', serif;
+  font-style: italic;
+  color: #374151;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  border-left: 4px solid var(--news-yellow);
+  padding-left: 0.75rem;
+}
+
+.testimonial-author {
+  font-weight: bold;
+  color: var(--news-black);
+  font-size: 0.875rem;
+}
+
+.testimonial-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.stars {
+  color: #fbbf24;
+}
+
+/* Loading */
+.loading-container {
+  text-align: center;
+  padding: 2.5rem 0;
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  height: 16rem;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+
+.carousel-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.5s;
+  background-color: #f3f4f6;
+  will-change: opacity;
+}
+
+.carousel-dots {
+  position: absolute;
+  bottom: 0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+}
+
+.carousel-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background-color: rgba(255,255,255,0.6);
+  transition: all 0.3s;
+}
+
+.carousel-dot.active {
+  background-color: var(--news-yellow);
+  width: 1rem;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 1rem;
+  background-color: #e5e7eb;
+  border-radius: 9999px;
+  margin-bottom: 1rem;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: var(--news-yellow);
+  border-radius: 9999px;
+  transition: width 0.075s ease-out;
+}
+
+.progress-text {
+  font-family: 'Merriweather', serif;
+  font-size: 1.125rem;
+  font-weight: bold;
+}
+
+/* IMC Result */
+.imc-display {
+  text-align: center;
+}
+
+.imc-label {
+  color: #4b5563;
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+
+.imc-value {
+  font-size: 2.25rem;
+  font-weight: bold;
+  color: #f97316;
+}
+
+.imc-bar-container {
+  position: relative;
+  margin-top: 3rem;
+  padding-top: 0.5rem;
+}
+
+.imc-indicator {
+  position: absolute;
+  top: -1.25rem;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+}
+
+.imc-indicator-label {
+  color: #f97316;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-bottom: 0.125rem;
+}
+
+.imc-indicator-arrow {
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 10px solid #f97316;
+}
+
+.imc-bar {
+  display: flex;
+  height: 2rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.imc-bar-section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: white;
+}
+
+.imc-bajo { background-color: #3b82f6; }
+.imc-normal { background-color: #22c55e; }
+.imc-sobrepeso { background-color: #f97316; }
+.imc-obesidad { background-color: #ef4444; }
+
+.imc-bar-section.active {
+  box-shadow: 0 0 0 2px white, 0 0 0 4px currentColor;
+}
+
+/* Alert Signs */
+.alert-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  font-family: 'Merriweather', serif;
+  color: #374151;
+}
+
+.alert-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.alert-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+
+.alert-icon.red { color: #ef4444; }
+.alert-icon.green { color: #16a34a; }
+
+/* Comparison Table */
+.comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.comparison-column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.comparison-title {
+  font-weight: bold;
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+.comparison-title.red { color: #ef4444; }
+.comparison-title.green { color: #16a34a; }
+
+.comparison-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.comparison-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.comparison-icon {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+
+/* Video Page */
+.video-container {
+  position: relative;
+  width: 100%;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.video-wrapper {
+  width: 100%;
+}
+
+/* Comments */
+.comments-section {
+  border-top: 1px solid #e5e7eb;
+  padding-top: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.comments-title {
+  font-weight: bold;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.comments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.comment {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.comment-avatar {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  flex-shrink: 0;
+  object-fit: cover;
+  background-color: #e5e7eb;
+  aspect-ratio: 1 / 1;
+}
+
+.comment-content {
+  flex: 1;
+}
+
+.comment-author {
+  font-weight: bold;
+  font-size: 0.875rem;
+}
+
+.comment-text {
+  font-size: 0.75rem;
+  color: #4b5563;
+  margin-top: 0.25rem;
+}
+
+.comment-meta {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  margin-top: 0.25rem;
+}
+
+.comments-footer {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  text-align: center;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+/* News Feed */
+.divider {
+  height: 0.25rem;
+  width: 100%;
+  background-color: #f3f4f6;
+  margin: 2rem 0;
+  border-radius: 9999px;
+}
+
+.newsfeed {
+  margin-top: 2rem;
+  contain: layout style;
+}
+
+.newsfeed-title {
+  font-weight: bold;
+  font-size: 1.125rem;
+  border-bottom: 2px solid black;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: -0.025em;
+}
+
+.stories-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.story {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  cursor: pointer;
+}
+
+.story-title {
+  font-family: 'Merriweather', serif;
+  font-weight: bold;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  transition: color 0.2s;
+}
+
+.story:hover .story-title {
+  color: var(--news-blue);
+}
+
+.story-excerpt {
+  color: var(--news-gray);
+  font-family: 'Merriweather', serif;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.story-image-container {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  min-height: 180px;
+  overflow: hidden;
+  border-radius: 0.125rem;
+  background-color: #f3f4f6;
+  contain: layout style paint;
+}
+
+.story-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+  background-color: #f3f4f6;
+}
+
+.story:hover .story-image {
+  transform: scale(1.05);
+}
+
+.story-divider {
+  width: 100%;
+  height: 1px;
+  background-color: #e5e7eb;
+  margin-top: 1rem;
+}
+
+/* Utilities */
+.space-y-3 > * + * { margin-top: 0.75rem; }
+.space-y-4 > * + * { margin-top: 1rem; }
+.space-y-6 > * + * { margin-top: 1.5rem; }
+.space-y-8 > * + * { margin-top: 2rem; }
+
+.mt-4 { margin-top: 1rem; }
+.mt-6 { margin-top: 1.5rem; }
+.mb-4 { margin-bottom: 1rem; }
+.mb-6 { margin-bottom: 1.5rem; }
+.mb-8 { margin-bottom: 2rem; }
+.py-4 { padding-top: 1rem; padding-bottom: 1rem; }
+
+.text-center { text-align: center; }
+.font-bold { font-weight: bold; }
+.text-sm { font-size: 0.875rem; }
+.text-xs { font-size: 0.75rem; }
+.text-lg { font-size: 1.125rem; }
+.text-xl { font-size: 1.25rem; }
+.text-2xl { font-size: 1.5rem; }
+
+.text-black { color: var(--news-black); }
+.text-gray-500 { color: #6b7280; }
+.text-gray-600 { color: #4b5563; }
+.text-gray-700 { color: #374151; }
+
+.underline-yellow {
+  text-decoration: underline;
+  text-decoration-color: var(--news-yellow);
+  text-decoration-thickness: 2px;
+}
+
+.hidden { display: none; }
+
+/* SVG Icons */
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+}
+
+/* CTA Link */
+.cta-link {
+  width: 100%;
+  background-color: var(--news-yellow);
+  color: black;
+  font-weight: bold;
+  font-size: 1.125rem;
+  padding: 1rem 1.5rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  animation: pulse-glow-strong 1.2s ease-in-out infinite;
+}
+
+.cta-link:hover {
+  background-color: #ebd040;
+}
+
+/* Video Page - White Background */
+body.video-page {
+  background-color: white !important;
+}
+
+body.video-page .main-container {
+  background-color: white !important;
+}
+
+body.video-page .header {
+  background-color: white !important;
+}
+    </style>
+    
+    <!-- Fontes - carrega async -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Merriweather:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet"></noscript>
+  </head>
+  <body>
+    <div class="main-container">
+      <!-- Header -->
+      <header class="header">
+        <div class="header-container">
+          <div class="header-left">
+            <button class="menu-btn" aria-label="Menu">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
+            </button>
+            <img src="assets/images/el-pais_1764448317569.png" alt="EL PAÍS" class="logo" width="120" height="22" fetchpriority="high" decoding="async" />
+          </div>
+          <div class="header-right">
+            <button class="subscribe-btn">Suscríbete</button>
+            <button class="user-btn" aria-label="Usuario">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <div class="category-label">
+          <span class="category-text">PÉRDIDA DE PESO</span>
+        </div>
+
+        <!-- Quiz Container - Primeiro passo renderizado inline para FCP imediato -->
+        <div id="quiz-container">
+          <div class="quiz-container space-y-3">
+            <h1 class="quiz-title font-serif">
+              GOMITA SORPRENDE A SUS FANS AL REVELAR CÓMO PERDIÓ 8 KG CON UNA GELATINA REDUCTORA CONSUMIDA ANTES DE LAS COMIDAS
+            </h1>
+            <p class="quiz-subtitle font-serif">
+              El cambio radical ocurrió después de que la influencer mexicana realizara una <strong>PRUEBA GRATUITA</strong> del Protocolo de la Gelatina Reductora, que activa las células adelgazantes del intestino y permite perder de <strong>3 a 5 kg en solo 7 días</strong> — sin dieta, sin medicamentos y sin gimnasio.
+            </p>
+
+            <div class="highlight-box">
+              <p class="highlight-text">
+                "Esta gelatina reductora es la forma más rápida y natural de eliminar la grasa abdominal que he visto en mi vida." — Dr. Alejandro Pérez
+              </p>
+            </div>
+
+            <div class="carousel-container">
+              <img id="carousel-img" src="assets/images/baixados_1764452903199.webp" alt="Influencer Gomita" class="carousel-image" loading="eager" />
+              <div class="carousel-dots" id="carousel-dots">
+                <div class="carousel-dot active"></div>
+                <div class="carousel-dot"></div>
+                <div class="carousel-dot"></div>
+              </div>
+            </div>
+
+            <div class="check-list">
+              <div class="check-item">
+                <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                <span>Activación de la hormona quemagrasa</span>
+              </div>
+              <div class="check-item">
+                <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                <span>Control total del hambre y la ansiedad</span>
+              </div>
+              <div class="check-item">
+                <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                <span>Pérdida de peso natural y definitiva</span>
+              </div>
+            </div>
+
+            <div class="py-4">
+              <p class="text-sm font-bold text-center mb-4">
+                ¿Cuántos kilos te gustaría perder?
+              </p>
+              <button onclick="handleNext(1)" class="cta-button">
+                COMENZAR TEST GRATUITO
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- News Feed Section (Below the fold) -->
+        <div id="newsfeed" class="newsfeed">
+          <h2 class="newsfeed-title">Más Noticias</h2>
+          <div class="stories-list">
+            <article class="story">
+              <div class="story-image-container">
+                <img src="assets/images/image_1768246321794.png" alt="Salud" class="story-image" loading="lazy" />
+              </div>
+              <h3 class="story-title">El fin de la obesidad: Nuevo estudio revela por qué algunas personas no engordan</h3>
+              <p class="story-excerpt">Científicos de Harvard identifican la bacteria intestinal responsable de la quema acelerada de calorías...</p>
+              <div class="story-divider"></div>
+            </article>
+
+            <article class="story">
+              <div class="story-image-container">
+                <img src="assets/images/image_1768246844407.png" alt="Bienestar" class="story-image" loading="lazy" />
+              </div>
+              <h3 class="story-title">5 Alimentos que debes evitar si quieres perder grasa abdominal</h3>
+              <p class="story-excerpt">Nutricionistas advierten sobre los peligros ocultos en productos que parecen saludables...</p>
+              <div class="story-divider"></div>
+            </article>
+
+            <article class="story">
+              <div class="story-image-container">
+                <img src="assets/images/image_1768246283148.png" alt="Fitness" class="story-image" loading="lazy" />
+              </div>
+              <h3 class="story-title">Caminar 30 minutos al día: ¿Es suficiente para transformar tu cuerpo?</h3>
+              <p class="story-excerpt">Los beneficios reales de la actividad física moderada y cómo potenciar sus resultados con la alimentación...</p>
+              <div class="story-divider"></div>
+            </article>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+      // Quiz State
+      const state = {
+        step: 0,
+        gender: '',
+        age: 30,
+        targetWeight: 5,
+        height: 165,
+        weight: 70,
+        imc: 0,
+        email: ''
+      };
+
+      // Carousel
+      const carouselImages = [
+        'assets/images/baixados_1764452903199.webp',
+        'assets/images/image_1768246015611.png',
+        'assets/images/image_1768245927185.png'
+      ];
+      let currentIdx = 0;
+
+      function updateCarousel() {
+        const img = document.getElementById('carousel-img');
+        const dots = document.getElementById('carousel-dots')?.children;
+        
+        if (img) {
+          img.style.opacity = '0';
+          setTimeout(() => {
+            img.src = carouselImages[currentIdx];
+            img.style.opacity = '1';
+          }, 500);
+        }
+
+        if (dots) {
+          Array.from(dots).forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentIdx);
+          });
+        }
+      }
+
+      setInterval(() => {
+        currentIdx = (currentIdx + 1) % carouselImages.length;
+        updateCarousel();
+      }, 4000);
+
+      // Steps Implementation
+      function renderStep(step) {
+        const container = document.getElementById('quiz-container');
+        const newsfeed = document.getElementById('newsfeed');
+        
+        // Esconde newsfeed a partir do passo 1
+        if (step > 0) {
+          newsfeed.classList.add('hidden');
+          window.scrollTo(0, 0);
+        } else {
+          newsfeed.classList.remove('hidden');
+        }
+
+        let html = '';
+
+        switch(step) {
+          case 1:
+            html = `
+              <div class="quiz-container space-y-6">
+                <div class="progress-bar"><div class="progress-fill" style="width: 15%"></div></div>
+                <h2 class="quiz-title text-center">¿Cuál es su género?</h2>
+                <div class="options-container">
+                  <button onclick="handleOption('gender', 'mujer')" class="option-button">
+                    <span>Mujer</span>
+                    <svg class="option-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" /></svg>
+                  </button>
+                  <button onclick="handleOption('gender', 'hombre')" class="option-button">
+                    <span>Hombre</span>
+                    <svg class="option-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" /></svg>
+                  </button>
+                </div>
+              </div>
+            `;
+            break;
+
+          case 2:
+            html = `
+              <div class="quiz-container space-y-6">
+                <div class="progress-bar"><div class="progress-fill" style="width: 30%"></div></div>
+                <h2 class="quiz-title text-center">¿Qué edad tienes?</h2>
+                <div class="slider-container">
+                  <div class="slider-value"><span class="slider-number" id="age-val">${state.age}</span><span class="slider-unit">años</span></div>
+                  <div class="slider-track-container">
+                    <div class="slider-track"><div class="slider-fill" id="age-fill" style="width: ${((state.age-18)/(80-18))*100}%"></div></div>
+                    <input type="range" min="18" max="80" value="${state.age}" class="slider-input" oninput="updateSlider('age', this.value)">
+                    <div class="slider-thumb" id="age-thumb" style="left: ${((state.age-18)/(80-18))*100}%"></div>
+                  </div>
+                  <div class="slider-labels"><span>18</span><span>80</span></div>
+                </div>
+                <button onclick="handleNext(3)" class="cta-button-lg cta-button">CONTINUAR</button>
+              </div>
+            `;
+            break;
+
+          case 3:
+            html = `
+              <div class="quiz-container space-y-6">
+                <div class="progress-bar"><div class="progress-fill" style="width: 45%"></div></div>
+                <h2 class="quiz-title text-center">¿Cuántos kilos te gustaría perder?</h2>
+                <div class="slider-container">
+                  <div class="slider-value"><span class="slider-number" id="target-val">${state.targetWeight}</span><span class="slider-unit">kg</span></div>
+                  <div class="slider-track-container">
+                    <div class="slider-track"><div class="slider-fill" id="target-fill" style="width: ${((state.targetWeight-2)/(40-2))*100}%"></div></div>
+                    <input type="range" min="2" max="40" value="${state.targetWeight}" class="slider-input" oninput="updateSlider('target', this.value)">
+                    <div class="slider-thumb" id="target-thumb" style="left: ${((state.targetWeight-2)/(40-2))*100}%"></div>
+                  </div>
+                  <div class="slider-labels"><span>2kg</span><span>40kg+</span></div>
+                </div>
+                <div class="slider-helper">
+                  <p class="slider-helper-text">"La mayoría de las personas con su perfil logran esta meta en menos de 30 días con el protocolo."</p>
+                </div>
+                <button onclick="handleNext(4)" class="cta-button-lg cta-button">CONTINUAR</button>
+              </div>
+            `;
+            break;
+
+          case 4:
+            html = `
+              <div class="quiz-container space-y-6">
+                <div class="progress-bar"><div class="progress-fill" style="width: 60%"></div></div>
+                <h2 class="quiz-title text-center">Sus medidas actuales</h2>
+                <div class="space-y-4">
+                  <div>
+                    <label class="text-xs font-bold text-gray-500 uppercase">Altura (cm)</label>
+                    <input type="number" value="${state.height}" onchange="state.height = this.value" class="input-field">
+                  </div>
+                  <div>
+                    <label class="text-xs font-bold text-gray-500 uppercase">Peso actual (kg)</label>
+                    <input type="number" value="${state.weight}" onchange="state.weight = this.value" class="input-field">
+                  </div>
+                </div>
+                <button onclick="calculateIMC()" class="cta-button-lg cta-button">CALCULAR RESULTADO</button>
+              </div>
+            `;
+            break;
+
+          case 5:
+            html = `
+              <div class="quiz-container space-y-6">
+                <div class="progress-bar"><div class="progress-fill" style="width: 75%"></div></div>
+                <div class="imc-display">
+                  <p class="imc-label">Su IMC actual es:</p>
+                  <p class="imc-value">${state.imc}</p>
+                  <div class="imc-bar-container">
+                    <div class="imc-indicator" style="left: ${Math.min(Math.max((state.imc - 15) / (40 - 15) * 100, 0), 100)}%">
+                      <span class="imc-indicator-label">USTED</span>
+                      <div class="imc-indicator-arrow"></div>
+                    </div>
+                    <div class="imc-bar">
+                      <div class="imc-bar-section imc-bajo">Bajo</div>
+                      <div class="imc-bar-section imc-normal">Normal</div>
+                      <div class="imc-bar-section imc-sobrepeso">Sobrep.</div>
+                      <div class="imc-bar-section imc-obesidad">Obeso</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="alert-list">
+                  <h3 class="font-bold text-black">Signos de Alerta Detectados:</h3>
+                  <div class="alert-item">
+                    <svg class="alert-icon red" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" /></svg>
+                      <span>Su metabolismo está en modo "Almacenamiento de Grasa".</span>
+                  </div>
+                  <div class="alert-item">
+                    <svg class="alert-icon red" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" /></svg>
+                    <span>Alta concentración de grasa visceral (inflamatoria).</span>
+                  </div>
+                  <div class="alert-item">
+                    <svg class="alert-icon green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+                    <span>Su cuerpo es apto para el Protocolo de la Gelatina Reductora.</span>
+                  </div>
+                </div>
+
+                <button onclick="handleNext(6)" class="cta-button-lg cta-button">VER MI PLAN DE ACCIÓN</button>
+              </div>
+            `;
+            break;
+
+          case 6:
+            html = `
+              <div class="quiz-container space-y-6">
+                <div class="progress-bar"><div class="progress-fill" style="width: 90%"></div></div>
+                <h2 class="quiz-title text-center">¿Dónde enviamos su acceso?</h2>
+                <p class="text-sm text-gray-600 text-center">Necesitamos su correo electrónico para liberar su video tutorial gratuito.</p>
+                <input type="email" placeholder="su@email.com" onchange="state.email = this.value" class="input-field">
+                <button onclick="finalizeQuiz()" class="cta-button-lg cta-button">MOSTRAR VIDEO AHORA</button>
+                <p class="text-xs text-gray-500 text-center">Respetamos su privacidad. Sus datos están seguros.</p>
+              </div>
+            `;
+            break;
+
+          case 7:
+            // Página do Vídeo
+            document.body.classList.add('video-page');
+            html = `
+              <div class="quiz-container space-y-6">
+                <h2 class="quiz-title text-center text-xl">¡PROTOCOLO LIBERADO!</h2>
+                
+                <div class="video-container">
+                   <div class="video-wrapper">
+                    <!-- Placeholder para VSL -->
+                    <div style="padding:56.25% 0 0 0;position:relative;">
+                      <iframe src="https://scripts.converteai.net/0550ab24-1cb7-4d8f-84fc-ea489f14d565/players/6786a34493540509a27e7403/embed.html" id="video-iframe" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="check-list">
+                  <div class="check-item"><svg class="check-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg><span>Vea el video hasta el final</span></div>
+                  <div class="check-item"><svg class="check-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg><span>No cierre esta página</span></div>
+                </div>
+
+                <div id="cta-vsl" class="hidden">
+                   <a href="https://pay.hotmart.com/L97395431R?off=06960p49&checkoutMode=10&bid=1736952735741" class="cta-link animate-pulse-cta-strong">
+                    SÍ, QUIERO LA GELATINA REDUCTORA
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                  </a>
+                </div>
+
+                <div class="comments-section">
+                  <h3 class="comments-title">Comentarios (154)</h3>
+                  <div class="comments-list">
+                    <div class="comment">
+                      <img src="https://i.pravatar.cc/100?u=maria" class="comment-avatar">
+                      <div class="comment-content">
+                        <p class="comment-author">Maria Elena G.</p>
+                        <p class="comment-text">¡No puedo creerlo! Llevo 10 días y ya perdí 4 kg. La gelatina es riquísima y de verdad quita el hambre.</p>
+                        <p class="comment-meta">Hace 2 horas • Me gusta • Responder</p>
+                      </div>
+                    </div>
+                    <div class="comment">
+                      <img src="https://i.pravatar.cc/100?u=lucia" class="comment-avatar">
+                      <div class="comment-content">
+                        <p class="comment-author">Lucía Fernandez</p>
+                        <p class="comment-text">¿Alguien sabe si funciona para personas de más de 50 años? Mi metabolismo es muy lento.</p>
+                        <p class="comment-meta">Hace 4 horas • Me gusta • Responder</p>
+                      </div>
+                    </div>
+                    <div class="comment">
+                      <img src="https://i.pravatar.cc/100?u=carlos" class="comment-avatar">
+                      <div class="comment-content">
+                        <p class="comment-author">Dra. Claudia R.</p>
+                        <p class="comment-text">@Lucía Sí funciona, Lucía. El protocolo activa la hormona GLP-1 independientemente de la edad. Saludos.</p>
+                        <p class="comment-meta">Hace 1 hora • Me gusta • Responder</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="comments-footer">Debe estar conectado para comentar.</div>
+                </div>
+              </div>
+            `;
+            
+            // Script para mostrar botão após tempo (delay de 10 min como exemplo, ou sincronizado com vídeo)
+            setTimeout(() => {
+              const cta = document.getElementById('cta-vsl');
+              if (cta) cta.classList.remove('hidden');
+            }, 5000); // Exibe em 5s para demonstração
+            break;
+        }
+
+        container.innerHTML = html;
+      }
+
+      function handleNext(nextStep) {
+        state.step = nextStep;
+        renderStep(nextStep);
+      }
+
+      function handleOption(key, value) {
+        state[key] = value;
+        handleNext(state.step + 1);
+      }
+
+      function updateSlider(key, val) {
+        const num = parseInt(val);
+        const min = key === 'age' ? 18 : 2;
+        const max = key === 'age' ? 80 : 40;
+        const pct = ((num - min) / (max - min)) * 100;
+
+        if (key === 'age') {
+          state.age = num;
+          document.getElementById('age-val').innerText = num;
+          document.getElementById('age-fill').style.width = pct + '%';
+          document.getElementById('age-thumb').style.left = pct + '%';
+        } else {
+          state.targetWeight = num;
+          document.getElementById('target-val').innerText = num;
+          document.getElementById('target-fill').style.width = pct + '%';
+          document.getElementById('target-thumb').style.left = pct + '%';
+        }
+      }
+
+      function calculateIMC() {
+        const h = state.height / 100;
+        state.imc = (state.weight / (h * h)).toFixed(1);
+        handleNext(5);
+      }
+
+      function finalizeQuiz() {
+        if (!state.email.includes('@')) {
+          alert('Por favor, ingrese un email válido.');
+          return;
+        }
+        
+        const container = document.getElementById('quiz-container');
+        container.innerHTML = `
+          <div class="loading-container space-y-6">
+            <h2 class="quiz-title">Analizando sus respuestas...</h2>
+            <div class="progress-bar"><div class="progress-fill" id="final-loader" style="width: 0%"></div></div>
+            <p id="loader-text" class="text-sm text-gray-600 font-serif">Verificando disponibilidad del protocolo...</p>
+          </div>
+        `;
+
+        let p = 0;
+        const messages = [
+          "Calculando déficit calórico ideal...",
+          "Ajustando protocolo para su edad...",
+          "¡Protocolo liberado con éxito!"
+        ];
+        
+        const interval = setInterval(() => {
+          p += 2;
+          document.getElementById('final-loader').style.width = p + '%';
+          
+          if (p === 30) document.getElementById('loader-text').innerText = messages[0];
+          if (p === 60) document.getElementById('loader-text').innerText = messages[1];
+          if (p === 90) document.getElementById('loader-text').innerText = messages[2];
+
+          if (p >= 100) {
+            clearInterval(interval);
+            handleNext(7);
+          }
+        }, 50);
+      }
+    </script>
+  </body>
+</html>
