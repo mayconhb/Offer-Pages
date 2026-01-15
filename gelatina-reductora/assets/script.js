@@ -757,6 +757,13 @@ function renderVideoPage() {
         <vturb-smartplayer id="vid-69684ea816e3821ec3e2ab8d" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer>
       </div>
 
+      <section id="CTA" style="display: none; text-align: center; margin-top: 2rem;">
+        <a href="https://pay.hotmart.com/F103876200U?off=v4x2l21v&checkoutMode=10" class="cta-link animate-pulse-cta-strong">
+          ACCEDER A MI PROTOCOLO AHORA
+          <span class="icon">${icons.arrowRight}</span>
+        </a>
+      </section>
+
       <div class="video-container hidden">
         <div class="video-wrapper">
           <style>
@@ -1059,6 +1066,10 @@ function setupVideoTracking() {
         const ctaContainer = document.getElementById('ctaButtonContainer');
         if (ctaContainer) {
           ctaContainer.classList.remove('hidden');
+        }
+        const customCTA = document.getElementById('CTA');
+        if (customCTA) {
+          customCTA.style.display = 'block';
         }
       }
     });
