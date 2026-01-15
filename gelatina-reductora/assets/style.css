@@ -433,7 +433,6 @@ body {
   box-shadow: 0 1px 2px rgba(0,0,0,0.05);
   border: 1px solid #f3f4f6;
   overflow: hidden;
-  margin-bottom: 1.5rem;
 }
 
 .testimonial-image {
@@ -441,6 +440,7 @@ body {
   height: auto;
   object-fit: cover;
   aspect-ratio: 1 / 1;
+  min-height: 300px;
   background-color: #f3f4f6;
 }
 
