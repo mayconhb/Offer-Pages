@@ -95,7 +95,7 @@ function preloadNextStepImages(currentStep) {
 }
 
 // Preload do SDK Wistia (começa na etapa 15 para estar pronto na etapa 18)
-function preloadWistiaSDK() {
+function preloadVturbPlayer() {
   if (wistiaPreloaded) return;
   wistiaPreloaded = true;
 
@@ -169,7 +169,7 @@ function handleStepPreloading(currentStep) {
 
   // A partir da etapa 14, começa a preparar o vídeo
   if (currentStep >= 14) {
-    preloadWistiaSDK();
+    preloadVturbPlayer();
   }
 
   // A partir da etapa 16, prepara o checkout
@@ -755,15 +755,7 @@ function renderVideoPage() {
 
       <div class="video-container">
         <div class="video-wrapper">
-          <style>
-            wistia-player[media-id='8xc87ip699']:not(:defined) {
-              background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/8xc87ip699/swatch');
-              display: block;
-              filter: blur(5px);
-              padding-top: 152.5%;
-            }
-          </style>
-          <wistia-player media-id="8xc87ip699" seo="false" aspect="0.6557377049180327"></wistia-player>
+          <vturb-smartplayer id="vid-69684ea816e3821ec3e2ab8d" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer>
         </div>
       </div>
 
@@ -800,6 +792,15 @@ function renderVideoPage() {
       </div>
     </div>
   `;
+}
+
+function loadVturbPlayer() {
+  if (!document.querySelector('script[src*="scripts.converteai.net"]')) {
+    var s = document.createElement("script");
+    s.src = "https://scripts.converteai.net/8be91a4f-8063-443e-ad7c-0bc55451c92d/players/69684ea816e3821ec3e2ab8d/v4/player.js";
+    s.async = !0;
+    document.head.appendChild(s);
+  }
 }
 
 function handleCTAClick() {
@@ -970,7 +971,7 @@ function render() {
       break;
     case 18:
       content = renderVideoPage();
-      setTimeout(() => loadWistiaSDK(), 100);
+      setTimeout(() => loadVturbPlayer(), 100);
       break;
     default:
       content = renderIntro();
@@ -979,7 +980,7 @@ function render() {
   quizContainer.innerHTML = content;
 }
 
-function loadWistiaSDK() {
+function loadVturbPlayer() {
   if (!document.querySelector('script[src*="fast.wistia.com/player.js"]')) {
     const playerScript = document.createElement('script');
     playerScript.src = 'https://fast.wistia.com/player.js';
@@ -999,19 +1000,7 @@ function loadWistiaSDK() {
   setTimeout(() => setupVideoTracking(), 1000);
 }
 
-function setupVideoTracking() {
-  if (wistiaBindied) return;
-
-  const playerElement = document.querySelector('wistia-player[media-id="8xc87ip699"]');
-
-  if (playerElement) {
-    wistiaBindied = true;
-    console.log('[Video Tracker] Wistia player found - binding events');
-
-    playerElement.addEventListener('play', () => {
-      isPlaying = true;
-      console.log('[Video Tracker] PLAY - now tracking time. Accumulated so far:', accumulatedSeconds.toFixed(1), 's');
-    });
+);
 
     playerElement.addEventListener('pause', () => {
       isPlaying = false;
