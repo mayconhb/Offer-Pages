@@ -170,18 +170,10 @@
     <noscript><link rel="stylesheet" href="assets/style.css"></noscript>
 
     <!-- Analytics tracking - carrega primeiro para capturar sessão -->
-    <script>
-      // Mock analytics if script is missing
-      window.QuizAnalytics = {
-        trackStepComplete: function(s) { console.log('Step complete:', s); },
-        trackStepView: function(s) { console.log('Step view:', s); },
-        trackAnswer: function(s, q, a) { console.log('Answer:', q, a); },
-        trackCheckout: function(u, s) { console.log('Checkout:', u); }
-      };
-    </script>
+    <script src="assets/analytics.js"></script>
 
     <!-- Script principal - defer para não bloquear -->
-    
+    <script src="assets/script.js" defer></script>
 
     <!-- Scripts não críticos - carregam após DOM -->
     <script>
@@ -213,26 +205,6 @@
         });
       });
     </script>
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<script src="assets/script.js"></script>
-</body>
+  </body>
 </html>
 
