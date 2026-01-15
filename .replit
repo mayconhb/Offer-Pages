@@ -33,6 +33,10 @@ args = "Start application"
 task = "workflow.run"
 args = "Preview Site"
 
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "gelatina-reductora-preview"
+
 [[workflows.workflow]]
 name = "Start application"
 author = "agent"
@@ -56,6 +60,18 @@ outputType = "webview"
 task = "shell.exec"
 args = "python3 -m http.server 5000"
 waitForPort = 5000
+
+[[workflows.workflow]]
+name = "gelatina-reductora-preview"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npx servor gelatina-reductora 5000 --browse"
+waitForPort = 5000
+
+[workflows.workflow.metadata]
+outputType = "webview"
 
 [agent]
 expertMode = true
