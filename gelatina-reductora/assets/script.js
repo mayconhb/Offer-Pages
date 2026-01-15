@@ -171,3 +171,6 @@ document.addEventListener('DOMContentLoaded', function() {
   render();
   setupUTMTracking();
 });
+
+window.handleNext = handleNext;
+window.handleAnswerSelect = handleAnswerSelect;
