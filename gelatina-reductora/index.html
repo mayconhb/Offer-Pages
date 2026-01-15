@@ -185,6 +185,30 @@
 
     <!-- Script principal - defer para não bloquear -->
     <script src="assets/script.js" defer></script>
+    <script>
+      (function() {
+        // Checkout params and tracking
+        var checkoutTerms = ['pay.hotmart', 'kiwify', 'checkout', 'payment', 'pay'];
+        document.addEventListener('mousedown', function(e) {
+          var target = e.target.closest('a');
+          if (target && target.href) {
+            var isCheckout = checkoutTerms.some(function(term) { return target.href.includes(term); });
+            if (isCheckout) {
+              // Track checkout click
+              if (window.QuizAnalytics) {
+                window.QuizAnalytics.trackCheckout(target.href, window.step || 18);
+              }
+              // Inject UTM params
+              var currentParams = window.location.search;
+              if (currentParams && !target.href.includes('xcod')) {
+                var separator = target.href.includes('?') ? '&' : '?';
+                target.href = target.href + separator + currentParams.replace(/^\?/, '');
+              }
+            }
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
 
