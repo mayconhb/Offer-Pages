@@ -15,11 +15,11 @@ let carouselInterval = null;
 let isPlaying = false;
 let lastTimestamp = 0;
 let accumulatedSeconds = 0;
-let wistiaBindied = false;
+
 const CTA_THRESHOLD_SECONDS = 490;
 
 // Preload tracking
-let wistiaPreloaded = false;
+let vturbPreloaded = false;
 let checkoutPreconnected = false;
 const preloadedImages = new Set();
 
@@ -95,32 +95,14 @@ function preloadNextStepImages(currentStep) {
 }
 
 // Preload do SDK Wistia (começa na etapa 15 para estar pronto na etapa 18)
-function preloadWistiaSDK() {
-  if (wistiaPreloaded) return;
-  wistiaPreloaded = true;
-
-  // Preconnect já feito no HTML, aqui fazemos o prefetch do script
-  const playerScript = document.createElement('link');
-  playerScript.rel = 'preload';
-  playerScript.as = 'script';
-  playerScript.href = 'https://fast.wistia.com/player.js';
-  document.head.appendChild(playerScript);
-
-  // Prefetch do embed específico do vídeo
-  const embedScript = document.createElement('link');
-  embedScript.rel = 'preload';
-  embedScript.as = 'script';
-  embedScript.href = 'https://fast.wistia.com/embed/8xc87ip699.js';
-  document.head.appendChild(embedScript);
-
-  // Prefetch do swatch (thumbnail do vídeo)
-  const swatch = document.createElement('link');
-  swatch.rel = 'preload';
-  swatch.as = 'image';
-  swatch.href = 'https://fast.wistia.com/embed/medias/8xc87ip699/swatch';
-  document.head.appendChild(swatch);
-
-  console.log('[Preload] Wistia SDK preloaded');
+function loadVturbPlayer() {
+  if (vturbPreloaded) return;
+  vturbPreloaded = true;
+  var s = document.createElement("script");
+  s.src = "https://scripts.converteai.net/8be91a4f-8063-443e-ad7c-0bc55451c92d/players/69684ea816e3821ec3e2ab8d/v4/player.js";
+  s.async = !0;
+  document.head.appendChild(s);
+  console.log("[Preload] Vturb Player loaded");
 }
 
 // Adiciona preconnect dinâmico para checkout (chamado na etapa 16+)
@@ -169,7 +151,7 @@ function handleStepPreloading(currentStep) {
 
   // A partir da etapa 14, começa a preparar o vídeo
   if (currentStep >= 14) {
-    preloadWistiaSDK();
+    loadVturbPlayer();
   }
 
   // A partir da etapa 16, prepara o checkout
@@ -754,17 +736,7 @@ function renderVideoPage() {
       </h2>
 
       <div class="video-container">
-        <div class="video-wrapper">
-          <style>
-            wistia-player[media-id='8xc87ip699']:not(:defined) {
-              background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/8xc87ip699/swatch');
-              display: block;
-              filter: blur(5px);
-              padding-top: 152.5%;
-            }
-          </style>
-          <wistia-player media-id="8xc87ip699" seo="false" aspect="0.6557377049180327"></wistia-player>
-        </div>
+        <div class="video-wrapper"><vturb-smartplayer id="vid-69684ea816e3821ec3e2ab8d" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer></div>
       </div>
 
       <div id="ctaButtonContainer" class="${showCTAButton ? '' : 'hidden'}" style="margin-top: 1rem;">
@@ -999,19 +971,7 @@ function loadWistiaSDK() {
   setTimeout(() => setupVideoTracking(), 1000);
 }
 
-function setupVideoTracking() {
-  if (wistiaBindied) return;
-
-  const playerElement = document.querySelector('wistia-player[media-id="8xc87ip699"]');
-
-  if (playerElement) {
-    wistiaBindied = true;
-    console.log('[Video Tracker] Wistia player found - binding events');
-
-    playerElement.addEventListener('play', () => {
-      isPlaying = true;
-      console.log('[Video Tracker] PLAY - now tracking time. Accumulated so far:', accumulatedSeconds.toFixed(1), 's');
-    });
+);
 
     playerElement.addEventListener('pause', () => {
       isPlaying = false;
