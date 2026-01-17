@@ -498,7 +498,8 @@
                 <div class="price-divider"></div>
                 <div class="price-column">
                     <div class="price-column-title">Precio convertido a su moneda local</div>
-                    <div class="price-converted-value" id="popup-local-price">calculando...</div>
+                    <span class="price-old" id="popup-local-price-old" style="margin-bottom: 5px;">calculando...</span>
+                    <div class="price-converted-value" id="popup-local-price-new">calculando...</div>
                 </div>
             </div>
             <a href="https://pay.hotmart.com/X103671940D?off=zitevzea&checkoutMode=10" class="popup-cta">
@@ -534,11 +535,13 @@
                             // Update popup prices
                             const oldPriceEl = document.getElementById('popup-price-old');
                             const newPriceEl = document.getElementById('popup-price-new');
-                            const localPriceEl = document.getElementById('popup-local-price');
+                            const localOldPriceEl = document.getElementById('popup-local-price-old');
+                            const localNewPriceEl = document.getElementById('popup-local-price-new');
                             
                             if (oldPriceEl) oldPriceEl.innerText = 'US$ 17,00';
                             if (newPriceEl) newPriceEl.innerText = 'US$ 9,90';
-                            if (localPriceEl) localPriceEl.innerText = popupNewPrice;
+                            if (localOldPriceEl) localOldPriceEl.innerText = popupOldPrice;
+                            if (localNewPriceEl) localNewPriceEl.innerText = popupNewPrice;
                         }
                     } else {
                         document.getElementById('cta-local-price').innerText = 'US$ 17,00';
