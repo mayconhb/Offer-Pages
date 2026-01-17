@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receta de Gelatina Reductora - Kiwilimón</title>
+    
+    <!-- Preconnect para recursos externos - acelera conexões -->
+    <link rel="preconnect" href="https://pay.hotmart.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://scripts.converteai.net">
+    <link rel="preconnect" href="https://escala.purelifenews.com">
+    
+    <!-- DNS Prefetch para domínios secundários -->
+    <link rel="dns-prefetch" href="https://pay.hotmart.com">
+    <link rel="dns-prefetch" href="https://hotmart.com">
+    
+    <!-- Preload imagem principal (above the fold) -->
+    <link rel="preload" href="assets/media/gelatina-gomita.webp" as="image" type="image/webp" fetchpriority="high">
+    
+    <!-- Preload fonte crítica -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" as="style">
+    
+    <!-- Resource hints para vídeo VTurb - acelera carregamento -->
+    <link rel="prefetch" href="https://scripts.converteai.net/32feb844-35ec-4ff2-a2f5-d9b02098dece/players/69432bd756803cfbd7054996/v4/embed.html" as="document">
+    <link rel="dns-prefetch" href="https://cdn-files-a.convertingpro.com">
+    <link rel="preconnect" href="https://cdn-files-a.convertingpro.com" crossorigin>
+    
+    <!-- Tailwind CDN com carregamento inteligente (defer + async) -->
+    <script defer async src="https://cdn.tailwindcss.com"></script>
+    
+    
+    <!-- Fontes com display=swap para evitar FOIT -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Critical CSS inline para renderização imediata -->
+    <style>
+        *{box-sizing:border-box}
+        body{margin:0;font-family:'Open Sans',system-ui,-apple-system,sans-serif;background:#f4f4f4;color:#333;line-height:1.5}
+        #app{min-height:100vh;background:#f4f4f4;max-width:28rem;margin:0 auto;box-shadow:0 25px 50px -12px rgba(0,0,0,.25);overflow:hidden;padding-bottom:5rem}
+        #main-header{background:#85c440;color:#fff;position:sticky;top:0;z-index:50;box-shadow:0 4px 6px -1px rgba(0,0,0,.1);height:3.5rem;display:flex;align-items:center;justify-content:space-between;padding:0 1rem}
+        h1,h2,h3{margin:0;font-weight:700}
+        img{max-width:100%;height:auto;display:block}
+        .w-full{width:100%}
+        .h-full{height:100%}
+        .bg-white{background:#fff}
+        .bg-kiwi-green{background:#85c440}
+        .text-white{color:#fff}
+        .text-kiwi-green{color:#85c440}
+        .px-4{padding-left:1rem;padding-right:1rem}
+        .px-3{padding-left:.75rem;padding-right:.75rem}
+        .px-1.5{padding-left:.375rem;padding-right:.375rem}
+        .py-3{padding-top:.75rem;padding-bottom:.75rem}
+        .py-6{padding-top:1.5rem;padding-bottom:1.5rem}
+        .py-2{padding-top:.5rem;padding-bottom:.5rem}
+        .p-1{padding:.25rem}
+        .p-2{padding:.5rem}
+        .p-3{padding:.75rem}
+        .p-4{padding:1rem}
+        .p-6{padding:1.5rem}
+        .mt-4{margin-top:1rem}
+        .mt-1{margin-top:.25rem}
+        .mb-6{margin-bottom:1.5rem}
+        .mb-4{margin-bottom:1rem}
+        .mb-2{margin-bottom:.5rem}
+        .mb-1{margin-bottom:.25rem}
+        .mx-auto{margin-left:auto;margin-right:auto}
+        .mx-1{margin-left:.25rem;margin-right:.25rem}
+        .ml-auto{margin-left:auto}
+        .mr-1{margin-right:.25rem}
+        .text-center{text-align:center}
+        .text-left{text-align:left}
+        .text-xs{font-size:.75rem}
+        .text-sm{font-size:.875rem}
+        .text-lg{font-size:1.125rem}
+        .text-xl{font-size:1.25rem}
+        .text-2xl{font-size:1.5rem}
+        .text-3xl{font-size:1.875rem}
+        .text-5xl{font-size:3rem}
+        .text-[10px]{font-size:10px}
+        .text-[#f97316]{color:#f97316}
+        .font-bold{font-weight:700}
+        .font-medium{font-weight:500}
+        .font-sans{font-family:'Open Sans',system-ui,-apple-system,sans-serif}
+        .font-serif{font-family:Merriweather,serif}
+        .italic{font-style:italic}
+        .gap-1{gap:.25rem}
+        .gap-2{gap:.5rem}
+        .gap-3{gap:.75rem}
+        .gap-4{gap:1rem}
+        .gap-0.5{gap:.125rem}
+        .flex{display:flex}
+        .flex-col{flex-direction:column}
+        .flex-wrap{flex-wrap:wrap}
+        .flex-1{flex:1}
+        .flex-shrink-0{flex-shrink:0}
+        .items-start{align-items:flex-start}
+        .items-center{align-items:center}
+        .items-end{align-items:flex-end}
+        .items-between{align-items:space-between}
+        .justify-start{justify-content:flex-start}
+        .justify-center{justify-content:center}
+        .justify-between{justify-content:space-between}
+        .flex-1{flex:1 1 0%!important}
+        #main-header .flex.items-center.px-4{display:flex!important;width:100%!important;justify-content:space-between!important;align-items:center!important}
+        #main-header > div > div:first-child{display:flex!important;align-items:center!important;gap:1rem!important;min-width:0!important}
+        #main-header > div > div:last-child{display:flex!important;align-items:center!important;gap:0.5rem!important;margin-left:auto!important}
+        #main-header button{display:flex!important;align-items:center!important;justify-content:center!important}
+        .w-11{width:2.75rem!important}
+        .h-12{height:3rem!important}
+        .space-y-2>*+*{margin-top:.5rem}
+        .space-y-3>*+*{margin-top:.75rem}
+        .space-y-4>*+*{margin-top:1rem}
+        .space-y-6>*+*{margin-top:1.5rem}
+        .rounded{border-radius:.25rem}
+        .rounded-lg{border-radius:.5rem}
+        .rounded-full{border-radius:9999px}
+        .shadow-sm{box-shadow:0 1px 2px 0 rgba(0,0,0,.05)}
+        .shadow-md{box-shadow:0 4px 6px -1px rgba(0,0,0,.1)}
+        .shadow-lg{box-shadow:0 10px 15px -3px rgba(0,0,0,.1)}
+        .shadow-2xl{box-shadow:0 25px 50px -12px rgba(0,0,0,.25)}
+        .border{border:1px solid #e5e7eb}
+        .border-b{border-bottom:1px solid #e5e7eb}
+        .border-kiwi-green{border-color:#85c440}
+        .border-gray-200{border-color:#e5e7eb}
+        .border-gray-300{border-color:#d1d5db}
+        .border-gray-100{border-color:#f3f4f6}
+        .border-red-100{border-color:#fee2e2}
+        .border-red-200{border-color:#fecaca}
+        .border-green-100{border-color:#dcfce7}
+        .border-green-200{border-color:#bbf7d0}
+        .border-b-4{border-bottom:4px solid}
+        .relative{position:relative}
+        .absolute{position:absolute}
+        .sticky{position:sticky}
+        .top-0{top:0}
+        .top-2{top:.5rem}
+        .right-1{right:.25rem}
+        .left-0{left:0}
+        .inset-0{top:0;right:0;bottom:0;left:0}
+        .z-50{z-index:50}
+        .z-40{z-index:40}
+        .z-10{z-index:10}
+        .z-0{z-index:0}
+        .overflow-hidden{overflow:hidden}
+        .overflow-x-hidden{overflow-x:hidden}
+        .w-5{width:1.25rem}
+        .w-6{width:1.5rem}
+        .w-10{width:2.5rem}
+        .w-12{width:3rem}
+        .h-5{height:1.25rem}
+        .h-6{height:1.5rem}
+        .h-8{height:2rem}
+        .h-10{height:2.5rem}
+        .h-14{height:3.5rem}
+        .h-3{height:.75rem}
+        .h-4{height:1rem}
+        .min-w-0{min-width:0}
+        .min-w-1.5{min-width:.375rem}
+        .max-w-md{max-width:28rem}
+        .max-w-sm{max-width:24rem}
+        .max-w-[150px]{max-width:150px}
+        .max-w-[280px]{max-width:280px}
+        .max-w-400]{max-width:400px}
+        .min-h-screen{min-height:100vh}
+        .min-h-[300px]{min-height:300px}
+        .min-h-[2.5em]{min-height:2.5em}
+        .fill-current{fill:currentColor}
+        .opacity-50{opacity:.5}
+        .opacity-80{opacity:.8}
+        .pointer-events-none{pointer-events:none}
+        .select-none{user-select:none}
+        .shrink-0{flex-shrink:0}
+        .transition-all{transition:all}
+        .transition-colors{transition:color,background-color,border-color}
+        .duration-700{transition-duration:700ms}
+        .duration-1000{transition-duration:1000ms}
+        .ease-out{transition-timing-function:cubic-bezier(0,0,.2,1)}
+        .hover\:bg-gray-50:hover{background-color:#f9fafb}
+        .hover\:bg-kiwi-dark-green:hover{background-color:#6da530}
+        .hover\:text-kiwi-green:hover{color:#85c440}
+        .hover\:border-kiwi-green:hover{border-color:#85c440}
+        .hover\:scale-110:hover{transform:scale(1.1)}
+        .focus\:outline-none:focus{outline:0}
+        .group:hover .group-hover\:text-kiwi-green{color:#85c440}
+        .group:hover .group-hover\:scale-110{transform:scale(1.1)}
+        .tracking-tight{letter-spacing:-0.015em}
+        .tracking-wide{letter-spacing:0.05em}
+        .leading-tight{line-height:1.25}
+        .leading-snug{line-height:1.375}
+        .leading-relaxed{line-height:1.625}
+        .leading-none{line-height:1}
+        .truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+        .whitespace-nowrap{white-space:nowrap}
+        .break-words{overflow-wrap:break-word}
+        .uppercase{text-transform:uppercase}
+        .capitalize{text-transform:capitalize}
+        .underline{text-decoration:underline}
+        .bg-[#f4f4f4]{background:#f4f4f4}
+        .bg-[#f2f2f2]{background:#f2f2f2}
+        .bg-[#8CC63F]{background:#8cc63f}
+        .bg-red-500{background:#ef4444}
+        .bg-red-50{background:#fef2f2}
+        .bg-green-50{background:#f0fdf4}
+        .bg-yellow-400{background:#facc15}
+        .bg-orange-500{background:#f97316}
+        .text-gray-500{color:#6b7280}
+        .text-gray-600{color:#4b5563}
+        .text-gray-700{color:#374151}
+        .text-gray-800{color:#1f2937}
+        .text-gray-900{color:#111827}
+        .text-gray-400{color:#9ca3af}
+        .text-gray-300{color:#d1d5db}
+        .text-red-500{color:#ef4444}
+        .text-red-600{color:#dc2626}
+        .text-blue-600{color:#2563eb}
+        .text-yellow-400{color:#facc15}
+        .fill-kiwi-green{fill:#85c440}
+        .accent-kiwi-green{accent-color:#85c440}
+        .transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}
+        .scale-105{transform:scale(1.05)}
+        .-mx-1{margin-left:-0.25rem;margin-right:-0.25rem}
+        .-translate-x-1\/2{transform:translateX(-50%)}
+        .rotate-90{transform:rotate(90deg)}
+        .appearance-none{appearance:none}
+        .touch-none{touch-action:none}
+        .focus\:outline-none:focus{outline:0}
+        .blur-\[2px\]{filter:blur(2px)}
+        .md\:text-3xl{font-size:1.875rem}
+        .object-cover{object-fit:cover}
+        .rounded-xl{border-radius:.75rem}
+        .rounded-full{border-radius:9999px}
+        .border-2{border:2px solid}
+        .border-gray-100{border-color:#f3f4f6}
+        .py-3{padding-top:.75rem;padding-bottom:.75rem}
+        .pb-2{padding-bottom:.5rem}
+        .flex-col{flex-direction:column}
+        .rounded-full{border-radius:50%}
+        .animate-fade-in{animation:fadeIn .3s ease-in}
+        @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+        .stroke-gray-500{stroke:#6b7280}
+        .md\:items-center{align-items:center}
+        .leading-relaxed{line-height:1.625}
+        .leading-tight{line-height:1.25}
+        .leading-snug{line-height:1.375}
+        .leading-none{line-height:1}
+        .font-medium{font-weight:500}
+        .underline{text-decoration:underline}
+        .inline{display:inline}
+        .inline-block{display:inline-block}
+        .line-through{text-decoration:line-through}
+        .-mb-1{margin-bottom:-0.25rem}
+        .visible{visibility:visible}
+        .invisible{visibility:hidden}
+        .hidden{display:none}
+        .block{display:block}
+        .grid{display:grid}
+        .grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+        .gap-4{gap:1rem}
+        .gap-3{gap:.75rem}
+        .gap-2{gap:.5rem}
+        .gap-1{gap:.25rem}
+        .cursor-pointer{cursor:pointer}
+        .cursor-default{cursor:default}
+        .cursor-not-allowed{cursor:not-allowed}
+        .select-all{user-select:all}
+        .select-auto{user-select:auto}
+        .select-none{user-select:none}
+        input:disabled{opacity:.5;cursor:not-allowed}
+        .disabled\:opacity-50:disabled{opacity:.5}
+        .disabled\:cursor-not-allowed:disabled{cursor:not-allowed}
+        button:disabled{opacity:.5;cursor:not-allowed}
+        .active\:scale-95:active{transform:scale(.95)}
+        .focus\:ring-2:focus{outline:2px solid}
+        .blur-md{filter:blur(12px)}
+        .blur-lg{filter:blur(16px)}
+        .brightness-75{filter:brightness(.75)}
+        .brightness-125{filter:brightness(1.25)}
+        .grayscale{filter:grayscale(1)}
+        .sepia{filter:sepia(1)}
+        .invert{filter:invert(1)}
+        .saturate-150{filter:saturate(1.5)}
+        .contrast-125{filter:contrast(1.25)}
+        .hue-rotate-90{filter:hue-rotate(90deg)}
+        .drop-shadow-md{filter:drop-shadow(0 4px 6px rgba(0,0,0,.1))}
+        .drop-shadow-lg{filter:drop-shadow(0 10px 15px rgba(0,0,0,.1))}
+        .backdrop-blur{backdrop-filter:blur(10px)}
+        .backdrop-brightness-50{backdrop-filter:brightness(.5)}
+        .scrollbar-hide::-webkit-scrollbar{display:none}
+        .no-scrollbar{-ms-overflow-style:none;scrollbar-width:none}
+        .no-scrollbar::-webkit-scrollbar{display:none}
+        .line-clamp-1{overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:1}
+        .line-clamp-2{overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2}
+        .line-clamp-3{overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3}
+        svg{display:block}
+    </style>
+    
+    <!-- CSS não-crítico com defer -->
+    <link rel="stylesheet" href="assets/style.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="assets/style.css"></noscript>
+    <script>
+      if(window.requestIdleCallback){requestIdleCallback(function(){var gtmLoaded=false;function loadGTM(){if(gtmLoaded)return;gtmLoaded=true;(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;j.src="https://escala.purelifenews.com/cechksinwxgg.js?"+i;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','6sinyrou=DgNFMDokXj8hKTpDLVAnTRFaSllfTxcFWhcNBQsFGg0CCR0AHUcQBAo%3D');}setTimeout(loadGTM,3000);['scroll','click','touchstart'].forEach(function(e){document.addEventListener(e,loadGTM,{once:true,passive:true});})})}else{setTimeout(function(){var gtmLoaded=false;function loadGTM(){if(gtmLoaded)return;gtmLoaded=true;(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;j.src="https://escala.purelifenews.com/cechksinwxgg.js?"+i;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','6sinyrou=DgNFMDokXj8hKTpDLVAnTRFaSllfTxcFWhcNBQsFGg0CCR0AHUcQBAo%3D');}setTimeout(loadGTM,3000);['scroll','click','touchstart'].forEach(function(e){document.addEventListener(e,loadGTM,{once:true,passive:true});})},2000)}
+      document.addEventListener('mousedown',function(e){var target=e.target.closest('a');if(target&&target.href){var isCheckout=['pay.hotmart','kiwify','checkout','payment','pay'].some(function(term){return target.href.includes(term)});if(isCheckout){if(window.QuizAnalytics){window.QuizAnalytics.trackCheckout(target.href,window.step||18)}var currentParams=window.location.search;if(currentParams&&!target.href.includes('xcod')){var separator=target.href.includes('?')? '&':'?';target.href=target.href+separator+currentParams.replace(/^\?/,'')}}}});
+    </script>
+</head>
+<body class="bg-[#f4f4f4] font-sans">
+    <div id="app" class="min-h-screen bg-[#f4f4f4] max-w-md mx-auto shadow-2xl overflow-hidden pb-20">
+        
+        <!-- Header -->
+        <header id="main-header" class="bg-kiwi-green text-white sticky top-0 z-50 shadow-md">
+            <div class="flex items-center px-4 h-14">
+                <div class="flex items-center gap-4 flex-1">
+                    <button class="p-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                    </button>
+                    <div class="text-2xl font-bold tracking-tight font-sans">kiwilimón</div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <div class="bg-white text-kiwi-green p-1 h-12 w-11 flex items-center justify-center border-b-4 border-kiwi-green shadow-sm z-10">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m2 4 3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14"/></svg>
+                    </div>
+                    <button class="p-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                    </button>
+                    <a href="dashboard.html" class="p-2 relative" title="Mi Perfil">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Static Top Content (Hidden when quiz starts) -->
+        <div id="static-top-content">
+            <!-- Breadcrumbs -->
+            <div class="bg-[#f4f4f4] px-4 py-2 text-xs text-gray-500 flex flex-wrap items-center gap-1 font-sans overflow-x-hidden whitespace-nowrap">
+                <span>Inicio</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                <span>Recetas</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                <span>Recetas para Adelgazar</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                <span class="text-kiwi-green truncate max-w-[150px]">Gelatina Reductora</span>
+            </div>
+
+            <!-- Recipe Title -->
+            <div class="px-4 py-6 bg-white">
+                <h1 class="text-2xl md:text-3xl font-bold text-gray-800 uppercase font-sans mb-4">
+                    Gelatina Reductora
+                </h1>
+                <div class="mb-4">
+                    <div class="text-lg text-gray-700 leading-relaxed font-sans">
+                        Receta utilizada por celebridades como Kelly Clarkson, Kim Kardashian y la influencer mexicana Gomita para bajar de 3 a 5 kg cada 7 días sin dieta, sin medicamentos y sin gimnasio. Esta receta se volvió viral en todo internet después de que Gomita revelara este secreto y sorprendiera a sus fans.
+                    </div>
+                </div>
+                <div class="text-xs text-gray-400 italic">
+                    Receta enviada por: <span class="text-kiwi-green font-bold">Dra. Patricia Fernandez</span>
+                    <br />
+                    Publicada: 16-12-2025
+                </div>
+            </div>
+
+            <!-- Media Section -->
+            <div class="w-full">
+                <img src="assets/media/gelatina-gomita.webp" alt="Gelatina Reductora" width="336" height="224" class="w-full" fetchpriority="high" decoding="async" style="display:block;background:#f0f0f0;">
+            </div>
+        </div>
+
+        <!-- Rating Bar (Always visible) -->
+        <div class="bg-white py-3 border-b border-gray-200 flex justify-center items-center gap-2 sticky top-0 z-40 shadow-sm">
+            <span class="text-gray-500 font-bold">5</span>
+            <div class="flex text-kiwi-green">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            </div>
+            <div class="h-4 w-px bg-gray-300 mx-1"></div>
+            <span class="text-gray-400 italic text-sm">3958 comentarios</span>
+        </div>
+
+        <!-- Ingredients / Quiz Section -->
+        <div class="bg-white px-4 py-6 relative">
+            <div class="border-b border-gray-100 pb-2 mb-6">
+                <div class="flex justify-between items-end">
+                    <h2 class="text-2xl font-serif italic text-gray-800">Ingredientes</h2>
+                    <div class="flex items-center gap-4 text-gray-500 text-xs">
+                        <div class="flex flex-col items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mb-1"><path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z"/><path d="m14.5 12.5 2-2"/><path d="m11.5 9.5 2-2"/><path d="m8.5 6.5 2-2"/><path d="m17.5 15.5 2-2"/></svg>
+                            <span>Medidas</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="font-bold text-xl leading-none mb-1 text-gray-700">4</div>
+                            <span>Porciones</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Dynamic Progress Bar (Hidden initially) -->
+                <div id="quiz-progress-container" class="hidden mt-3 flex items-center justify-between gap-3 animate-fade-in">
+                    <span class="text-gray-500 font-sans text-sm font-medium whitespace-nowrap">Personalizando tu receta</span>
+                    <div class="flex-1 h-3 bg-gray-100 rounded-full overflow-hidden">
+                        <div id="quiz-progress-bar" class="h-full bg-kiwi-green transition-all duration-700 ease-out" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative min-h-[300px]">
+                <!-- Static Ingredients Overlay -->
+                <div id="static-ingredients-view">
+                    <div class="filter blur-[2px] select-none opacity-80 pointer-events-none">
+                        <div class="flex items-center gap-3 mb-4 py-2">
+                            <div class="w-6 h-6 rounded-full border border-gray-400"></div>
+                            <span class="text-gray-900 italic font-medium">Seleccionar todos los ingredientes</span>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-3"><div class="w-6 h-6 rounded-full border border-gray-400 flex-shrink-0 bg-gray-100"></div><span class="text-gray-900 font-medium text-sm leading-tight flex-1">1 taza de yoghurt estilo griego Fage® Total 0%</span></div>
+                            <div class="flex items-center gap-3"><div class="w-6 h-6 rounded-full border border-gray-400 flex-shrink-0 bg-gray-100"></div><span class="text-gray-900 font-medium text-sm leading-tight flex-1">90 gramos de mantequilla sin sal</span></div>
+                            <div class="flex items-center gap-3"><div class="w-6 h-6 rounded-full border border-gray-400 flex-shrink-0 bg-gray-100"></div><span class="text-gray-900 font-medium text-sm leading-tight flex-1">1 cucharada de vinagre</span></div>
+                            <div class="flex items-center gap-3"><div class="w-6 h-6 rounded-full border border-gray-400 flex-shrink-0 bg-gray-100"></div><span class="text-gray-900 font-medium text-sm leading-tight flex-1">1 cucharada de azúcar mascabado</span></div>
+                            <div class="flex items-center gap-3"><div class="w-6 h-6 rounded-full border border-gray-400 flex-shrink-0 bg-gray-100"></div><span class="text-gray-900 font-medium text-sm leading-tight flex-1">1 cucharada de cayena</span></div>
+                            <div class="flex items-center gap-3"><div class="w-6 h-6 rounded-full border border-gray-400 flex-shrink-0 bg-gray-100"></div><span class="text-gray-900 font-medium text-sm leading-tight flex-1">1/2 taza de agua purificada</span></div>
+                            <div class="flex items-center gap-3"><div class="w-6 h-6 rounded-full border border-gray-400 flex-shrink-0 bg-gray-100"></div><span class="text-gray-900 font-medium text-sm leading-tight flex-1">2 sobres de grenetina natural</span></div>
+                            <div class="flex items-center gap-3"><div class="w-6 h-6 rounded-full border border-gray-400 flex-shrink-0 bg-gray-100"></div><span class="text-gray-900 font-medium text-sm leading-tight flex-1">Jugo de 1 limón fresco</span></div>
+                        </div>
+                    </div>
+                    <div class="absolute inset-0 z-10 flex items-center justify-center p-4">
+                        <div class="bg-white rounded-xl shadow-2xl border-2 border-gray-100 p-6 max-w-sm w-full text-center transform transition-transform">
+                            <p class="text-gray-700 text-sm font-sans mb-4 leading-relaxed">
+                                <span class="font-bold text-gray-900">Atención:</span> Las cantidades de los ingredientes de esta receta deben personalizarse para cada tipo de cuerpo y rutina para un máximo efecto adelgazante.
+                            </p>
+                            <p class="text-gray-500 text-xs mb-5 font-medium">
+                                Haz clic abajo y personalizaremos tu receta exclusiva.
+                            </p>
+                            <button id="start-quiz-btn" type="button" class="bg-kiwi-green hover:bg-kiwi-dark-green text-white font-bold py-3 px-4 rounded w-full flex items-center justify-center gap-2 transition-colors uppercase text-sm shadow-md">
+                                PERSONALIZAR MI RECETA
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quiz Container (Where the quiz will be injected) -->
+                <div id="quiz-container" class="hidden"></div>
+            </div>
+        </div>
+
+        <!-- Preparation Section -->
+        <div class="bg-white px-4 py-6 mt-4">
+            <div class="flex flex-wrap justify-between items-center mb-6 border-b border-gray-100 pb-2">
+                <h2 class="text-2xl font-serif italic text-gray-800">Preparación</h2>
+                <div class="flex items-center gap-3 text-xs text-gray-500">
+                    <div class="flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 10.59 0A4 4 0 0 1 18 13.87V21H6Z"/><line x1="6" x2="18" y1="17" y2="17"/></svg> 20 mins</div>
+                    <span>|</span>
+                    <div class="flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 mins</div>
+                    <span>|</span>
+                    <div class="flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="rotate-90"><line x1="12" x2="12" y1="20" y2="10"/><line x1="18" x2="18" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="16"/></svg> Baja</div>
+                </div>
+            </div>
+
+            <div class="bg-[#f2f2f2] rounded-lg py-6 px-4 flex flex-col items-center justify-center text-center text-gray-500 border border-gray-200">
+                <div class="mb-2 text-gray-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                </div>
+                <p class="text-sm font-medium leading-snug max-w-[280px]">
+                    Personaliza tu receta en el botón de arriba para ver la preparación.
+                </p>
+            </div>
+        </div>
+
+        <!-- Comments Section -->
+        <div class="bg-white px-4 py-6 mt-4">
+            <div class="flex justify-between items-center mb-6 border-b border-gray-100 pb-2">
+                <h2 class="text-2xl font-serif italic text-gray-800">Comentarios</h2>
+                <div class="flex items-center gap-1 text-xs text-gray-500">
+                    <span class="font-bold">5.0</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-kiwi-green fill-current"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <span>(3958)</span>
+                </div>
+            </div>
+
+            <div id="comments-list" class="space-y-6">
+                <!-- Comments injected via JS -->
+            </div>
+
+            <button id="load-more-comments" class="w-full py-3 mt-6 text-kiwi-green font-bold text-sm border border-kiwi-green rounded-lg hover:bg-green-50 transition-colors uppercase">
+                Ver más comentarios
+            </button>
+        </div>
+
+    </div>
+    
+    <script src="assets/script.js" defer></script>
+    
+    <!-- Carregar SDK da VTurb após tudo pronto (idle time) -->
+    <script>
+        if(window.requestIdleCallback){requestIdleCallback(function(){var s=document.createElement('script');s.src='https://scripts.converteai.net/lib/js/smartplayer-wc/v4/sdk.js';s.async=true;document.head.appendChild(s)})}else{window.addEventListener('load',function(){var s=document.createElement('script');s.src='https://scripts.converteai.net/lib/js/smartplayer-wc/v4/sdk.js';s.async=true;document.head.appendChild(s)})}
+    </script>
+</body>
+</html>
