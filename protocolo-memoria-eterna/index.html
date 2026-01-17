@@ -461,12 +461,8 @@
             <span class="popup-subtext">Esta es una oferta única y exclusiva, disponible solo en esta página y en este momento.</span>
             <div class="discount-badge">¡41% DE DESCUENTO!</div>
             <div class="price-container">
-                <span class="price-old">US$ 17,00</span>
-                <span class="price-new">US$ 9,90</span>
-            </div>
-            <div class="currency-info" style="margin-top: 10px; margin-bottom: 15px;">
-                Precio en su moneda local<br>
-                aproximadamente <span class="currency-value" id="popup-local-price">calculando...</span>
+                <span class="price-old" id="popup-price-old">US$ 17,00</span>
+                <span class="price-new" id="popup-price-new">US$ 9,90</span>
             </div>
             <a href="https://pay.hotmart.com/X103671940D?off=zitevzea&checkoutMode=10" class="popup-cta">
                 SÍ, QUIERO MI DESCUENTO
@@ -493,19 +489,25 @@
                         
                         if (rate) {
                             const mainPrice = (17 * rate).toLocaleString(undefined, { style: 'currency', currency: currency });
-                            const popupPrice = (9.90 * rate).toLocaleString(undefined, { style: 'currency', currency: currency });
+                            const popupOldPrice = (17 * rate).toLocaleString(undefined, { style: 'currency', currency: currency });
+                            const popupNewPrice = (9.90 * rate).toLocaleString(undefined, { style: 'currency', currency: currency });
                             
                             document.getElementById('cta-local-price').innerText = mainPrice;
-                            document.getElementById('popup-local-price').innerText = popupPrice;
+                            
+                            // Update popup prices with converted values in front
+                            const oldPriceEl = document.getElementById('popup-price-old');
+                            const newPriceEl = document.getElementById('popup-price-new');
+                            
+                            if (oldPriceEl) oldPriceEl.innerHTML = `US$ 17,00 <span style="text-decoration: line-through; margin-left: 8px; opacity: 0.8;">(${popupOldPrice})</span>`;
+                            if (newPriceEl) newPriceEl.innerHTML = `US$ 9,90 <span style="margin-left: 8px;">(${popupNewPrice})</span>`;
                         }
                     } else {
                         document.getElementById('cta-local-price').innerText = 'US$ 17,00';
-                        document.getElementById('popup-local-price').innerText = 'US$ 9,90';
+                        // No popup-local-price anymore, it's integrated into the HTML above
                     }
                 } catch (e) {
                     console.error('Currency conversion failed', e);
                     document.getElementById('cta-local-price').innerText = 'US$ 17,00';
-                    document.getElementById('popup-local-price').innerText = 'US$ 9,90';
                 }
             }
             convertCurrency();
