@@ -293,28 +293,46 @@
         .price-container {
             margin-bottom: 25px;
             display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            gap: 20px;
+        }
+        .price-column {
+            flex: 1;
+            display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 5px;
+            justify-content: center;
+        }
+        .price-divider {
+            width: 1px;
+            height: 60px;
+            background-color: #eee;
+        }
+        .price-column-title {
+            font-size: 0.75rem;
+            color: #666;
+            margin-bottom: 8px;
+            font-weight: 600;
+            text-transform: uppercase;
         }
         .price-old {
             color: #999;
-            font-size: 1rem;
-            font-weight: 400;
+            font-size: 1.1rem;
+            text-decoration: line-through;
+            margin-bottom: 5px;
         }
-        .price-new {
+        .price-new-usd {
+            color: #333;
+            font-size: 1.6rem;
+            font-weight: 800;
+        }
+        .price-converted-value {
             color: #008000;
-            font-size: 2.4rem;
+            font-size: 1.8rem;
             font-weight: 900;
-            display: flex;
-            flex-direction: column;
-            line-height: 1.1;
-        }
-        .price-new .usd-small {
-            font-size: 1rem;
-            color: #666;
-            font-weight: 700;
-            margin-bottom: 4px;
+            line-height: 1;
         }
         .discount-badge {
             background: #FFD700;
@@ -473,8 +491,15 @@
             <span class="popup-subtext">Esta es una oferta única y exclusiva, disponible solo en esta página y en este momento.</span>
             <div class="discount-badge">¡41% DE DESCUENTO!</div>
             <div class="price-container">
-                <span class="price-old" id="popup-price-old">US$ 17,00</span>
-                <span class="price-new" id="popup-price-new">US$ 9,90</span>
+                <div class="price-column">
+                    <span class="price-old" id="popup-price-old">US$ 17,00</span>
+                    <span class="price-new-usd" id="popup-price-new">US$ 9,90</span>
+                </div>
+                <div class="price-divider"></div>
+                <div class="price-column">
+                    <div class="price-column-title">Precio convertido a su moneda local</div>
+                    <div class="price-converted-value" id="popup-local-price">calculando...</div>
+                </div>
             </div>
             <a href="https://pay.hotmart.com/X103671940D?off=zitevzea&checkoutMode=10" class="popup-cta">
                 SÍ, QUIERO MI DESCUENTO
@@ -506,16 +531,14 @@
                             
                             document.getElementById('cta-local-price').innerText = mainPrice;
                             
-                            // Update popup prices with converted values
+                            // Update popup prices
                             const oldPriceEl = document.getElementById('popup-price-old');
                             const newPriceEl = document.getElementById('popup-price-new');
+                            const localPriceEl = document.getElementById('popup-local-price');
                             
-                            if (oldPriceEl) {
-                                oldPriceEl.innerHTML = `<span style="text-decoration: line-through;">US$ 17,00</span> <span style="text-decoration: line-through; margin-left: 5px;">(${popupOldPrice})</span>`;
-                            }
-                            if (newPriceEl) {
-                                newPriceEl.innerHTML = `<span class="usd-small">US$ 9,90</span> <span>${popupNewPrice}</span>`;
-                            }
+                            if (oldPriceEl) oldPriceEl.innerText = 'US$ 17,00';
+                            if (newPriceEl) newPriceEl.innerText = 'US$ 9,90';
+                            if (localPriceEl) localPriceEl.innerText = popupNewPrice;
                         }
                     } else {
                         document.getElementById('cta-local-price').innerText = 'US$ 17,00';
