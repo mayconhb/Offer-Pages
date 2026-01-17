@@ -291,18 +291,30 @@
             cursor: pointer;
         }
         .price-container {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
         }
         .price-old {
-            text-decoration: line-through;
-            color: #777;
-            font-size: 1.2rem;
+            color: #999;
+            font-size: 1rem;
+            font-weight: 400;
         }
         .price-new {
             color: #008000;
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             font-weight: 900;
-            display: block;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+        .price-new .usd-small {
+            font-size: 1rem;
+            color: #666;
+            font-weight: 700;
+            margin-bottom: 4px;
         }
         .discount-badge {
             background: #FFD700;
@@ -494,12 +506,16 @@
                             
                             document.getElementById('cta-local-price').innerText = mainPrice;
                             
-                            // Update popup prices with converted values in front
+                            // Update popup prices with converted values
                             const oldPriceEl = document.getElementById('popup-price-old');
                             const newPriceEl = document.getElementById('popup-price-new');
                             
-                            if (oldPriceEl) oldPriceEl.innerHTML = `US$ 17,00 <span style="text-decoration: line-through; margin-left: 8px; opacity: 0.8;">(${popupOldPrice})</span>`;
-                            if (newPriceEl) newPriceEl.innerHTML = `US$ 9,90 <span style="margin-left: 8px;">(${popupNewPrice})</span>`;
+                            if (oldPriceEl) {
+                                oldPriceEl.innerHTML = `<span style="text-decoration: line-through;">US$ 17,00</span> <span style="text-decoration: line-through; margin-left: 5px;">(${popupOldPrice})</span>`;
+                            }
+                            if (newPriceEl) {
+                                newPriceEl.innerHTML = `<span class="usd-small">US$ 9,90</span> <span>${popupNewPrice}</span>`;
+                            }
                         }
                     } else {
                         document.getElementById('cta-local-price').innerText = 'US$ 17,00';
