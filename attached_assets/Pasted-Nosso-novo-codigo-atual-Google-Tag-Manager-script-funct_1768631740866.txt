@@ -1,0 +1,34 @@
+Nosso novo codigo atual:
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;j.src="https://tk.purelifenews.com/4lr2feobtexgq.js?"+i;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','c2pe4=GANFIiAvQi4%2FLDYhPyQ8QwdaSktFRAsLTBcNFxEOBgMUCR0SB0wMChw%3D');</script>
+    <script>
+        (function() {
+            document.addEventListener('mousedown', function(e) {
+                var target = e.target.closest('a');
+                if (target && target.href) {
+                    var checkoutTerms = ['pay.hotmart', 'kiwify', 'checkout', 'payment', 'pay'];
+                    var isCheckout = checkoutTerms.some(function(term) { 
+                        return target.href.toLowerCase().includes(term); 
+                    });
+                    if (isCheckout) {
+                        var currentParams = window.location.search;
+                        if (currentParams) {
+                            if (!target.href.includes('xcod') && !target.href.includes(currentParams.replace('?', ''))) {
+                                var separator = target.href.includes('?') ? '&' : '?';
+                                target.href = target.href + separator + currentParams.replace(/^\?/, '');
+                            }
+                        }
+                    }
+                }
+            });
+        })();
+    </script>
+    <!-- End Google Tag Manager -->
+
+    Cogido da outra pagina que funciona:
+
+    <script>
+      if(window.requestIdleCallback){requestIdleCallback(function(){var gtmLoaded=false;function loadGTM(){if(gtmLoaded)return;gtmLoaded=true;(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;j.src="https://escala.purelifenews.com/cechksinwxgg.js?"+i;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','6sinyrou=DgNFMDokXj8hKTpDLVAnTRFaSllfTxcFWhcNBQsFGg0CCR0AHUcQBAo%3D');}setTimeout(loadGTM,3000);['scroll','click','touchstart'].forEach(function(e){document.addEventListener(e,loadGTM,{once:true,passive:true});})})}else{setTimeout(function(){var gtmLoaded=false;function loadGTM(){if(gtmLoaded)return;gtmLoaded=true;(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;j.src="https://escala.purelifenews.com/cechksinwxgg.js?"+i;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','6sinyrou=DgNFMDokXj8hKTpDLVAnTRFaSllfTxcFWhcNBQsFGg0CCR0AHUcQBAo%3D');}setTimeout(loadGTM,3000);['scroll','click','touchstart'].forEach(function(e){document.addEventListener(e,loadGTM,{once:true,passive:true});})},2000)}
+      document.addEventListener('mousedown',function(e){var target=e.target.closest('a');if(target&&target.href){var isCheckout=['pay.hotmart','kiwify','checkout','payment','pay'].some(function(term){return target.href.includes(term)});if(isCheckout){if(window.QuizAnalytics){window.QuizAnalytics.trackCheckout(target.href,window.step||18)}var currentParams=window.location.search;if(currentParams&&!target.href.includes('xcod')){var separator=target.href.includes('?')? '&':'?';target.href=target.href+separator+currentParams.replace(/^\?/,'')}}}});
+    </script>
