@@ -307,32 +307,44 @@
         }
         .price-divider {
             width: 1px;
-            height: 60px;
+            height: 85px;
             background-color: #eee;
         }
         .price-column-title {
-            font-size: 0.75rem;
-            color: #666;
-            margin-bottom: 8px;
+            font-size: 0.65rem;
+            color: #888;
+            margin-bottom: 12px;
             font-weight: 600;
             text-transform: uppercase;
+            min-height: 20px;
+            display: flex;
+            align-items: center;
         }
         .price-old {
             color: #999;
             font-size: 1.1rem;
             text-decoration: line-through;
             margin-bottom: 5px;
+            height: 22px;
+            display: flex;
+            align-items: center;
         }
         .price-new-usd {
             color: #333;
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             font-weight: 800;
+            height: 35px;
+            display: flex;
+            align-items: center;
         }
         .price-converted-value {
             color: #008000;
             font-size: 1.8rem;
             font-weight: 900;
             line-height: 1;
+            height: 35px;
+            display: flex;
+            align-items: center;
         }
         .discount-badge {
             background: #FFD700;
@@ -492,13 +504,14 @@
             <div class="discount-badge">¡41% DE DESCUENTO!</div>
             <div class="price-container">
                 <div class="price-column">
+                    <div class="price-column-title"></div>
                     <span class="price-old" id="popup-price-old">US$ 17,00</span>
                     <span class="price-new-usd" id="popup-price-new">US$ 9,90</span>
                 </div>
                 <div class="price-divider"></div>
                 <div class="price-column">
                     <div class="price-column-title">Precio convertido a su moneda local</div>
-                    <span class="price-old" id="popup-local-price-old" style="margin-bottom: 5px;">calculando...</span>
+                    <span class="price-old" id="popup-local-price-old">calculando...</span>
                     <div class="price-converted-value" id="popup-local-price-new">calculando...</div>
                 </div>
             </div>
