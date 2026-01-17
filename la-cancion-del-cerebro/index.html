@@ -540,9 +540,11 @@
                         const rate = rateData.rates[currency];
                         
                         if (rate) {
-                            const mainPrice = (17 * rate).toLocaleString(undefined, { style: 'currency', currency: currency });
-                            const popupOldPrice = (17 * rate).toLocaleString(undefined, { style: 'currency', currency: currency });
-                            const popupNewPrice = (9.90 * rate).toLocaleString(undefined, { style: 'currency', currency: currency });
+                            // Adding a 10% markup to approximate Hotmart's exchange rate and fees
+                            const hotmartRate = rate * 1.10;
+                            const mainPrice = (17 * hotmartRate).toLocaleString(undefined, { style: 'currency', currency: currency });
+                            const popupOldPrice = (17 * hotmartRate).toLocaleString(undefined, { style: 'currency', currency: currency });
+                            const popupNewPrice = (9.90 * hotmartRate).toLocaleString(undefined, { style: 'currency', currency: currency });
                             
                             document.getElementById('cta-local-price').innerText = mainPrice;
                             
