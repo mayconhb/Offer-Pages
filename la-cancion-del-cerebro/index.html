@@ -407,24 +407,52 @@
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;j.src="https://tk.purelifenews.com/4lr2feobtexgq.js?"+i;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','c2pe4=GANFIiAvQi4%2FLDYhPyQ8QwdaSktFRAsLTBcNFxEOBgMUCR0SB0wMChw%3D');</script>
     <script>
         (function() {
-            document.addEventListener('mousedown', function(e) {
-                var target = e.target.closest('a');
-                if (target && target.href) {
-                    var checkoutTerms = ['pay.hotmart', 'kiwify', 'checkout', 'payment', 'pay'];
-                    var isCheckout = checkoutTerms.some(function(term) { 
-                        return target.href.toLowerCase().includes(term); 
-                    });
-                    if (isCheckout) {
-                        var currentParams = window.location.search;
-                        if (currentParams) {
-                            if (!target.href.includes('xcod') && !target.href.includes(currentParams.replace('?', ''))) {
-                                var separator = target.href.includes('?') ? '&' : '?';
-                                target.href = target.href + separator + currentParams.replace(/^\?/, '');
+            function updateCheckoutLinks() {
+                var currentParams = window.location.search;
+                if (!currentParams) return;
+                
+                var cleanParams = currentParams.replace(/^\?/, '');
+                var checkoutTerms = ['pay.hotmart', 'kiwify', 'checkout', 'payment', 'pay'];
+                var links = document.getElementsByTagName('a');
+                
+                for (var i = 0; i < links.length; i++) {
+                    var link = links[i];
+                    var href = link.href;
+                    
+                    if (href) {
+                        var isCheckout = checkoutTerms.some(function(term) { 
+                            return href.toLowerCase().includes(term); 
+                        });
+                        
+                        if (isCheckout) {
+                            if (!href.includes(cleanParams)) {
+                                var separator = href.includes('?') ? '&' : '?';
+                                link.href = href + separator + cleanParams;
                             }
                         }
                     }
                 }
-            });
+            }
+
+            window.addEventListener('load', updateCheckoutLinks);
+            document.addEventListener('mousedown', updateCheckoutLinks);
+            
+            var originalDisplay = 'none';
+            var popup = document.getElementById('discountPopup');
+            if (popup) {
+                var observer = new MutationObserver(function(mutations) {
+                    mutations.forEach(function(mutation) {
+                        if (mutation.attributeName === 'style') {
+                            var currentDisplay = window.getComputedStyle(popup).display;
+                            if (currentDisplay !== 'none' && originalDisplay === 'none') {
+                                updateCheckoutLinks();
+                            }
+                            originalDisplay = currentDisplay;
+                        }
+                    });
+                });
+                observer.observe(popup, { attributes: true });
+            }
         })();
     </script>
     <!-- End Google Tag Manager -->
