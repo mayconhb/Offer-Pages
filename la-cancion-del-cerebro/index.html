@@ -407,48 +407,23 @@
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;j.src="https://tk.purelifenews.com/4lr2feobtexgq.js?"+i;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','c2pe4=GANFIiAvQi4%2FLDYhPyQ8QwdaSktFRAsLTBcNFxEOBgMUCR0SB0wMChw%3D');</script>
     <script>
         (function() {
-            function updateCheckoutLinks() {
-                var currentParams = window.location.search;
-                if (!currentParams) return;
-                
-                var cleanParams = currentParams.replace(/^\?/, '');
-                var checkoutTerms = ['pay.hotmart', 'kiwify', 'checkout', 'payment', 'pay'];
-                var links = document.getElementsByTagName('a');
-                
-                for (var i = 0; i < links.length; i++) {
-                    var link = links[i];
-                    var href = link.href.toLowerCase();
-                    
+            document.addEventListener('mousedown', function(e) {
+                var target = e.target.closest('a');
+                if (target && target.href) {
+                    var checkoutTerms = ['pay.hotmart', 'kiwify', 'checkout', 'payment', 'pay'];
                     var isCheckout = checkoutTerms.some(function(term) { 
-                        return href.includes(term); 
+                        return target.href.toLowerCase().includes(term); 
                     });
-                    
                     if (isCheckout) {
-                        if (!link.href.includes('xcod') && !link.href.includes(cleanParams)) {
-                            var separator = link.href.includes('?') ? '&' : '?';
-                            link.href = link.href + separator + cleanParams;
+                        var currentParams = window.location.search;
+                        if (currentParams) {
+                            if (!target.href.includes('xcod') && !target.href.includes(currentParams.replace('?', ''))) {
+                                var separator = target.href.includes('?') ? '&' : '?';
+                                target.href = target.href + separator + currentParams.replace(/^\?/, '');
+                            }
                         }
                     }
                 }
-            }
-
-            // Run on load
-            if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', updateCheckoutLinks);
-            } else {
-                updateCheckoutLinks();
-            }
-
-            // Monitor for dynamic changes
-            var observer = new MutationObserver(function(mutations) {
-                updateCheckoutLinks();
-            });
-
-            observer.observe(document.body, {
-                childList: true,
-                subtree: true,
-                attributes: true,
-                attributeFilter: ['href', 'style', 'class']
             });
         })();
     </script>
@@ -604,16 +579,21 @@
             
             window.onpopstate = function(event) {
                 const ctaSection = document.getElementById('CTA');
+                
+                // Check if CTA is visible (Vturb reveals it by changing display from none)
                 const isCtaVisible = ctaSection && window.getComputedStyle(ctaSection).display !== 'none';
                 
                 if (isCtaVisible) {
+                    // Prevent leaving and show popup
                     window.history.pushState({ page: 'vsl' }, '', window.location.href);
                     document.getElementById('discountPopup').style.display = 'flex';
                 } else {
+                    // Allow leaving if CTA is not yet visible
                     window.history.back();
                 }
             };
 
+            // Exit Intent for Desktop
             document.addEventListener('mouseleave', function(e) {
                 if (e.clientY < 0) {
                     const ctaSection = document.getElementById('CTA');
