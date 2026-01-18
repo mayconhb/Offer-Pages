@@ -427,7 +427,7 @@
                 updateCheckoutLinks();
             }
 
-            // Monitor for dynamic changes (like popup appearing or currency converter updates)
+            // Monitor for dynamic changes
             var observer = new MutationObserver(function(mutations) {
                 updateCheckoutLinks();
             });
@@ -437,12 +437,6 @@
                 subtree: true,
                 attributes: true,
                 attributeFilter: ['href', 'style', 'class']
-            });
-
-            // Keep the mousedown as a fallback for any edge cases
-            document.addEventListener('mousedown', function(e) {
-                var target = e.target.closest('a');
-                if (target) updateCheckoutLinks();
             });
         })();
     </script>
@@ -610,21 +604,16 @@
             
             window.onpopstate = function(event) {
                 const ctaSection = document.getElementById('CTA');
-                
-                // Check if CTA is visible (Vturb reveals it by changing display from none)
                 const isCtaVisible = ctaSection && window.getComputedStyle(ctaSection).display !== 'none';
                 
                 if (isCtaVisible) {
-                    // Prevent leaving and show popup
                     window.history.pushState({ page: 'vsl' }, '', window.location.href);
                     document.getElementById('discountPopup').style.display = 'flex';
                 } else {
-                    // Allow leaving if CTA is not yet visible
                     window.history.back();
                 }
             };
 
-            // Exit Intent for Desktop
             document.addEventListener('mouseleave', function(e) {
                 if (e.clientY < 0) {
                     const ctaSection = document.getElementById('CTA');
