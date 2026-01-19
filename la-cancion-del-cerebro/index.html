@@ -482,7 +482,7 @@
                 <div class="price-column">
                     <div class="price-column-title"></div>
                     <span class="price-old" id="popup-price-old">US$ 17,00</span>
-                    <span class="price-new-usd" id="popup-price-new">US$ 9,90</span>
+                    <span class="price-new-usd" id="popup-price-new">US$ 4,99</span>
                 </div>
                 <div class="price-divider"></div>
                 <div class="price-column">
@@ -519,7 +519,7 @@
                             const hotmartRate = rate * 1.10;
                             const mainPrice = (17 * hotmartRate).toLocaleString(undefined, { style: 'currency', currency: currency });
                             const popupOldPrice = (17 * hotmartRate).toLocaleString(undefined, { style: 'currency', currency: currency });
-                            const popupNewPrice = (9.90 * hotmartRate).toLocaleString(undefined, { style: 'currency', currency: currency });
+                            const popupNewPrice = (4.99 * hotmartRate).toLocaleString(undefined, { style: 'currency', currency: currency });
                             
                             document.getElementById('cta-local-price').innerText = mainPrice;
                             
@@ -530,7 +530,7 @@
                             const localNewPriceEl = document.getElementById('popup-local-price-new');
                             
                             if (oldPriceEl) oldPriceEl.innerText = 'US$ 17,00';
-                            if (newPriceEl) newPriceEl.innerText = 'US$ 9,90';
+                            if (newPriceEl) newPriceEl.innerText = 'US$ 4,99';
                             if (localOldPriceEl) localOldPriceEl.innerText = popupOldPrice;
                             if (localNewPriceEl) localNewPriceEl.innerText = popupNewPrice;
                         }
