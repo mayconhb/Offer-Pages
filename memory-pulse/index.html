@@ -197,10 +197,12 @@
         @media (max-width: 600px) {
             .testimonials-image {
                 max-width: none;
-                width: calc(100% + 40px);
-                margin-left: -20px;
-                margin-right: -20px;
+                width: 100vw;
+                position: relative;
+                left: 50%;
+                transform: translateX(-50%);
                 border-radius: 0;
+                box-shadow: none;
             }
         }
         .references-section {
