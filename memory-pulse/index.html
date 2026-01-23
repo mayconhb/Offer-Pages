@@ -477,12 +477,12 @@
             <div class="popup-title">¡ESPERA! NO TE VAYAS</div>
             <div class="popup-text">No quiero que el precio sea un impedimento para que recuperes tu memoria y claridad mental.</div>
             <span class="popup-subtext">Esta es una oferta única y exclusiva, disponible solo en esta página y en este momento.</span>
-            <div class="discount-badge">¡70% DE DESCUENTO!</div>
+            <div class="discount-badge">¡41% DE DESCUENTO!</div>
             <div class="price-container">
                 <div class="price-column">
                     <div class="price-column-title"></div>
                     <span class="price-old" id="popup-price-old">US$ 17,00</span>
-                    <span class="price-new-usd" id="popup-price-new">US$ 4,99</span>
+                    <span class="price-new-usd" id="popup-price-new">US$ 9,90</span>
                 </div>
                 <div class="price-divider"></div>
                 <div class="price-column">
@@ -519,7 +519,7 @@
                             const hotmartRate = rate * 1.10;
                             const mainPrice = (17 * hotmartRate).toLocaleString(undefined, { style: 'currency', currency: currency });
                             const popupOldPrice = (17 * hotmartRate).toLocaleString(undefined, { style: 'currency', currency: currency });
-                            const popupNewPrice = (4.99 * hotmartRate).toLocaleString(undefined, { style: 'currency', currency: currency });
+                            const popupNewPrice = (9.90 * hotmartRate).toLocaleString(undefined, { style: 'currency', currency: currency });
                             
                             document.getElementById('cta-local-price').innerText = mainPrice;
                             
@@ -530,7 +530,7 @@
                             const localNewPriceEl = document.getElementById('popup-local-price-new');
                             
                             if (oldPriceEl) oldPriceEl.innerText = 'US$ 17,00';
-                            if (newPriceEl) newPriceEl.innerText = 'US$ 4,99';
+                            if (newPriceEl) newPriceEl.innerText = 'US$ 9,90';
                             if (localOldPriceEl) localOldPriceEl.innerText = popupOldPrice;
                             if (localNewPriceEl) localNewPriceEl.innerText = popupNewPrice;
                         }
